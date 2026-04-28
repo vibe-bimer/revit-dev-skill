@@ -16,6 +16,12 @@ linked_files:
 
 ## 快速执行卡片（90 秒）
 
+> 环境加载硬规则：Hermes 走 Revit 工作流时，shell 命令默认用包装脚本执行，避免遗漏私有 env。
+>
+> ```bash
+> ~/.hermes/skills/revit/scripts/use-private-env.sh <command>
+> ```
+
 0) 对照架构图：先过 `references/revit-workflow-topology.*`（拓扑）+ `references/revit-workflow-sop.*`（SOP 门禁），确认本次插件线、同步链路、门禁口径
 1) 选插件线：SuperRoky（.NET 8/Nice3point）或 FmRoky（.NET 10/Scotec）
 2) 查 Wiki：`/home/roky/roky-wiki/revit-api/entities/` + `/home/roky/revit-corpus/index/` + `/home/roky/revit-corpus/raw/revit-2026/`

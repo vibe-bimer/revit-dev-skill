@@ -2,11 +2,11 @@
 
 > 本文件只维护环境与运维事实；流程门禁仍以 `revit-plugin-dev-workflow/SKILL.md` 为主。
 >
-> 发布版已脱敏：主机/IP/令牌改为环境变量占位符。日常使用前先加载私有 env（不入库）：
+> 发布版已脱敏：主机/IP/令牌改为环境变量占位符。日常使用推荐走包装脚本（自动加载私有 env，不依赖当前 shell 状态）：
 >
 > ```bash
-> source ~/.config/revit-skill.env
-> # 可由 ~/.hermes/skills/revit/.env.revit-skill.example 拷贝生成
+> ~/.hermes/skills/revit/scripts/use-private-env.sh <command>
+> # 如需当前 shell 常驻再手动 source ~/.config/revit-skill.env
 > ```
 
 ## 环境总览

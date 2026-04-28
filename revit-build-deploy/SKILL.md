@@ -13,6 +13,12 @@ description: Build and deploy Revit 2026 plugins (SuperRoky and FmRoky). Use whe
 ## 环境概要
 
 > 环境速查（SSH/GitLab/路径/凭据）统一维护在 `revit-plugin-dev-workflow/references/environment.md`，本 skill 不重复。
+>
+> 运行硬规则：Hermes 执行本技能中的 shell 命令时，默认走包装脚本加载私有 env：
+>
+> ```bash
+> ~/.hermes/skills/revit/scripts/use-private-env.sh <command>
+> ```
 
 ---
 
