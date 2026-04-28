@@ -5,3 +5,4 @@
 *.secrets
 /private/
 __pycache__/
+references/revit-api/chm-converter/
