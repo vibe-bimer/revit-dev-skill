@@ -8,6 +8,12 @@ metadata:
 
 # Revit 风管分段开发流程
 
+## 路由声明
+
+- 默认由根入口 `revit-root-router` 路由调用。
+- 仅用于风管分段专项任务，其他任务回到 `revit-plugin-dev-workflow`。
+
+
 ## 适用场景
 
 当用户提出以下需求时使用本 skill：

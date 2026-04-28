@@ -7,6 +7,8 @@
 
 ## 1. 仓库定位
 
+默认路由入口 skill：根目录 `SKILL.md`（`revit-root-router`）。
+
 `revit-dev-skill` 是一个**可公开发布**的 Revit 二次开发技能包仓库。
 它不是插件源码仓，而是工作流与知识资产仓，主要用于：
 

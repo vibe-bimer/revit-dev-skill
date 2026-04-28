@@ -5,6 +5,12 @@ description: Review and harden the Revit skill ecosystem against the latest dual
 
 # Revit Skill Governance
 
+## 路由声明
+
+- 默认由根入口 `revit-root-router` 路由调用。
+- 仅用于技能治理与漂移修复，不替代业务开发流程入口。
+
+
 Use this skill when the task is not "build the plugin", but **audit and maintain the skills that define how Revit work should be done**.
 
 ## What this skill protects

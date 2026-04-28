@@ -5,6 +5,12 @@ description: Build and deploy Revit 2026 plugins (SuperRoky and FmRoky). Use whe
 
 # Revit 插件编译部署
 
+## 路由声明
+
+- 默认由根入口 `revit-root-router` 路由调用。
+- 仅处理构建/部署/同步问题；需求分流与任务编排回到 `revit-plugin-dev-workflow`。
+
+
 ## 维护说明（2026-04-16）
 
 - 已移除对 `architecture.md` 的历史引用，统一改为 `features.md` + workflow 阶段总览。

@@ -9,6 +9,12 @@ metadata:
 
 # Revit TUnit 测试工程规范
 
+## 路由声明
+
+- 默认由根入口 `revit-root-router` 路由调用。
+- 仅处理测试规范与测试执行，不承担构建/部署流程。
+
+
 本文档覆盖 Nice3point TUnit 测试框架在 Revit 插件中的实践规范。Phase 5 实测可编译。
 
 ---

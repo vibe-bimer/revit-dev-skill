@@ -13,6 +13,12 @@ linked_files:
 
 # Revit 插件代码模式与踩坑 FAQ
 
+## 路由声明
+
+- 默认由根入口 `revit-root-router` 路由调用。
+- 仅处理编码模式与 API 行为，不承担流程编排与部署门禁。
+
+
 > 本 skill 是 `revit-plugin-dev-workflow` 的子文档，收录通用编码问题和解决方案。
 >
 > **单点真相约定：**

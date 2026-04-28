@@ -10,6 +10,8 @@ It separates **public workflow assets** (safe to publish) from **private runtime
 
 ## 1) What is in this repo
 
+Default routing entry skill: `SKILL.md` (`revit-root-router`).
+
 Core modules:
 
 - `revit-plugin-dev-workflow/` — end-to-end Revit workflow, phase gates, and operating boundaries
