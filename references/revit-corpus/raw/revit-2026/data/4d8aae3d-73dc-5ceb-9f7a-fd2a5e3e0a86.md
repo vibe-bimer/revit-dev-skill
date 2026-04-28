@@ -1,0 +1,1 @@
+# MullionTypeSetIterator.Current Property

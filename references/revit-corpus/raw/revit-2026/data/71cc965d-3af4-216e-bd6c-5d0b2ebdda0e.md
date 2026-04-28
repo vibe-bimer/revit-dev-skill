@@ -1,0 +1,1 @@
+# NonContinuousRailStructure.IsValidObject Property

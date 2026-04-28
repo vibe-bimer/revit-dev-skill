@@ -1,0 +1,1 @@
+# DuctLossMethodType Enumeration

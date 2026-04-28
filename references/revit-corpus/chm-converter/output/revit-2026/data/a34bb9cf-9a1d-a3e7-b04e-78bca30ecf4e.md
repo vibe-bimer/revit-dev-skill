@@ -1,0 +1,20 @@
+# View.GetNonControlledTemplateParameterIds Method
+
+---  
+Returns a list of parameters that are not marked as included when this view is used as a template. 
+**Namespace:** [Autodesk.Revit.DB](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public ICollection<ElementId> GetNonControlledTemplateParameterIds()
+    
+    Public Function GetNonControlledTemplateParameterIds As ICollection(Of ElementId)
+    
+    public:
+    ICollection<ElementId^>^ GetNonControlledTemplateParameterIds()
+    
+    member GetNonControlledTemplateParameterIds : unit -> ICollection<ElementId> 
+#### Return Value
+ICollection[ElementId](44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm) The parameter ids that are not marked to be included. 
+This is a subset of the parameters returned by [GetTemplateParameterIds](64761c8c-ed01-65b6-2b05-ebd7b02acd77.htm). 
+#### Reference
+[View Class](fb92a4e7-f3a7-ef14-e631-342179b18de9.htm)
+[Autodesk.Revit.DB Namespace](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)

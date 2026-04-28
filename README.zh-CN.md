@@ -153,8 +153,9 @@ chmod 600 ~/.config/revit-skill.env
 | `WINDOWS_USER` | Windows SSH 用户名 |
 | `WINDOWS_PASSWORD` | Windows SSH 密码 |
 | `GITLAB_TOKEN` | GitLab 访问令牌 |
-| `REVIT_API_WIKI_PATH` | 本地 Revit API Wiki 根路径（如 `/home/you/roky-wiki/revit-api/entities/`） |
-| `REVIT_CORPUS_PATH` | 本地 Revit 语料库根路径（如 `/home/you/revit-corpus/`） |
+| `REVIT_SKILL_ROOT` | skill 仓库根路径（默认：`~/.hermes/skills/revit`） |
+| `REVIT_API_WIKI_PATH` | Revit API Wiki 根路径（推荐：`${REVIT_SKILL_ROOT}/references/revit-api/entities`） |
+| `REVIT_CORPUS_PATH` | Revit 语料库根路径（推荐：`${REVIT_SKILL_ROOT}/references/revit-corpus`） |
 
 ### 5.1.1 路径可移植说明（重要）
 

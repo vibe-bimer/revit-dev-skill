@@ -1,0 +1,1 @@
+# InitialWattageIntensity.Efficacy Property

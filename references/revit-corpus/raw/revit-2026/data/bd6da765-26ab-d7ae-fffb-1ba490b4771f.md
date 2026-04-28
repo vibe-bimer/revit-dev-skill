@@ -1,0 +1,1 @@
+# FamilySizeTableErrorInfo.InvalidHeaderText Property

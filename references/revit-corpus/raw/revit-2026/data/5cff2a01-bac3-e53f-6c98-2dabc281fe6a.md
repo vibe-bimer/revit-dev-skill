@@ -1,0 +1,1 @@
+# BumpMap.TextureScaleLock Property

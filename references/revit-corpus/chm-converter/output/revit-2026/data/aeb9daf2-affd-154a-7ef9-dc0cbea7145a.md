@@ -1,0 +1,22 @@
+# RevisionsOnSheetUIServiceData.Document Property
+
+---  
+return the document 
+**Namespace:** [Autodesk.Revit.UI](e86fd90a-8957-02a6-da7f-ced248966e3e.htm)**Assembly:** RevitAPIUI (in RevitAPIUI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public Document Document { get; }
+    
+    Public ReadOnly Property Document As Document
+    	Get
+    
+    public:
+    property Document^ Document {
+    	Document^ get ();
+    }
+    
+    member Document : Document with get
+#### Property Value
+[Document](db03274b-a107-aa32-9034-f3e0df4bb1ec.htm)
+#### Reference
+[RevisionsOnSheetUIServiceData Class](9227d1b5-f1cf-1da3-3f1d-ba982bf87141.htm)
+[Autodesk.Revit.UI Namespace](e86fd90a-8957-02a6-da7f-ced248966e3e.htm)

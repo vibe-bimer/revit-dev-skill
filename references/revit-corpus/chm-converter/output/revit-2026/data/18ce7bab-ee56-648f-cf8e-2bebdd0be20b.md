@@ -1,0 +1,23 @@
+# StructuralSection.IsValidObject Property
+
+---  
+Specifies whether the .NET object represents a valid Revit entity. 
+**Namespace:** [Autodesk.Revit.DB.Structure.StructuralSections](09862f38-63f6-a5f8-e560-ae775901bc92.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public bool IsValidObject { get; }
+    
+    Public ReadOnly Property IsValidObject As Boolean
+    	Get
+    
+    public:
+    property bool IsValidObject {
+    	bool get ();
+    }
+    
+    member IsValidObject : bool with get
+#### Return Value
+Boolean True if the API object holds a valid Revit native object, false otherwise. 
+If the corresponding Revit native object is destroyed, or creation of the corresponding object is undone, a managed API object containing it is no longer valid. API methods cannot be called on invalidated wrapper objects. 
+#### Reference
+[StructuralSection Class](65b59d7d-bd7b-c71b-7159-dfc506a912ee.htm)
+[Autodesk.Revit.DB.Structure.StructuralSections Namespace](09862f38-63f6-a5f8-e560-ae775901bc92.htm)

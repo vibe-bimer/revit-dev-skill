@@ -1,0 +1,1 @@
+# ImageTypeOptions.IsValidObject Property

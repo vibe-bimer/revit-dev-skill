@@ -1,0 +1,1 @@
+# BalusterPattern.EndSpace Property

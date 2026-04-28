@@ -1,0 +1,21 @@
+# BuiltInFailures.FamilyFailures.CannotCopyWatchCurveBasedFixture Property
+
+---  
+**Namespace:** [Autodesk.Revit.DB](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public static FailureDefinitionId CannotCopyWatchCurveBasedFixture { get; }
+    
+    Public Shared ReadOnly Property CannotCopyWatchCurveBasedFixture As FailureDefinitionId
+    	Get
+    
+    public:
+    static property FailureDefinitionId^ CannotCopyWatchCurveBasedFixture {
+    	FailureDefinitionId^ get ();
+    }
+    
+    static member CannotCopyWatchCurveBasedFixture : FailureDefinitionId with get
+#### Property Value
+[FailureDefinitionId](b6ada360-a6fe-ebb6-b095-d74b37ade9bf.htm)
+#### Reference
+[BuiltInFailuresFamilyFailures Class](4b2a4d9d-f77b-e466-e78a-df1ca741ec72.htm)
+[Autodesk.Revit.DB Namespace](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)

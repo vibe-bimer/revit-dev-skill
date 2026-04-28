@@ -1,0 +1,1 @@
+# FamilyThermalProperties.SolarHeatGainCoefficient Property

@@ -1,0 +1,1 @@
+# IFCCategoryTemplate.GetActiveTemplate Method

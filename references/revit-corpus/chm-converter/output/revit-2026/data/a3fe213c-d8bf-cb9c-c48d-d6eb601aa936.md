@@ -1,0 +1,41 @@
+# StructuralConnectionHandler.Create(Document, IList<ElementId>, ElementId) Method
+
+---  
+**Namespace:** [Autodesk.Revit.DB.Structure](d586b341-f687-9d90-e96d-255806b7d4fc.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public static StructuralConnectionHandler Create(
+    	Document document,
+    	IList<ElementId> idsToConnect,
+    	ElementId typeId
+    )
+    
+    Public Shared Function Create ( 
+    	document As Document,
+    	idsToConnect As IList(Of ElementId),
+    	typeId As ElementId
+    ) As StructuralConnectionHandler
+    
+    public:
+    static StructuralConnectionHandler^ Create(
+    	Document^ document, 
+    	IList<ElementId^>^ idsToConnect, 
+    	ElementId^ typeId
+    )
+    
+    static member Create : 
+            document : Document * 
+            idsToConnect : IList<ElementId> * 
+            typeId : ElementId -> StructuralConnectionHandler 
+#### Parameters
+document [Document](db03274b-a107-aa32-9034-f3e0df4bb1ec.htm)
+    
+idsToConnect IList[ElementId](44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm)
+    
+typeId [ElementId](44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm)
+    
+#### Return Value
+[StructuralConnectionHandler](78653026-36f1-6ab3-f2c0-728692c99b3c.htm)
+#### Reference
+[StructuralConnectionHandler Class](78653026-36f1-6ab3-f2c0-728692c99b3c.htm)
+[Create Overload](11664f7d-2088-4f39-3ad1-6d4c47839940.htm)
+[Autodesk.Revit.DB.Structure Namespace](d586b341-f687-9d90-e96d-255806b7d4fc.htm)

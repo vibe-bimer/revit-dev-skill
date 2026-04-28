@@ -1,0 +1,22 @@
+# AreaBasedLoadData.PowerFactor Property
+
+---  
+The power factor of the area based load. 
+**Namespace:** [Autodesk.Revit.DB.Electrical](212a1314-7843-2c6c-3322-363127e4059f.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public double PowerFactor { get; }
+    
+    Public ReadOnly Property PowerFactor As Double
+    	Get
+    
+    public:
+    property double PowerFactor {
+    	double get ();
+    }
+    
+    member PowerFactor : float with get
+#### Property Value
+Double
+#### Reference
+[AreaBasedLoadData Class](10433e6e-e655-db35-54a9-cc8034cff631.htm)
+[Autodesk.Revit.DB.Electrical Namespace](212a1314-7843-2c6c-3322-363127e4059f.htm)

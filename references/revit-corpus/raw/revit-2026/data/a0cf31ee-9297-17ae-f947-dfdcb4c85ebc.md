@@ -1,0 +1,1 @@
+# WireframeBuilder.ValidateCurve Method

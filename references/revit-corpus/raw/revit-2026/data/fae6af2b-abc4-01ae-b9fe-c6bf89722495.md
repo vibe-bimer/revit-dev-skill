@@ -1,0 +1,1 @@
+# VertexStreamPositionNormal Methods

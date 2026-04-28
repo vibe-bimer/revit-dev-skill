@@ -1,0 +1,1 @@
+# Element.IsValidType(ElementId) Method

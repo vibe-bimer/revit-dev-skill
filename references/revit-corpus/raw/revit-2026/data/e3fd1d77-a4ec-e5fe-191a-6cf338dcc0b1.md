@@ -1,0 +1,1 @@
+# ExternalFileUtils.IsExternalFileReference Method

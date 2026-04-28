@@ -1,0 +1,1 @@
+# BuiltInFailures.RoomFailures.RoomNotEnclosedRooms Property

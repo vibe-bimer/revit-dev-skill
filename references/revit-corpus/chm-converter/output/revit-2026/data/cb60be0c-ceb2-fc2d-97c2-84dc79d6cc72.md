@@ -1,0 +1,26 @@
+# NavisworksExportOptions.SetSelectedElementIds Method
+
+---  
+**Namespace:** [Autodesk.Revit.DB](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public void SetSelectedElementIds(
+    	ICollection<ElementId> ids
+    )
+    
+    Public Sub SetSelectedElementIds ( 
+    	ids As ICollection(Of ElementId)
+    )
+    
+    public:
+    void SetSelectedElementIds(
+    	ICollection<ElementId^>^ ids
+    )
+    
+    member SetSelectedElementIds : 
+            ids : ICollection<ElementId> -> unit 
+#### Parameters
+ids ICollection[ElementId](44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm)
+    
+#### Reference
+[NavisworksExportOptions Class](a58dbe71-1be7-dad6-51b6-5386c162cf87.htm)
+[Autodesk.Revit.DB Namespace](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)

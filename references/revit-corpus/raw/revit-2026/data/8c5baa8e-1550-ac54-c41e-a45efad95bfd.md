@@ -1,0 +1,1 @@
+# BumpMap.BumpmapType Property

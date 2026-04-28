@@ -1,0 +1,1 @@
+# IFCImportOptions.LinkOrientation Property

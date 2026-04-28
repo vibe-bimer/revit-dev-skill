@@ -1,0 +1,1 @@
+# PlumbingUtils.HasOpenConnector Method

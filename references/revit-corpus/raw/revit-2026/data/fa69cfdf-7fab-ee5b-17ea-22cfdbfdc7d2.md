@@ -1,0 +1,1 @@
+# HVACLoadSpaceType.Create Method

@@ -1,0 +1,1 @@
+# FormatOptions.CanSuppressTrailingZeros Method

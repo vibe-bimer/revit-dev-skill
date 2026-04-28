@@ -1,0 +1,1 @@
+# RectangleLightShape Class

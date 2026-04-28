@@ -1,0 +1,1 @@
+# MetallicPaint.MetallicpaintFlecksColor Property

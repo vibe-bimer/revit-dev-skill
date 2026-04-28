@@ -1,0 +1,1 @@
+# CurveElementType Enumeration

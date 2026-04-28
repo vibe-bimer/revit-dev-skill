@@ -1,0 +1,1 @@
+# SlabEdge Class

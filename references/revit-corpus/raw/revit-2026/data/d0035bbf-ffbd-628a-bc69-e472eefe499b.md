@@ -1,0 +1,1 @@
+# MetallicPaint.MetallicpaintTopcoatGlossy Property

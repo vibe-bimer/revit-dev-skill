@@ -1,0 +1,1 @@
+# CurveByPointsArrayIterator.Reset Method

@@ -1,0 +1,1 @@
+# RailingPathCurveJoinOption Enumeration

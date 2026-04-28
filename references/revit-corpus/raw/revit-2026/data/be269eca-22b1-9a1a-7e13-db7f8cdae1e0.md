@@ -1,0 +1,1 @@
+# EnergyDataSettings.ExportCategory Property

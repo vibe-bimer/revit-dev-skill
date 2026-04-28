@@ -1,0 +1,38 @@
+# MathComparisonUtils.IsLessThanOrAlmostEqual Method
+
+---  
+Checks if value1 is less than or almost equal to value2, using the internal tolerance. 
+**Namespace:** [Autodesk.Revit.DB](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public static bool IsLessThanOrAlmostEqual(
+    	double value1,
+    	double value2
+    )
+    
+    Public Shared Function IsLessThanOrAlmostEqual ( 
+    	value1 As Double,
+    	value2 As Double
+    ) As Boolean
+    
+    public:
+    static bool IsLessThanOrAlmostEqual(
+    	double value1, 
+    	double value2
+    )
+    
+    static member IsLessThanOrAlmostEqual : 
+            value1 : float * 
+            value2 : float -> bool 
+#### Parameters
+value1 Double
+     The first value. 
+value2 Double
+     The second value. 
+#### Return Value
+Boolean True if value1 is less than or almost equal to value2, false otherwise. 
+Exception| Condition  
+---|---  
+[ArgumentException](2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm)|  The given value for value1 is not finite -or- The given value for value2 is not finite   
+#### Reference
+[MathComparisonUtils Class](ddb32a4c-b742-0286-36b5-e5f2ce0d1daf.htm)
+[Autodesk.Revit.DB Namespace](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)

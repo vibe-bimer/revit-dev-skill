@@ -1,0 +1,1 @@
+# BoundingBoxIntersectsFilter Properties

@@ -157,6 +157,10 @@ When the task is **reviewing or editing code/scripts** in this repo (including `
 7. **本地私有环境加载（不入库）**
    - 维护 `.env.revit-skill.example`（仅模板）+ 私有 `~/.config/revit-skill.env`（真实值）。
    - 使用 `bash scripts/use-private-env.sh <command...>` 执行命令，避免把真实值写回文档。
+8. **双远端发布一致性（GitLab + GitHub）**
+   - 发布后同时执行 `git push origin main` 与 `git push github main`，避免只在单端更新。
+   - 若 GitHub 用户名或组织名变更，先 `git remote -v` 检查是否出现 `has moved` 提示，再 `git remote set-url github <new-url>`。
+   - 推送后用 `git ls-remote --heads origin` 与 `git ls-remote --heads github` 双端核对 `main` 指向一致。
 
 ## High-value drift patterns to search for
 

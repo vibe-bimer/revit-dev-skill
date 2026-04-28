@@ -1,0 +1,34 @@
+# HostObjectUtils.GetTopFaces Method
+
+---  
+Returns the top faces for this host object. 
+**Namespace:** [Autodesk.Revit.DB](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public static IList<Reference> GetTopFaces(
+    	HostObject hostObject
+    )
+    
+    Public Shared Function GetTopFaces ( 
+    	hostObject As HostObject
+    ) As IList(Of Reference)
+    
+    public:
+    static IList<Reference^>^ GetTopFaces(
+    	HostObject^ hostObject
+    )
+    
+    static member GetTopFaces : 
+            hostObject : HostObject -> IList<Reference> 
+#### Parameters
+hostObject [HostObject](56a32e0b-df65-a6ba-40bd-8f50a1f31dcd.htm)
+     The host object. 
+#### Return Value
+IList[Reference](d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm) An array of references to the faces which are at the top of this element. 
+Exception| Condition  
+---|---  
+[ArgumentException](2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm)|  This host object does not support access to top or bottom faces.   
+[ArgumentNullException](631e1424-60f4-929b-4e52-dda9dcd26316.htm)|  A non-optional argument was null   
+This utility supports host objects whose top faces represent one of the boundaries of CompoundStructure (such as roofs, floors or ceilings). 
+#### Reference
+[HostObjectUtils Class](05539c78-f61a-4e75-0a8a-becb0a66b941.htm)
+[Autodesk.Revit.DB Namespace](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)

@@ -1,0 +1,1 @@
+# CriticalPathIterator.IsValidObject Property

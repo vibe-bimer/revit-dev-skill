@@ -1,0 +1,16 @@
+# FilterStringContains Methods
+
+---  
+The [FilterStringContains](0441350e-c091-9229-82b6-bba846bf0f16.htm) type exposes the following members.
+| Name| Description  
+---|---|---  
+![Public method](../icons/pubMethod.gif)| [Dispose](852de747-8837-d13a-5141-fdbbdd66fdce.htm)| (Inherited from [FilterStringRuleEvaluator](ba8dad25-3f85-1fbb-a164-323c3750018c.htm))  
+![Public method](../icons/pubMethod.gif)| Equals| Determines whether the specified object is equal to the current object.(Inherited from Object)  
+![Public method](../icons/pubMethod.gif)| [Evaluate](fcbe6f51-9a2e-10bc-36bb-7705f554bd14.htm)|  Derived classes override this method to implement the test that determines whether the two given string values satisfy the desired condition or not. (Inherited from [FilterStringRuleEvaluator](ba8dad25-3f85-1fbb-a164-323c3750018c.htm))  
+![Public method](../icons/pubMethod.gif)| GetHashCode| Serves as the default hash function.(Inherited from Object)  
+![Public method](../icons/pubMethod.gif)| GetType| Gets the Type of the current instance.(Inherited from Object)  
+![Public method](../icons/pubMethod.gif)| ToString| Returns a string that represents the current object.(Inherited from Object)  
+Top
+#### Reference
+[FilterStringContains Class](0441350e-c091-9229-82b6-bba846bf0f16.htm)
+[Autodesk.Revit.DB Namespace](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)

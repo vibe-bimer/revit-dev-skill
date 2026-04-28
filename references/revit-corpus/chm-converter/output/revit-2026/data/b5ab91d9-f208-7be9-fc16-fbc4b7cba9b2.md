@@ -1,0 +1,28 @@
+# RuledFace Properties
+
+---  
+The [RuledFace](1a973af7-5f14-26b4-25e8-af69fc6f0901.htm) type exposes the following members.
+| Name| Description  
+---|---|---  
+![Public property](../icons/pubProperty.gif)| [Area](e851e3f0-799f-c071-c3c6-18d7e50c9914.htm)| The area of this face.(Inherited from [Face](e32b3b1f-66fc-57cb-6e1c-aa81d1bf3e63.htm))  
+![Public property](../icons/pubProperty.gif)| [Curve](e1291b2c-73b2-09d0-09bd-082fe27fd27c.htm)| Profile curves of the surface.  
+![Public property](../icons/pubProperty.gif)| [EdgeLoops](2ccb511d-b5df-8d17-bd9e-3c9aff8cf234.htm)| A collection of edge loops. Each edge loop represents one of the closed boundaries of the face.(Inherited from [Face](e32b3b1f-66fc-57cb-6e1c-aa81d1bf3e63.htm))  
+![Public property](../icons/pubProperty.gif)| [GraphicsStyleId](4103f148-957e-3f44-9ccd-a5ed6702c689.htm)| The ElementId of the GeometryObject's GraphicsStyle(Inherited from [GeometryObject](e0f15010-0e19-6216-e2f0-ab7978145daa.htm))  
+![Public property](../icons/pubProperty.gif)| [HasRegions](b54848a3-e52c-618c-24ad-20fc3c7966bb.htm)| Identifies if the face contains regions (which can be created, for example, by the Split Face command).(Inherited from [Face](e32b3b1f-66fc-57cb-6e1c-aa81d1bf3e63.htm))  
+![Public property](../icons/pubProperty.gif)| [Id](abb781de-203f-4035-784b-713e65cca169.htm)| A unique integer identifying the GeometryObject in its associated non view-specific GeometryElement.(Inherited from [GeometryObject](e0f15010-0e19-6216-e2f0-ab7978145daa.htm))  
+![Public property](../icons/pubProperty.gif)| [IsCyclic](eca99f03-50e0-12bd-8e86-722759a5b612.htm)| Indicates whether the underlying surface is periodic in the specified parametric direction.(Inherited from [Face](e32b3b1f-66fc-57cb-6e1c-aa81d1bf3e63.htm))  
+![Public property](../icons/pubProperty.gif)| [IsElementGeometry](be3ad18d-a9d3-25ed-6200-4f71d3cd4754.htm)| Indicates whether this geometry is obtained directly from an Element.(Inherited from [GeometryObject](e0f15010-0e19-6216-e2f0-ab7978145daa.htm))  
+![Public property](../icons/pubProperty.gif)| [IsExtruded](cf640b08-f8ba-dcff-b4be-385ebff98ee2.htm)| Determines if this is an extruded ruled surface.  
+![Public property](../icons/pubProperty.gif)| [IsReadOnly](d516bcd2-a3fd-a578-58f6-f1add979bd07.htm)| Identifies if the object is read-only or modifiable.(Inherited from [APIObject](beb86ef5-39ad-3f0d-0cd9-0c929387a2bb.htm))  
+![Public property](../icons/pubProperty.gif)| [IsTwoSided](ac7f86fd-d6d6-918f-00f4-23d21e5e0c6f.htm)| Determines if a face is two-sided (degenerate).(Inherited from [Face](e32b3b1f-66fc-57cb-6e1c-aa81d1bf3e63.htm))  
+![Public property](../icons/pubProperty.gif)| [MaterialElementId](0f496bcd-fd05-f1dc-6cc7-d496541fd6ae.htm)| The element ID of the material from which this face is composed.(Inherited from [Face](e32b3b1f-66fc-57cb-6e1c-aa81d1bf3e63.htm))  
+![Public property](../icons/pubProperty.gif)| [OrientationMatchesSurfaceOrientation](1e6f8718-982a-c6fa-3b0f-bef04301a57e.htm)|  Returns true if this face's orientation matches the orientation of the face's surface, false if they have opposite orientations. (Inherited from [Face](e32b3b1f-66fc-57cb-6e1c-aa81d1bf3e63.htm))  
+![Public property](../icons/pubProperty.gif)| [Period](4846f165-5347-a95d-649f-bb907019d28c.htm)| The period of the underlying surface in the specified parametric direction.(Inherited from [Face](e32b3b1f-66fc-57cb-6e1c-aa81d1bf3e63.htm))  
+![Public property](../icons/pubProperty.gif)| [Point](b4102dd4-581e-1c7a-857d-e3fe1c2e0f7e.htm)| Profile points of the surface.  
+![Public property](../icons/pubProperty.gif)| [Reference](f3d5d2fe-96bf-8528-4628-78d8d5e6705f.htm)| Returns a stable reference to the face.(Inherited from [Face](e32b3b1f-66fc-57cb-6e1c-aa81d1bf3e63.htm))  
+![Public property](../icons/pubProperty.gif)| [RulingsAreParallel](4ea772f5-7913-987c-78cb-c8f15eeadfa8.htm)| Determines if the rulings of this ruled surface are parallel.  
+![Public property](../icons/pubProperty.gif)| [Visibility](b504868c-1588-3488-8cdf-d8e45ef23fa0.htm)| The visibility.(Inherited from [GeometryObject](e0f15010-0e19-6216-e2f0-ab7978145daa.htm))  
+Top
+#### Reference
+[RuledFace Class](1a973af7-5f14-26b4-25e8-af69fc6f0901.htm)
+[Autodesk.Revit.DB Namespace](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)

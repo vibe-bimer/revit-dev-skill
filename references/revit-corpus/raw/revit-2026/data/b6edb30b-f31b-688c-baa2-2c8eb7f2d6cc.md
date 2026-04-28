@@ -1,0 +1,1 @@
+# GlobalParametersManager.IsValidObject Property

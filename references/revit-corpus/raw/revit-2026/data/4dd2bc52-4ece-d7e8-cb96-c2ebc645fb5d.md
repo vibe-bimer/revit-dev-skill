@@ -1,0 +1,1 @@
+# ImageExportOptions.ImageResolution Property

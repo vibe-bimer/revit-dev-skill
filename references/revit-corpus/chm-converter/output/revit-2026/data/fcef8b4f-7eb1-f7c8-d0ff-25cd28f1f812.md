@@ -1,0 +1,22 @@
+# FabricationService.Abbreviation Property
+
+---  
+The short name of service. 
+**Namespace:** [Autodesk.Revit.DB](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public string Abbreviation { get; }
+    
+    Public ReadOnly Property Abbreviation As String
+    	Get
+    
+    public:
+    property String^ Abbreviation {
+    	String^ get ();
+    }
+    
+    member Abbreviation : string with get
+#### Property Value
+String
+#### Reference
+[FabricationService Class](e29ecbb2-7de0-c341-0db0-9f77bd0f5543.htm)
+[Autodesk.Revit.DB Namespace](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)

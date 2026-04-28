@@ -1,0 +1,1 @@
+# RebarShapeDefinitionBySegments.GetSegment Method

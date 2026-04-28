@@ -1,0 +1,1 @@
+# ElectricalSystem.Rating Property

@@ -1,0 +1,1 @@
+# BuiltInFailures.ElectricalFailures.CircuitBecomeASpare Property

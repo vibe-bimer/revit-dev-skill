@@ -1,0 +1,1 @@
+# IntersectionResultArray.Size Property

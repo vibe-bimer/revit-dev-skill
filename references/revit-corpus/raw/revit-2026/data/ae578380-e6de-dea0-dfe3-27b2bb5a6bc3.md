@@ -1,0 +1,1 @@
+# ElectricalLoadClassification.DemandFactorId Property

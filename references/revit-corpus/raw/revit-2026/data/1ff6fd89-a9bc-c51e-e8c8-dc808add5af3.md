@@ -1,0 +1,1 @@
+# ViewSchedule.SplitSegment Method

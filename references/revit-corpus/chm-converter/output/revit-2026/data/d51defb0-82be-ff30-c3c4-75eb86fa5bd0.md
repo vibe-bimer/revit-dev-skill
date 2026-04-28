@@ -1,0 +1,23 @@
+# RebarConstraint.IsBindingHandleWithTarget Method
+
+---  
+Gets the relationship between two RebarConstrainedHandles. 
+**Namespace:** [Autodesk.Revit.DB.Structure](d586b341-f687-9d90-e96d-255806b7d4fc.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public bool IsBindingHandleWithTarget()
+    
+    Public Function IsBindingHandleWithTarget As Boolean
+    
+    public:
+    bool IsBindingHandleWithTarget()
+    
+    member IsBindingHandleWithTarget : unit -> bool 
+#### Return Value
+Boolean Returns False if only the constrained RebarConstrainedHandle follows the target. Returns True if the constrained RebarConstrainedHandle and the target bar handle are bound and move together. 
+Exception| Condition  
+---|---  
+[InvalidOperationException](9e715f03-3884-e539-4dd6-8d7545733adc.htm)|  RebarConstraint is no longer valid. -or- The RebarConstraint is not of RebarConstraintType 'ToOtherRebar'. -or- The RebarTargetConstraintType is 'HookBend' or 'BarBend'. -or- The RebarTargetConstraintType is 'OutOfPlaneExtent' and the rebar target layout is 'Number with Spacing'.   
+Throws exception for any type of constraint other than 'ToOtherRebar' or if the RebarTargetConstraintType of the constraint is 'HookBend' or 'BarBend'. Will also throw if the target Rebar has the 'Number with Spacing' layout rule and the RebarTargetConstraintType of the constraint is 'OutOfPlaneExtent'. 
+#### Reference
+[RebarConstraint Class](748823c8-f059-68c1-d7b5-7cfaba93a445.htm)
+[Autodesk.Revit.DB.Structure Namespace](d586b341-f687-9d90-e96d-255806b7d4fc.htm)

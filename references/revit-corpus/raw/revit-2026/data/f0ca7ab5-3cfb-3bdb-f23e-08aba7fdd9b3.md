@@ -1,0 +1,1 @@
+# FilteredWorksetIterator.GetCurrent Method

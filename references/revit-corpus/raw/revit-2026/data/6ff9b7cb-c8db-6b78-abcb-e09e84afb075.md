@@ -1,0 +1,1 @@
+# AdvancedLossFactor(AdvancedLossFactor) Constructor

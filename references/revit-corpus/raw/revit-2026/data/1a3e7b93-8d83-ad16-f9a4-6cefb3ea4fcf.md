@@ -1,0 +1,1 @@
+# WorksetTable.IsValidObject Property

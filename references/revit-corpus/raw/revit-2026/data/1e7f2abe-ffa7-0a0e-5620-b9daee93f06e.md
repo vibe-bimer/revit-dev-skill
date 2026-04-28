@@ -1,0 +1,1 @@
+# ThermalAsset.IsValidObject Property

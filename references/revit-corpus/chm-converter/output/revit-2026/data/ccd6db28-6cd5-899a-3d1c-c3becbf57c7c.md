@@ -1,0 +1,12 @@
+# MullionTypeSetIterator Properties
+
+---  
+The [MullionTypeSetIterator](8429ed25-0e74-fbce-0806-565dd7105923.htm) type exposes the following members.
+| Name| Description  
+---|---|---  
+![Public property](../icons/pubProperty.gif)| [Current](4d8aae3d-73dc-5ceb-9f7a-fd2a5e3e0a86.htm)| Retrieves the item that is the current focus of the iterator.  
+![Public property](../icons/pubProperty.gif)| [IsReadOnly](d516bcd2-a3fd-a578-58f6-f1add979bd07.htm)| Identifies if the object is read-only or modifiable.(Inherited from [APIObject](beb86ef5-39ad-3f0d-0cd9-0c929387a2bb.htm))  
+Top
+#### Reference
+[MullionTypeSetIterator Class](8429ed25-0e74-fbce-0806-565dd7105923.htm)
+[Autodesk.Revit.DB Namespace](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)

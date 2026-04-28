@@ -1,0 +1,19 @@
+# PrimarySizeCriterion.None Method
+
+---  
+Creates a criterion with a range of no sizes. 
+**Namespace:** [Autodesk.Revit.DB](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public static PrimarySizeCriterion None()
+    
+    Public Shared Function None As PrimarySizeCriterion
+    
+    public:
+    static PrimarySizeCriterion^ None()
+    
+    static member None : unit -> PrimarySizeCriterion 
+#### Return Value
+[PrimarySizeCriterion](995cd666-6b07-2c7d-9052-6a36be3f7ed8.htm) The new criterion. 
+#### Reference
+[PrimarySizeCriterion Class](995cd666-6b07-2c7d-9052-6a36be3f7ed8.htm)
+[Autodesk.Revit.DB Namespace](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)

@@ -1,0 +1,1 @@
+# GroupTypeId.LightPhotometrics Property

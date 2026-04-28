@@ -1,0 +1,19 @@
+# StairsRun.GetStairs Method
+
+---  
+Returns the stairs to which the stairs run belongs. 
+**Namespace:** [Autodesk.Revit.DB.Architecture](720f0c58-cb2b-4f13-374a-7348ed0a1cd3.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public Stairs GetStairs()
+    
+    Public Function GetStairs As Stairs
+    
+    public:
+    Stairs^ GetStairs()
+    
+    member GetStairs : unit -> Stairs 
+#### Return Value
+[Stairs](45e2c068-7e52-c84a-cfb8-a53c531d28fa.htm) The stairs to which the stairs run belongs. 
+#### Reference
+[StairsRun Class](ea0e49a0-a007-79d0-c902-a24b1359ae28.htm)
+[Autodesk.Revit.DB.Architecture Namespace](720f0c58-cb2b-4f13-374a-7348ed0a1cd3.htm)

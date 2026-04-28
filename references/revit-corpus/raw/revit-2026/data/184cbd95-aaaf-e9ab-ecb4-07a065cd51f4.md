@@ -1,0 +1,1 @@
+# BendingDetailCustomFieldProperties.SegmentLengthDimensionsEnabled Property

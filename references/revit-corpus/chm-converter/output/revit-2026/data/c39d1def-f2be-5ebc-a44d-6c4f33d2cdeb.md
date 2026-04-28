@@ -1,0 +1,28 @@
+# ExternalResourceBrowserData Methods
+
+---  
+The [ExternalResourceBrowserData](94a46450-5467-45f2-0228-4c9f9821b4c9.htm) type exposes the following members.
+| Name| Description  
+---|---|---  
+![Public method](../icons/pubMethod.gif)| [AddResource(String)](94069c9b-d720-6826-bf13-7663e73b08cb.htm)|  Adds an external resource to the folder path by supplying the resource name.   
+![Public method](../icons/pubMethod.gif)| [AddResource(String, IDictionaryString, String)](44f19e8a-789f-1181-3ec1-def94c1e1a3d.htm)|   
+![Public method](../icons/pubMethod.gif)| [AddResource(String, String)](62f87583-84e5-1481-35a6-f8610bc4f448.htm)|  Adds an external resource to the folder path by supplying the resource name and version.   
+![Public method](../icons/pubMethod.gif)| [AddResource(String, String, IDictionaryString, String)](60ea723b-3c92-8408-26f6-08788f29bc25.htm)|   
+![Public method](../icons/pubMethod.gif)| [AddSubFolder(String)](b4156741-2375-50f9-1c33-7efaa42b8b06.htm)|  Adds a subfolder to the folder path with the given name.   
+![Public method](../icons/pubMethod.gif)| [AddSubFolder(String, String)](6a60f937-fa5f-55e7-7b16-cc009283990f.htm)|  Adds a subfolder to the folder path with the given name and icon type.   
+![Public method](../icons/pubMethod.gif)| [CallingDocumentHasModelPath](7c19b745-83f6-24c9-43e9-0a160eab123b.htm)|  Indicates whether the document requesting the external resource browser data has a defined ModelPath.   
+![Public method](../icons/pubMethod.gif)| [Dispose](204149be-eb02-e742-9a6f-5f795cb90afe.htm)|   
+![Public method](../icons/pubMethod.gif)| Equals| Determines whether the specified object is equal to the current object.(Inherited from Object)  
+![Public method](../icons/pubMethod.gif)| [GetCallingDocumentModelPath](7a877029-3b5a-3de8-9c35-fe38fa48c82e.htm)|  Returns a copy of the ModelPath of the document that is requesting the external resource browser data.   
+![Public method](../icons/pubMethod.gif)| GetHashCode| Serves as the default hash function.(Inherited from Object)  
+![Public method](../icons/pubMethod.gif)| [GetMatchOptions](18e6e337-9e0e-3c4f-b021-59003c5b4883.htm)|  Gets the match options used to filter external resources.   
+![Public method](../icons/pubMethod.gif)| [GetResources](616cff02-a764-70ad-251b-c0b494145c74.htm)|  Gets the external resources under the folder path of the browser data.   
+![Public method](../icons/pubMethod.gif)| [GetSubFoldersData](68ac11a5-1134-4944-3d57-e002cd376bec.htm)|  Gets the subfolders data under the folder path of the browser data.   
+![Public method](../icons/pubMethod.gif)| GetType| Gets the Type of the current instance.(Inherited from Object)  
+![Public method](../icons/pubMethod.gif)| [IsValidFolderName](b8e9265b-0a7d-d7fd-8588-c49ef5ab5bb2.htm)|  Checks whether the folder name is valid.   
+![Public method](../icons/pubMethod.gif)| [IsValidResourceName](d9deaa7c-6b96-6fad-6f16-426df57e09e7.htm)|  Checks whether the resource name is valid.   
+![Public method](../icons/pubMethod.gif)| ToString| Returns a string that represents the current object.(Inherited from Object)  
+Top
+#### Reference
+[ExternalResourceBrowserData Class](94a46450-5467-45f2-0228-4c9f9821b4c9.htm)
+[Autodesk.Revit.DB Namespace](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)

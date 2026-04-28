@@ -1,0 +1,1 @@
+# RuledSurface.GetSecondProfileCurve Method

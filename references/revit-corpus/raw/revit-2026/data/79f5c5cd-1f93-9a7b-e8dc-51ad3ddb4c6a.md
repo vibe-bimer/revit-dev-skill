@@ -1,0 +1,1 @@
+# RevitLinkType.Create(Document, ExternalResourceReference, RevitLinkOptions) Method

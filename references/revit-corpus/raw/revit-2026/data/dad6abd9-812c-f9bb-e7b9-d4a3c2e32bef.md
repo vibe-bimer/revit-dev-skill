@@ -1,0 +1,1 @@
+# PathOfTravel.GetWaypoints Method

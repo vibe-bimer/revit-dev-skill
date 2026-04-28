@@ -1,0 +1,1 @@
+# PathReinforcement.AlternatingBarOrientation Property

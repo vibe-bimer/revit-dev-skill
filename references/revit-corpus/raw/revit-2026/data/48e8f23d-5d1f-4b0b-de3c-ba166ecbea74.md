@@ -1,0 +1,1 @@
+# ContourSettingItem.Stop Property

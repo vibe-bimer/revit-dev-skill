@@ -1,0 +1,1 @@
+# EnergyDataSettings.UseHeatingCredits Property

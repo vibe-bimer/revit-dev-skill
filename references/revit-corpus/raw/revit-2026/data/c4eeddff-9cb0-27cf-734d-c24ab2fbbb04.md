@@ -1,0 +1,1 @@
+# ParameterTypeId.ViewSchemaSettingForBuilding Property

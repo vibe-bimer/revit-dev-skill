@@ -1,0 +1,1 @@
+# OpeningFailures Properties

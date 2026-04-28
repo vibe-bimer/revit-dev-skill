@@ -1,0 +1,1 @@
+# DuctFittingAndAccessoryPressureDropUIDataItem.IsValidObject Property

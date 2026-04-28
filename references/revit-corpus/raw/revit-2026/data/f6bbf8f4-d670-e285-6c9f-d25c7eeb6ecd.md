@@ -1,0 +1,1 @@
+# BuiltInFailures.GroupFailures.NotAGroupFile Property

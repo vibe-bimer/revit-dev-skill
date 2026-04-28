@@ -1,0 +1,1 @@
+# AlignmentStationLabelSetOptions.TypeId Property

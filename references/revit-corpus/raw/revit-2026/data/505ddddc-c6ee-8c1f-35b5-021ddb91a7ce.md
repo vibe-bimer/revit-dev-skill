@@ -1,0 +1,1 @@
+# BaseImportOptions.IsValidObject Property

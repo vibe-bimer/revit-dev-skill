@@ -1,0 +1,1 @@
+# DimensionType.CanHaveOrdinateDimensionSetting Method

@@ -1,0 +1,24 @@
+# FabricationPartSizeMap.IsMappedProductList Property
+
+---  
+Are the mapped sizes for a product listed fabrication part. 
+**Namespace:** [Autodesk.Revit.DB.Fabrication](49e74a25-7ea1-efa6-548a-a3c3d0655e43.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public bool IsMappedProductList { get; set; }
+    
+    Public Property IsMappedProductList As Boolean
+    	Get
+    	Set
+    
+    public:
+    property bool IsMappedProductList {
+    	bool get ();
+    	void set (bool value);
+    }
+    
+    member IsMappedProductList : bool with get, set
+#### Property Value
+Boolean
+#### Reference
+[FabricationPartSizeMap Class](b4be4ccc-ac6d-bb65-ef61-a41713b2916f.htm)
+[Autodesk.Revit.DB.Fabrication Namespace](49e74a25-7ea1-efa6-548a-a3c3d0655e43.htm)

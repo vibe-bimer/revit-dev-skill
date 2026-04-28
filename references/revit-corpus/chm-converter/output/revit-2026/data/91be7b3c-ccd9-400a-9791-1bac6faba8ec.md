@@ -1,0 +1,23 @@
+# ModelCurveArray.Size Property
+
+---  
+Returns the number of model curves that are in the array.
+**Namespace:** [Autodesk.Revit.DB](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public virtual int Size { get; }
+    
+    Public Overridable ReadOnly Property Size As Integer
+    	Get
+    
+    public:
+    virtual property int Size {
+    	int get ();
+    }
+    
+    abstract Size : int with get
+    override Size : int with get
+#### Property Value
+Int32
+#### Reference
+[ModelCurveArray Class](c7852e5b-0a34-771f-584f-3e9513bca50e.htm)
+[Autodesk.Revit.DB Namespace](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)

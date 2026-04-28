@@ -1,0 +1,1 @@
+# LossFactor.IsValidObject Property

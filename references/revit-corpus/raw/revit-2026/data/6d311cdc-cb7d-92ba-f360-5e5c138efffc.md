@@ -1,0 +1,1 @@
+# StructuralFramingUtils.IsEndReferenceValid Method

@@ -1,0 +1,1 @@
+# CompoundStructure.GetWidth Method

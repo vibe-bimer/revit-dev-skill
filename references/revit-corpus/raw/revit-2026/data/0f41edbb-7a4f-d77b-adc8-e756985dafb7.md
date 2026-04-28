@@ -1,0 +1,1 @@
+# IFCAnyHandle.IsValidObject Property

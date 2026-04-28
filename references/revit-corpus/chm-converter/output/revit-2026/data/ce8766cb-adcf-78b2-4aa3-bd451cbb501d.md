@@ -1,0 +1,22 @@
+# HomeCamera.LeftAngleOfFieldOfView Property
+
+---  
+The left angle of the field of view. 
+**Namespace:** [Autodesk.Revit.DB](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public double LeftAngleOfFieldOfView { get; }
+    
+    Public ReadOnly Property LeftAngleOfFieldOfView As Double
+    	Get
+    
+    public:
+    property double LeftAngleOfFieldOfView {
+    	double get ();
+    }
+    
+    member LeftAngleOfFieldOfView : float with get
+#### Property Value
+Double
+#### Reference
+[HomeCamera Class](433ba3ea-00f0-0a6b-9543-8f49dc9922e1.htm)
+[Autodesk.Revit.DB Namespace](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)

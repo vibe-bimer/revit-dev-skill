@@ -1,0 +1,1 @@
+# CurveArray.GetEnumerator Method

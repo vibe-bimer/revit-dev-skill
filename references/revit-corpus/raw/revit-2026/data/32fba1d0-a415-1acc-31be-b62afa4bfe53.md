@@ -1,0 +1,1 @@
+# AreaElemType Enumeration

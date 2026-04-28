@@ -1,0 +1,1 @@
+# ParameterFilterRuleFactory.IsValidObject Property

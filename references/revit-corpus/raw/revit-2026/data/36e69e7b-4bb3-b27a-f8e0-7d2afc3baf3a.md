@@ -1,0 +1,1 @@
+# FilledRegionType.IsValidLineWeight Method

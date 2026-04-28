@@ -1,0 +1,1 @@
+# MacroModuleIterator.CurrentObject Property

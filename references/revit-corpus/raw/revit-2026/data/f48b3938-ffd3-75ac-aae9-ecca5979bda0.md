@@ -1,0 +1,1 @@
+# SolidGlass.SolidglassGlossiness Property

@@ -1,0 +1,1 @@
+# ElectricalSystem.TrueLoadPhaseC Property

@@ -1,0 +1,1 @@
+# ScheduleHorizontalAlignment Enumeration

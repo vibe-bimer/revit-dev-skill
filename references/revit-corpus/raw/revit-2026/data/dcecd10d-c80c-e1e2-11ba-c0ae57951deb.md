@@ -1,0 +1,1 @@
+# EnergyDataSettings.ProjectPhase Property

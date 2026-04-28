@@ -1,0 +1,1 @@
+# FailureDefinitionAccessor.GetApplicableResolutionTypes Method

@@ -1,0 +1,1 @@
+# TextAlignFlags Enumeration

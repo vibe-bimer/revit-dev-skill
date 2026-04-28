@@ -1,0 +1,1 @@
+# SolidCurveIntersection.Dispose Method

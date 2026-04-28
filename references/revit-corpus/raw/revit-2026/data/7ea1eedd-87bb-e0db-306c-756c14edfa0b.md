@@ -1,0 +1,1 @@
+# DirectShapeType.AddReferenceCurve(Curve) Method

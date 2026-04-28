@@ -1,0 +1,1 @@
+# SymbolTypeId.KNDashMPerM Property

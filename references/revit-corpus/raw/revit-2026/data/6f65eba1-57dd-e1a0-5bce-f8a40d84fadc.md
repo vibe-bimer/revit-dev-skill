@@ -1,0 +1,1 @@
+# RebarSpliceTypeUtils.GetStaggerLengthMultiplier Method

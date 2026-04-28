@@ -1,0 +1,1 @@
+# BalusterPattern Properties

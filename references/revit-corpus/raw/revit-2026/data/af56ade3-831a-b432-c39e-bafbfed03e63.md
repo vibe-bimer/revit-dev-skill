@@ -1,0 +1,1 @@
+# DirectShape.IsValidReferenceCurve Method

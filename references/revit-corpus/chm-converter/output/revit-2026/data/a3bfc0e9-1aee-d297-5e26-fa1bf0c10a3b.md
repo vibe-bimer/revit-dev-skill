@@ -1,0 +1,23 @@
+# DuctFittingAndAccessoryPressureDropUIDataItem.IsValidObject Property
+
+---  
+Specifies whether the .NET object represents a valid Revit entity. 
+**Namespace:** [Autodesk.Revit.UI.Mechanical](9c9cf593-a9fe-7469-53c5-7b56ba7cd17e.htm)**Assembly:** RevitAPIUI (in RevitAPIUI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public bool IsValidObject { get; }
+    
+    Public ReadOnly Property IsValidObject As Boolean
+    	Get
+    
+    public:
+    property bool IsValidObject {
+    	bool get ();
+    }
+    
+    member IsValidObject : bool with get
+#### Return Value
+Boolean True if the API object holds a valid Revit native object, false otherwise. 
+If the corresponding Revit native object is destroyed, or creation of the corresponding object is undone, a managed API object containing it is no longer valid. API methods cannot be called on invalidated wrapper objects. 
+#### Reference
+[DuctFittingAndAccessoryPressureDropUIDataItem Class](21430cd5-52d1-fcae-d793-43fcef03dfdc.htm)
+[Autodesk.Revit.UI.Mechanical Namespace](9c9cf593-a9fe-7469-53c5-7b56ba7cd17e.htm)

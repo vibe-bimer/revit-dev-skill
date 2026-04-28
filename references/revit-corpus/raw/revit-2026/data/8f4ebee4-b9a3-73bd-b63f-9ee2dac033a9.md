@@ -1,0 +1,1 @@
+# FluidTemperatureSetIterator.IsValidObject Property

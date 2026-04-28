@@ -1,0 +1,1 @@
+# FailuresAccessor.IsElementsDeletionPermitted(IList<ElementId>, String) Method

@@ -1,0 +1,1 @@
+# PrintParameters.ReplaceHalftoneWithThinLines Property

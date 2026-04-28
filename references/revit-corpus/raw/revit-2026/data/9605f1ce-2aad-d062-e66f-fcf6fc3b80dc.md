@@ -1,0 +1,1 @@
+# BuildingEnvelopeAnalyzer.Dispose Method

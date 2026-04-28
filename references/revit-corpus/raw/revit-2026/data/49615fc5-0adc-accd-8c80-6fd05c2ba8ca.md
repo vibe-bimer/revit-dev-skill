@@ -1,0 +1,1 @@
+# SymbolTypeId.InCaret2 Property

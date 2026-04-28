@@ -1,0 +1,1 @@
+# DoubleClickOptions.GetRenameOnSlowDoubleClickInProjectBrowser Method

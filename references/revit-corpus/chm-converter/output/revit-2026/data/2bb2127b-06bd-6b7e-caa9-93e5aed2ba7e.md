@@ -1,0 +1,24 @@
+# IndexTriangle.Index2 Property
+
+---  
+The index of the triangle's third vertex. 
+**Namespace:** [Autodesk.Revit.DB.DirectContext3D](f4ba10f0-55ea-5344-173b-688405391794.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public int Index2 { get; set; }
+    
+    Public Property Index2 As Integer
+    	Get
+    	Set
+    
+    public:
+    property int Index2 {
+    	int get ();
+    	void set (int value);
+    }
+    
+    member Index2 : int with get, set
+#### Property Value
+Int32
+#### Reference
+[IndexTriangle Class](96cdfb77-c6e0-7866-c1f7-799f3dda0ad5.htm)
+[Autodesk.Revit.DB.DirectContext3D Namespace](f4ba10f0-55ea-5344-173b-688405391794.htm)

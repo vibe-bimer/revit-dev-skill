@@ -1,0 +1,1 @@
+# LinkLoadResult.IsCodeSuccess Method

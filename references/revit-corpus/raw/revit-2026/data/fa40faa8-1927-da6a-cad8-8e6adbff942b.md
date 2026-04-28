@@ -1,0 +1,1 @@
+# IFCParameterTemplate.RemovePropertyMappingInfo(PropertySetupType, String, String) Method

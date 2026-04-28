@@ -1,0 +1,17 @@
+# InstanceNode Methods
+
+---  
+The [InstanceNode](4f7fbd19-9a61-c173-2b4f-9c0be9e550bb.htm) type exposes the following members.
+| Name| Description  
+---|---|---  
+![Public method](../icons/pubMethod.gif)| [Dispose](8ee082fe-ab92-67e6-f2bd-b285d419a005.htm)| (Inherited from [RenderNode](9900b69b-7cb7-8555-75ac-4b5f22b5fa7f.htm))  
+![Public method](../icons/pubMethod.gif)| Equals| Determines whether the specified object is equal to the current object.(Inherited from Object)  
+![Public method](../icons/pubMethod.gif)| GetHashCode| Serves as the default hash function.(Inherited from Object)  
+![Public method](../icons/pubMethod.gif)| [GetSymbolGeometryId](6e6cbd6a-493f-7329-83e2-c28b333eede8.htm)|  Gets the SymbolGeometryId associated with the node.   
+![Public method](../icons/pubMethod.gif)| [GetTransform](13e9ba28-e94a-c79f-689c-4367883d62bd.htm)|  A transformation matrix associated with the node. (Inherited from [GroupNode](8b1cabde-3c37-1735-a186-2ce026555ce0.htm))  
+![Public method](../icons/pubMethod.gif)| GetType| Gets the Type of the current instance.(Inherited from Object)  
+![Public method](../icons/pubMethod.gif)| ToString| Returns a string that represents the current object.(Inherited from Object)  
+Top
+#### Reference
+[InstanceNode Class](4f7fbd19-9a61-c173-2b4f-9c0be9e550bb.htm)
+[Autodesk.Revit.DB Namespace](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)

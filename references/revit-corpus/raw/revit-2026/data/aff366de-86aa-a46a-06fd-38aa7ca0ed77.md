@@ -1,0 +1,1 @@
+# ExportPatternTable.GetPatternTableIterator Method

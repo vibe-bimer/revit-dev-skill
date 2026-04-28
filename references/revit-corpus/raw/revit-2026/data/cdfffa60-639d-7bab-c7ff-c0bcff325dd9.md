@@ -1,0 +1,1 @@
+# SolidGlass.SolidglassReflectance Property

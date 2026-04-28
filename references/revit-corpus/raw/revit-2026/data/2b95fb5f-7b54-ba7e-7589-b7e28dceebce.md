@@ -1,0 +1,1 @@
+# ExternalResourceSubFolder.IconPath Property

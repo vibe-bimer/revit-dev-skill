@@ -1,0 +1,1 @@
+# Checker.CheckerColor2 Property

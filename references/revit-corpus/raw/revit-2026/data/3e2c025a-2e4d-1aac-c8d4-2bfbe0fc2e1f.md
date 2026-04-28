@@ -1,0 +1,1 @@
+# MasonryCMU.MasonryCMUPattern Property

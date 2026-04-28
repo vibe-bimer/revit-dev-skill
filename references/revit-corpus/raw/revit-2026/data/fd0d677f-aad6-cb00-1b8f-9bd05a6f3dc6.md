@@ -1,0 +1,1 @@
+# RebarShapeDefinitionBySegments.MajorSegmentIndex Property

@@ -1,0 +1,1 @@
+# HVACLoadLoadsReportType Enumeration

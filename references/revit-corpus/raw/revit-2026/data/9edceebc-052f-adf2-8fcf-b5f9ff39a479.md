@@ -1,0 +1,1 @@
+# FaceDetailNode.LineProperties Property

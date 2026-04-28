@@ -1,0 +1,22 @@
+# UnitTypeId.VoltAmperesPerSquareFoot Property
+
+---  
+Volt amperes per square foot. 
+**Namespace:** [Autodesk.Revit.DB](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public static ForgeTypeId VoltAmperesPerSquareFoot { get; }
+    
+    Public Shared ReadOnly Property VoltAmperesPerSquareFoot As ForgeTypeId
+    	Get
+    
+    public:
+    static property ForgeTypeId^ VoltAmperesPerSquareFoot {
+    	ForgeTypeId^ get ();
+    }
+    
+    static member VoltAmperesPerSquareFoot : ForgeTypeId with get
+#### Property Value
+[ForgeTypeId](d9fcf276-9566-de83-2b0b-d89b65ccc8af.htm)
+#### Reference
+[UnitTypeId Class](bc1b6454-f10a-66dc-9268-1dccbc403f78.htm)
+[Autodesk.Revit.DB Namespace](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)

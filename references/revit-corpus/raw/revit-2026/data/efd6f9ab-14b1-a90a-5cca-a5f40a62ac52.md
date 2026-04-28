@@ -1,0 +1,1 @@
+# DockableFrameFocusChangedEventArgs Methods

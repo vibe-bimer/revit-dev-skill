@@ -1,0 +1,1 @@
+# RebarShapeTerminationsData.TerminationOrientationAtEnd Property

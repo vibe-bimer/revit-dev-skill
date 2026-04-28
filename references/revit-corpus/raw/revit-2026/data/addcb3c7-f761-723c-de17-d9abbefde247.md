@@ -1,0 +1,1 @@
+# EditScope.IsPermitted Property

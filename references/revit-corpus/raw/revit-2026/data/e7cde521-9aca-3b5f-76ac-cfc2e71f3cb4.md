@@ -1,0 +1,1 @@
+# FloorType Methods

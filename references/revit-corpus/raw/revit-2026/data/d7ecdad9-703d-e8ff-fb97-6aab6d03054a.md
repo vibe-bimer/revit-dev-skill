@@ -1,0 +1,1 @@
+# IntersectingElementData.IsValidObject Property

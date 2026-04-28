@@ -1,0 +1,1 @@
+# BuiltInFailures.RebarFailures.SketchDimensionsRemoved Property

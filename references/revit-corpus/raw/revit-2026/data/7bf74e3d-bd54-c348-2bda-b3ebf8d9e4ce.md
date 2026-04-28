@@ -1,0 +1,1 @@
+# HermiteSplineTangents.EndTangent Property

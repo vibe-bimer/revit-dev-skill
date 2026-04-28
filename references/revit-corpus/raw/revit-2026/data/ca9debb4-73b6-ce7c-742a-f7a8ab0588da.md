@@ -1,0 +1,1 @@
+# SketchEditScope.IsElementWithoutSketch Method

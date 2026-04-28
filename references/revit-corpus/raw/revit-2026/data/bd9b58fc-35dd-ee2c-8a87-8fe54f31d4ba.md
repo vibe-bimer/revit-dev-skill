@@ -1,0 +1,1 @@
+# DetailEllipse Methods

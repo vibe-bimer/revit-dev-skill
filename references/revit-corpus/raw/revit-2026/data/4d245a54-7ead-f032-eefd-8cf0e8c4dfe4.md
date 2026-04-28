@@ -1,0 +1,1 @@
+# IndexStreamPoint.AddPoint Method

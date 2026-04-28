@@ -1,0 +1,1 @@
+# ParameterTypeId.RebarSystemLayerSummaryDir2NoSpacing Property

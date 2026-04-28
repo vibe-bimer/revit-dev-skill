@@ -1,0 +1,25 @@
+# Connector.Domain Property
+
+---  
+The domain of the connector.
+**Namespace:** [Autodesk.Revit.DB](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public virtual Domain Domain { get; }
+    
+    Public Overridable ReadOnly Property Domain As Domain
+    	Get
+    
+    public:
+    virtual property Domain Domain {
+    	Domain get ();
+    }
+    
+    abstract Domain : Domain with get
+    override Domain : Domain with get
+#### Property Value
+[Domain](e4c76674-370f-a9e7-728b-80a6db6430cc.htm)
+#### Implements
+[IConnectorDomain](07b258fc-79c0-5544-6c99-1b77b464fbc8.htm)
+#### Reference
+[Connector Class](11e07082-b3f2-26a1-de79-16535f44716c.htm)
+[Autodesk.Revit.DB Namespace](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)

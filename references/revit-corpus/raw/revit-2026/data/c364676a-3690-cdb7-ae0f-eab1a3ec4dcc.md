@@ -1,0 +1,1 @@
+# PanelScheduleView.IsSpace Method

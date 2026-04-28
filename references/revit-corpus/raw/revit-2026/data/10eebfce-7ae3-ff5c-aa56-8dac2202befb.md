@@ -1,0 +1,1 @@
+# BuiltInFailures.SketchFailures.LoopIntersectPath3d Property

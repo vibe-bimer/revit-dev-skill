@@ -1,0 +1,1 @@
+# IFCOpeningData.IsValidObject Property

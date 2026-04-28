@@ -1,0 +1,22 @@
+# ImporterIFC.FullFileName Property
+
+---  
+The full file name of the IFC file to be import. 
+**Namespace:** [Autodesk.Revit.DB.IFC](b823fafb-1ba1-896b-4097-142c2817ce74.htm)**Assembly:** RevitAPIIFC (in RevitAPIIFC.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public string FullFileName { get; }
+    
+    Public ReadOnly Property FullFileName As String
+    	Get
+    
+    public:
+    property String^ FullFileName {
+    	String^ get ();
+    }
+    
+    member FullFileName : string with get
+#### Property Value
+String
+#### Reference
+[ImporterIFC Class](87327a4b-94fd-5a21-df33-9beb1921cb4d.htm)
+[Autodesk.Revit.DB.IFC Namespace](b823fafb-1ba1-896b-4097-142c2817ce74.htm)

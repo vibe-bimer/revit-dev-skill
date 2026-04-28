@@ -1,0 +1,1 @@
+# PropertySetElement.GetStructuralAsset Method

@@ -1,0 +1,1 @@
+# BalusterPlacement.BalusterPattern Property

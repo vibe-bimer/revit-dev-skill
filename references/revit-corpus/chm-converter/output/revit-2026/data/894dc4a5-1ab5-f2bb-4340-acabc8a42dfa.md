@@ -1,0 +1,22 @@
+# BuiltInFailures.CutFailures.CannotCutInstanceOut Property
+
+---  
+Can't cut instance of [Symbol] out of Wall. 
+**Namespace:** [Autodesk.Revit.DB](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public static FailureDefinitionId CannotCutInstanceOut { get; }
+    
+    Public Shared ReadOnly Property CannotCutInstanceOut As FailureDefinitionId
+    	Get
+    
+    public:
+    static property FailureDefinitionId^ CannotCutInstanceOut {
+    	FailureDefinitionId^ get ();
+    }
+    
+    static member CannotCutInstanceOut : FailureDefinitionId with get
+#### Property Value
+[FailureDefinitionId](b6ada360-a6fe-ebb6-b095-d74b37ade9bf.htm)
+#### Reference
+[BuiltInFailuresCutFailures Class](6bec436a-fefb-b90c-454f-ce494f3b06c5.htm)
+[Autodesk.Revit.DB Namespace](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)

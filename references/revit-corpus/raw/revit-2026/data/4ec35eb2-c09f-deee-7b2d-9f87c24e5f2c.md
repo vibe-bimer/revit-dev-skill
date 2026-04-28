@@ -1,0 +1,1 @@
+# ExternalDefinition.OwnerGroup Property

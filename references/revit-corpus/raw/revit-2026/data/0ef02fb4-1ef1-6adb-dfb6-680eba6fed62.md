@@ -1,0 +1,1 @@
+# NurbSpline.CreateCurve(IList<XYZ>, IList<Double>) Method

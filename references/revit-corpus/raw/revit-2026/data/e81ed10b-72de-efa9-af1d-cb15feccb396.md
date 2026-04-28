@@ -1,0 +1,1 @@
+# IFCData.HasSimpleType Method

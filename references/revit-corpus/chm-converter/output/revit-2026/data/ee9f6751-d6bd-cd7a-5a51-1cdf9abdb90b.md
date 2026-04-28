@@ -1,0 +1,20 @@
+# ColorFillSchemeEntry.GetDoubleValue Method
+
+---  
+Gets the Double value stored within the entry. 
+**Namespace:** [Autodesk.Revit.DB](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public double GetDoubleValue()
+    
+    Public Function GetDoubleValue As Double
+    
+    public:
+    double GetDoubleValue()
+    
+    member GetDoubleValue : unit -> float 
+#### Return Value
+Double The Double value contained in the entry. 
+This method should only be used if the [StorageType](45659568-cb90-6712-3355-120f7cff9dd4.htm) property reports the type of the entry as a Double. 
+#### Reference
+[ColorFillSchemeEntry Class](065ddef3-065a-8bd5-9d34-4d2efd126e43.htm)
+[Autodesk.Revit.DB Namespace](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)

@@ -1,0 +1,1 @@
+# StructuralSectionGeneralC.LipLength Property

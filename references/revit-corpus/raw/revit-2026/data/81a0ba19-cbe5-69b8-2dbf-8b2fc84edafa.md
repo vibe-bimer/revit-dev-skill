@@ -1,0 +1,1 @@
+# ParameterTypeId.ImportAdtEntityStructType Property

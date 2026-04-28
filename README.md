@@ -119,8 +119,9 @@ Fill real values in `~/.config/revit-skill.env`.
 | `WINDOWS_USER` | Windows SSH username |
 | `WINDOWS_PASSWORD` | Windows SSH password |
 | `GITLAB_TOKEN` | GitLab access token |
-| `REVIT_API_WIKI_PATH` | Local Revit API wiki root (e.g. `/home/you/roky-wiki/revit-api/entities/`) |
-| `REVIT_CORPUS_PATH` | Local Revit corpus root (e.g. `/home/you/revit-corpus/`) |
+| `REVIT_SKILL_ROOT` | Skill repo root (default: `~/.hermes/skills/revit`) |
+| `REVIT_API_WIKI_PATH` | Revit API wiki root (recommended: `${REVIT_SKILL_ROOT}/references/revit-api/entities`) |
+| `REVIT_CORPUS_PATH` | Revit corpus root (recommended: `${REVIT_SKILL_ROOT}/references/revit-corpus`) |
 
 ### Path portability (important)
 

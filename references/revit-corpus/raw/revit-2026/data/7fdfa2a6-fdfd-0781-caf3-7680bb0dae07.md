@@ -1,0 +1,1 @@
+# FormattedText.SetSuperscriptStatus Method

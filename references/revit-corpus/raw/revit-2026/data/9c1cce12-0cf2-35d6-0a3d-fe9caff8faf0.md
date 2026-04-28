@@ -1,0 +1,1 @@
+# ScheduleFilter.GetDoubleValue Method

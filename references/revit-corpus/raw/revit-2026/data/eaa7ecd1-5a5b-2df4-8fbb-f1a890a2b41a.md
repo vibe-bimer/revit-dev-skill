@@ -1,0 +1,1 @@
+# DirectShape.AreValidDirectShapeReferenceOptions Method

@@ -1,0 +1,1 @@
+# MassLevelData.IsEmpty Method

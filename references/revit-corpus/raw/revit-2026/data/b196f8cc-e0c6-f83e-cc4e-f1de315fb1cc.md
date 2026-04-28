@@ -1,0 +1,1 @@
+# LinePatternElement Methods

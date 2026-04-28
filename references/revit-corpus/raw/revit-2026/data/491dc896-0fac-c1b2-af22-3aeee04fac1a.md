@@ -1,0 +1,1 @@
+# RebarFreeFormAccessor.IsValidObject Property

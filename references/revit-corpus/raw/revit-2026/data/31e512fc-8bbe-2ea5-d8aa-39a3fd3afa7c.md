@@ -1,0 +1,1 @@
+# StructuralSectionIWelded.TopFlangeWidth Property

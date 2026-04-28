@@ -1,0 +1,27 @@
+# CableSize.NumberOfGroundConductors Property
+
+---  
+The number of Ground Conductors. 
+**Namespace:** [Autodesk.Revit.DB.Electrical](212a1314-7843-2c6c-3322-363127e4059f.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public int NumberOfGroundConductors { get; set; }
+    
+    Public Property NumberOfGroundConductors As Integer
+    	Get
+    	Set
+    
+    public:
+    property int NumberOfGroundConductors {
+    	int get ();
+    	void set (int value);
+    }
+    
+    member NumberOfGroundConductors : int with get, set
+#### Property Value
+Int32
+Exception| Condition  
+---|---  
+[ArgumentOutOfRangeException](60f148c9-ece0-a6bb-4e12-bb4a9c8c8a24.htm)|  When setting this property: The given value for numberOfGroundConductors is negative.   
+#### Reference
+[CableSize Class](a6a35ad4-346a-0711-d38d-8b360c19c9e2.htm)
+[Autodesk.Revit.DB.Electrical Namespace](212a1314-7843-2c6c-3322-363127e4059f.htm)

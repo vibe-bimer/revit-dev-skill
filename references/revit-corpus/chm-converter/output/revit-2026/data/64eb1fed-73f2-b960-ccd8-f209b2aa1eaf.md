@@ -1,0 +1,135 @@
+# StructuralSectionRectangleParameterized Constructor
+
+---  
+Creates a new instance of Structural Section Rectangle Parameterized shape with the associated set of parameters, used to attach to structural element. 
+**Namespace:** [Autodesk.Revit.DB.Structure.StructuralSections](09862f38-63f6-a5f8-e560-ae775901bc92.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public StructuralSectionRectangleParameterized(
+    	double width,
+    	double height,
+    	double centroidHorizontal,
+    	double centroidVertical,
+    	double principalAxesAngle,
+    	double sectionArea,
+    	double perimeter,
+    	double nominalWeight,
+    	double momentOfInertiaStrongAxis,
+    	double momentOfInertiaWeakAxis,
+    	double elasticModulusStrongAxis,
+    	double elasticModulusWeakAxis,
+    	double plasticModulusStrongAxis,
+    	double plasticModulusWeakAxis,
+    	double torsionalMomentOfInertia,
+    	double torsionalModulus,
+    	double warpingConstant,
+    	double shearAreaStrongAxis,
+    	double shearAreaWeakAxis
+    )
+    
+    Public Sub New ( 
+    	width As Double,
+    	height As Double,
+    	centroidHorizontal As Double,
+    	centroidVertical As Double,
+    	principalAxesAngle As Double,
+    	sectionArea As Double,
+    	perimeter As Double,
+    	nominalWeight As Double,
+    	momentOfInertiaStrongAxis As Double,
+    	momentOfInertiaWeakAxis As Double,
+    	elasticModulusStrongAxis As Double,
+    	elasticModulusWeakAxis As Double,
+    	plasticModulusStrongAxis As Double,
+    	plasticModulusWeakAxis As Double,
+    	torsionalMomentOfInertia As Double,
+    	torsionalModulus As Double,
+    	warpingConstant As Double,
+    	shearAreaStrongAxis As Double,
+    	shearAreaWeakAxis As Double
+    )
+    
+    public:
+    StructuralSectionRectangleParameterized(
+    	double width, 
+    	double height, 
+    	double centroidHorizontal, 
+    	double centroidVertical, 
+    	double principalAxesAngle, 
+    	double sectionArea, 
+    	double perimeter, 
+    	double nominalWeight, 
+    	double momentOfInertiaStrongAxis, 
+    	double momentOfInertiaWeakAxis, 
+    	double elasticModulusStrongAxis, 
+    	double elasticModulusWeakAxis, 
+    	double plasticModulusStrongAxis, 
+    	double plasticModulusWeakAxis, 
+    	double torsionalMomentOfInertia, 
+    	double torsionalModulus, 
+    	double warpingConstant, 
+    	double shearAreaStrongAxis, 
+    	double shearAreaWeakAxis
+    )
+    
+    new : 
+            width : float * 
+            height : float * 
+            centroidHorizontal : float * 
+            centroidVertical : float * 
+            principalAxesAngle : float * 
+            sectionArea : float * 
+            perimeter : float * 
+            nominalWeight : float * 
+            momentOfInertiaStrongAxis : float * 
+            momentOfInertiaWeakAxis : float * 
+            elasticModulusStrongAxis : float * 
+            elasticModulusWeakAxis : float * 
+            plasticModulusStrongAxis : float * 
+            plasticModulusWeakAxis : float * 
+            torsionalMomentOfInertia : float * 
+            torsionalModulus : float * 
+            warpingConstant : float * 
+            shearAreaStrongAxis : float * 
+            shearAreaWeakAxis : float -> StructuralSectionRectangleParameterized
+#### Parameters
+width Double
+     Section width. 
+height Double
+     Section height, depth. 
+centroidHorizontal Double
+     Distance from centroid to the left extremites along horizontal axis. 
+centroidVertical Double
+     Distance from centroid to the upper extremites along vertical axis. 
+principalAxesAngle Double
+     Rotation angle between the principal axes and cross section reference planes. 
+sectionArea Double
+     Cross section area. 
+perimeter Double
+     Painting surface of the unit length. 
+nominalWeight Double
+     Unit weight (not mass) per unit length, for self-weight calculation or quantity survey. 
+momentOfInertiaStrongAxis Double
+     Moment of Inertia about main strong axis (I). 
+momentOfInertiaWeakAxis Double
+     Moment of Inertia about main weak axis (I). 
+elasticModulusStrongAxis Double
+     Elastic section modulus about main strong axis for calculation of bending stresses. 
+elasticModulusWeakAxis Double
+     Elastic section modulus about main weak axis for calculation of bending stresses. 
+plasticModulusStrongAxis Double
+     Plastic section modulus in bending about main strong axis (Z, Wpl) 
+plasticModulusWeakAxis Double
+     Plastic section modulus in bending about main weak axis. 
+torsionalMomentOfInertia Double
+     Torsional Moment of inertia (J, IT, K), for calculation of torsional deformation 
+torsionalModulus Double
+     Section modulus for calculations of torsion stresses (Ct) 
+warpingConstant Double
+     Warping constant (Cw, Iomega, H) 
+shearAreaStrongAxis Double
+     Shear area (reduced extreme shear stress coefficient) in the direction of strong axis (Wq). 
+shearAreaWeakAxis Double
+     Shear area (reduced extreme shear stress coefficient) in the direction of weak axis (Wq). 
+#### Reference
+[StructuralSectionRectangleParameterized Class](bca39b50-2696-744a-7aee-ceb733b9c902.htm)
+[Autodesk.Revit.DB.Structure.StructuralSections Namespace](09862f38-63f6-a5f8-e560-ae775901bc92.htm)

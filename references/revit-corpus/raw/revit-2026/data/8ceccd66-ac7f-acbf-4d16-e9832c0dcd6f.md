@@ -1,0 +1,1 @@
+# SymbolTypeId.MPerSSup2 Property

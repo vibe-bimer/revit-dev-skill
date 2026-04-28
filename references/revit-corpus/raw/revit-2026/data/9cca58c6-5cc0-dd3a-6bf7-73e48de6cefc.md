@@ -1,0 +1,1 @@
+# MechanicalSystem.SystemType Property

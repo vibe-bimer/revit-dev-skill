@@ -1,0 +1,1 @@
+# NonContinuousRailStructure.GetNonContinuousRailCount Method

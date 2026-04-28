@@ -1,0 +1,1 @@
+# ViewShapeBuilder.AddCurve Method

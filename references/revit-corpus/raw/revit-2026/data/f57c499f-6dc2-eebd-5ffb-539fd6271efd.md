@@ -1,0 +1,1 @@
+# SymbolTypeId.FtSup3 Property

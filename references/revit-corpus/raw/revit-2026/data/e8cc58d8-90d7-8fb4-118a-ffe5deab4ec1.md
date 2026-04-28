@@ -1,0 +1,1 @@
+# ContourSettingItemType Enumeration

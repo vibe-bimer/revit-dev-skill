@@ -1,0 +1,1 @@
+# IFCExportOptions.Assign Method

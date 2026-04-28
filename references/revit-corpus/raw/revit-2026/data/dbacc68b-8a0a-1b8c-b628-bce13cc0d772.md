@@ -1,0 +1,1 @@
+# TemperatureRating.GetTemperatureRatingIdByName Method

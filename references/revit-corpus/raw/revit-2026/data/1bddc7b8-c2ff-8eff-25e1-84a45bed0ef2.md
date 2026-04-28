@@ -1,0 +1,1 @@
+# ParameterTypeId.CurtaingridAngleHoriz Property

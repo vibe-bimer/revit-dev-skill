@@ -1,0 +1,1 @@
+# SolidUtils.ComputeIsGeometricallyClosed Method

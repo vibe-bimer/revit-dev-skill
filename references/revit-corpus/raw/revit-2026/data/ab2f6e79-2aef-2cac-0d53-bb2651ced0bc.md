@@ -1,0 +1,1 @@
+# FillPatternElement.GetFillPattern Method

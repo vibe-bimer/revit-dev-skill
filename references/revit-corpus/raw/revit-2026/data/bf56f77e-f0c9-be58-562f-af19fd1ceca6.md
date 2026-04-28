@@ -1,0 +1,1 @@
+# IFCFileModelOptions.UserControlledInverses Property

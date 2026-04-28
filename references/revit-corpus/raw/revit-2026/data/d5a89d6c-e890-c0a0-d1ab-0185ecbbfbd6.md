@@ -1,0 +1,1 @@
+# LinkedResourceOpeningEventArgs Methods

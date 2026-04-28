@@ -1,0 +1,1 @@
+# AnalyticalCurveSelector Enumeration

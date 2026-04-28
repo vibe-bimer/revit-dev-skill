@@ -1,0 +1,1 @@
+# VertexPositionNormalColored.SetColor Method

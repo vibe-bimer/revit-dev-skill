@@ -1,0 +1,1 @@
+# ValueAtPoint Constructor

@@ -1,0 +1,1 @@
+# BuiltInFailures.CurtainWallFailures.NegativeBeltDistance Property

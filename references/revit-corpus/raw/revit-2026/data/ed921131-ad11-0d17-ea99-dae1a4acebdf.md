@@ -1,0 +1,1 @@
+# CableSize.GroundConductorSize Property

@@ -1,0 +1,1 @@
+# RebarUpdateCurvesData.Spacing Property

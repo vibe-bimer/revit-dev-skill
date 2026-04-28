@@ -1,0 +1,1 @@
+# StairsComponentConnection Properties

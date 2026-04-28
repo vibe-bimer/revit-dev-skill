@@ -1,0 +1,1 @@
+# IFCParameterTemplate.RemovePropertyMappingInfo Method

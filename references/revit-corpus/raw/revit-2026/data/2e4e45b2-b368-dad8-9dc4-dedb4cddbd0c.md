@@ -1,0 +1,1 @@
+# IPointCloudAccess.GetOffset Method

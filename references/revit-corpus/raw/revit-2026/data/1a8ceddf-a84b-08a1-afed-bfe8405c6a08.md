@@ -1,0 +1,1 @@
+# CentralFileCommunicationException Methods

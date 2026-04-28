@@ -1,0 +1,1 @@
+# RebarContainerItem.NumberOfBarPositions Property

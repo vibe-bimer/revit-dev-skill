@@ -1,0 +1,1 @@
+# ParameterTypeId.SpotElevFlipTextVert Property

@@ -1,0 +1,1 @@
+# ModelCurveArrArray Properties

@@ -1,0 +1,1 @@
+# BuiltInFailures.SiteFailures.SurfaceSelfIntersection Property

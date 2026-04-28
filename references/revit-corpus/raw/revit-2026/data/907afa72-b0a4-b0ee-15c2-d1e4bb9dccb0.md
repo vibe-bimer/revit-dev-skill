@@ -1,0 +1,1 @@
+# BuiltInFailures.AssemblyFailures.AddedElementsNotSamePhaseAsAssembly Property

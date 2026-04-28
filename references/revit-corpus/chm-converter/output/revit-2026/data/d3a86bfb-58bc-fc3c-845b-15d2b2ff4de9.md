@@ -1,0 +1,13 @@
+# ThemeChangedEventArgs Properties
+
+---  
+The [ThemeChangedEventArgs](5525aa02-cbb1-145a-07ff-cccd62ef932d.htm) type exposes the following members.
+| Name| Description  
+---|---|---  
+![Public property](../icons/pubProperty.gif)| [Cancellable](a393138a-34b5-1724-aa69-92cef651482b.htm)|  Indicates whether an event may be cancelled by an event delegate. (Inherited from [RevitAPIEventArgs](7c98499c-e345-cfda-ef89-48eccd3c9992.htm))  
+![Public property](../icons/pubProperty.gif)| [IsValidObject](35c0066a-b3dc-9d37-c79e-c29f90713b2d.htm)|  Specifies whether the .NET object represents a valid Revit entity. (Inherited from [RevitAPIEventArgs](7c98499c-e345-cfda-ef89-48eccd3c9992.htm))  
+![Public property](../icons/pubProperty.gif)| [ThemeChangedType](e109b014-663d-b479-8a74-a063edaa4fd9.htm)|  Get the application frame theme Type.   
+Top
+#### Reference
+[ThemeChangedEventArgs Class](5525aa02-cbb1-145a-07ff-cccd62ef932d.htm)
+[Autodesk.Revit.UI.Events Namespace](21d3e79a-2484-60b0-b4c6-5cf65cd96039.htm)

@@ -1,0 +1,1 @@
+# AnalysisResultSchema.Scale Property

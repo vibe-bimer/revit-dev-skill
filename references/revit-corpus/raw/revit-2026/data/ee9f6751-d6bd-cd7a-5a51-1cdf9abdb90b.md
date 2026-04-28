@@ -1,0 +1,1 @@
+# ColorFillSchemeEntry.GetDoubleValue Method

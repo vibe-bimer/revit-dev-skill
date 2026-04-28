@@ -1,0 +1,32 @@
+# CircuitNamingSchemeSettings.GetCircuitNamingSchemeSettings Method
+
+---  
+Gets the circuit naming scheme settings of the project. 
+**Namespace:** [Autodesk.Revit.DB.Electrical](212a1314-7843-2c6c-3322-363127e4059f.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public static CircuitNamingSchemeSettings GetCircuitNamingSchemeSettings(
+    	Document cda
+    )
+    
+    Public Shared Function GetCircuitNamingSchemeSettings ( 
+    	cda As Document
+    ) As CircuitNamingSchemeSettings
+    
+    public:
+    static CircuitNamingSchemeSettings^ GetCircuitNamingSchemeSettings(
+    	Document^ cda
+    )
+    
+    static member GetCircuitNamingSchemeSettings : 
+            cda : Document -> CircuitNamingSchemeSettings 
+#### Parameters
+cda [Document](db03274b-a107-aa32-9034-f3e0df4bb1ec.htm)
+     The document. 
+#### Return Value
+[CircuitNamingSchemeSettings](60f49706-88f3-d2fb-0732-b1536c6e2e82.htm) The circuit naming scheme settings of the project. 
+Exception| Condition  
+---|---  
+[ArgumentNullException](631e1424-60f4-929b-4e52-dda9dcd26316.htm)|  A non-optional argument was null   
+#### Reference
+[CircuitNamingSchemeSettings Class](60f49706-88f3-d2fb-0732-b1536c6e2e82.htm)
+[Autodesk.Revit.DB.Electrical Namespace](212a1314-7843-2c6c-3322-363127e4059f.htm)

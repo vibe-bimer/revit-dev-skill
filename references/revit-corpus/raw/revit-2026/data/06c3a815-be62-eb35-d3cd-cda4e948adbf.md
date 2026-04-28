@@ -1,0 +1,1 @@
+# PanelScheduleTemplate.IsDefault Property

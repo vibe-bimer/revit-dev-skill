@@ -1,0 +1,1 @@
+# GroupTypeId.RebarArray Property

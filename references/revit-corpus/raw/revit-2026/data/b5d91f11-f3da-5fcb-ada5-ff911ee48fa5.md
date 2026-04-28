@@ -1,0 +1,1 @@
+# IFCParameterTemplate.ExportIFCCommonPropertySets Property

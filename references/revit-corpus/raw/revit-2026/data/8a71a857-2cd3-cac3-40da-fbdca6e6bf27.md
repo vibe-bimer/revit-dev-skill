@@ -1,0 +1,1 @@
+# ExportPatternTable.Add Method

@@ -1,0 +1,33 @@
+# Element.IsPhaseDemolishedValid Method
+
+---  
+Returns true if demolishedPhaseId is an allowed value for the property DemolishedPhaseId in this Element. 
+**Namespace:** [Autodesk.Revit.DB](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public bool IsPhaseDemolishedValid(
+    	ElementId demolishedPhaseId
+    )
+    
+    Public Function IsPhaseDemolishedValid ( 
+    	demolishedPhaseId As ElementId
+    ) As Boolean
+    
+    public:
+    bool IsPhaseDemolishedValid(
+    	ElementId^ demolishedPhaseId
+    )
+    
+    member IsPhaseDemolishedValid : 
+            demolishedPhaseId : ElementId -> bool 
+#### Parameters
+demolishedPhaseId [ElementId](44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm)
+     The id of a Phase or invalidElementId. 
+#### Return Value
+Boolean True if demolishedPhaseId is an allowed value for the property DemolishedPhaseId in this Element, false otherwise. 
+Exception| Condition  
+---|---  
+[ArgumentNullException](631e1424-60f4-929b-4e52-dda9dcd26316.htm)|  A non-optional argument was null   
+Acts as a validator for setting the property DemolishedPhaseId. 
+#### Reference
+[Element Class](eb16114f-69ea-f4de-0d0d-f7388b105a16.htm)
+[Autodesk.Revit.DB Namespace](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)

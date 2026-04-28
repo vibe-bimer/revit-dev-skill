@@ -1,0 +1,23 @@
+# Mirror.MirrorTintcolor Property
+
+---  
+The property labeled "Color" from the "Mirror" schema. 
+**Namespace:** [Autodesk.Revit.DB.Visual](f5a10581-6ac2-be19-0e32-f87d05bc8b83.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public static string MirrorTintcolor { get; }
+    
+    Public Shared ReadOnly Property MirrorTintcolor As String
+    	Get
+    
+    public:
+    static property String^ MirrorTintcolor {
+    	String^ get ();
+    }
+    
+    static member MirrorTintcolor : string with get
+#### Property Value
+String
+This property is of type "AssetPropertyDoubleArray4d". This property allows a connected asset. 
+#### Reference
+[Mirror Class](33b7a72f-3540-6c87-02aa-84699737f431.htm)
+[Autodesk.Revit.DB.Visual Namespace](f5a10581-6ac2-be19-0e32-f87d05bc8b83.htm)

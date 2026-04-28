@@ -1,0 +1,1 @@
+# StructuralSectionHotRolled.WebFillet Property

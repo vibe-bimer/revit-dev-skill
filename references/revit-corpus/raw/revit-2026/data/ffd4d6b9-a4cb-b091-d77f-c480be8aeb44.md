@@ -1,0 +1,1 @@
+# AdvancedLossFactor.TemperatureLossFactor Property

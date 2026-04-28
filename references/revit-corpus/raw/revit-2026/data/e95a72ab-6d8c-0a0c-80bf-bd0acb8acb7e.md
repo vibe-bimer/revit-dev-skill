@@ -1,0 +1,1 @@
+# ExportPatternTableIterator.Reset Method

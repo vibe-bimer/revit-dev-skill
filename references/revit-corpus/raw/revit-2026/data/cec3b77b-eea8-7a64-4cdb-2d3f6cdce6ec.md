@@ -1,0 +1,1 @@
+# RebarBarType.GetAutoCalculatedLapLength Method

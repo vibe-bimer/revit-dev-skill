@@ -1,0 +1,1 @@
+# SpatialElementBoundarySubface.SubfaceArisesFromElementFace Property

@@ -1,0 +1,1 @@
+# IFCGuidKey Properties

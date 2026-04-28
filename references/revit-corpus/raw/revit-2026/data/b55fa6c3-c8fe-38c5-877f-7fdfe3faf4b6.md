@@ -1,0 +1,1 @@
+# CurveLoop.GetBasicIEnumerator Method

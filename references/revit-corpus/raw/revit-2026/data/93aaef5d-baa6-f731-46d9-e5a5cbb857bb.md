@@ -1,0 +1,1 @@
+# WireMaterialType.Name Property

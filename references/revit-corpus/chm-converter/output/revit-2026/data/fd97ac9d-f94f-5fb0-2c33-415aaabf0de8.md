@@ -1,0 +1,22 @@
+# BuiltInFailures.JoinElementsFailures.CannotKeepTrussJoined Property
+
+---  
+Can't keep the highlighted [Element]s joined. 
+**Namespace:** [Autodesk.Revit.DB](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public static FailureDefinitionId CannotKeepTrussJoined { get; }
+    
+    Public Shared ReadOnly Property CannotKeepTrussJoined As FailureDefinitionId
+    	Get
+    
+    public:
+    static property FailureDefinitionId^ CannotKeepTrussJoined {
+    	FailureDefinitionId^ get ();
+    }
+    
+    static member CannotKeepTrussJoined : FailureDefinitionId with get
+#### Property Value
+[FailureDefinitionId](b6ada360-a6fe-ebb6-b095-d74b37ade9bf.htm)
+#### Reference
+[BuiltInFailuresJoinElementsFailures Class](2d7e4353-c24a-38d5-f3aa-3cbc2cb92698.htm)
+[Autodesk.Revit.DB Namespace](87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm)

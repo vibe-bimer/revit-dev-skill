@@ -1,0 +1,1 @@
+# GroupType.GetAvailableAttachedDetailGroupTypeIds Method

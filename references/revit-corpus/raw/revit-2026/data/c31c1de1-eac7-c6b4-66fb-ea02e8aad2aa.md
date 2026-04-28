@@ -1,0 +1,1 @@
+# ImporterIFC Properties

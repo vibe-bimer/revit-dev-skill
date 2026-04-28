@@ -1,0 +1,1 @@
+# BuiltInFailures.AutoRouteFailures.ZeroLengthSegmentWarning Property

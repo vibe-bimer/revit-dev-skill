@@ -1,0 +1,51 @@
+# Entity.Set<FieldType>(Field, FieldType) Method
+
+---  
+Stores the value of the field in the entity. 
+**Namespace:** [Autodesk.Revit.DB.ExtensibleStorage](79486a74-376c-9555-c873-45d5a750f051.htm)**Assembly:** RevitAPI (in RevitAPI.dll) Version: 26.0.4.0 (26.0.4.0)
+    
+    public void Set<FieldType>(
+    	Field field,
+    	FieldType value
+    )
+    
+    
+    Public Sub Set(Of FieldType) ( 
+    	field As Field,
+    	value As FieldType
+    )
+    
+    public:
+    generic<typename FieldType>
+    void Set(
+    	Field^ field, 
+    	FieldType value
+    )
+    
+    member Set : 
+            field : Field * 
+            value : 'FieldType -> unit 
+#### Parameters
+field [Field](0aeabd09-5c61-0439-e4c7-e1d68d0e1a3b.htm)
+     The field to update. 
+value FieldType
+    
+#### Type Parameters
+FieldType
+     The type of the field 
+Exception| Condition  
+---|---  
+[ArgumentNullException](631e1424-60f4-929b-4e52-dda9dcd26316.htm)|  A non-optional argument was NULL   
+[InvalidOperationException](9e715f03-3884-e539-4dd6-8d7545733adc.htm)|  The Field belongs to a different Schema from this Entity, or this Entity is invalid.   
+[ArgumentException](2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm)|  Requested type does not match the field type.   
+[ArgumentException](2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm)|  For floating-point fields, use the overload taking a ForgeTypeId parameter.   
+[ArgumentException](2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm)|  This field's subschema prevents writing.   
+[ArgumentException](2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm)|  Invalid floating-point value.   
+[ArgumentException](2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm)|  String is too long; exceeds max length of 16mb characters.   
+The template parameter must match the type of the field (specified when creating the Schema) exactly; this method does not perform data type conversions. The types for containers are IList for arrays and IDictionary for maps. 
+Note that when string values are specified as map keys, they are case-insensitive. 
+This method only modifies your copy of the Entity. Store the Entity in an element or another Entity to save the new value. Write access check is not performed on each call to Set. Instead, write access is checked when you try to save the Entity in an Element or another Entity. 
+#### Reference
+[Entity Class](cf17f0e8-33bd-ef95-bf4b-e6298406f29b.htm)
+[Set Overload](ca7fbcad-94aa-40a0-f77d-1f78c5ecf705.htm)
+[Autodesk.Revit.DB.ExtensibleStorage Namespace](79486a74-376c-9555-c873-45d5a750f051.htm)

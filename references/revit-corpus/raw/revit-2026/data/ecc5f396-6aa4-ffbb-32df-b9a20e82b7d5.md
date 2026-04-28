@@ -1,0 +1,1 @@
+# Document.AcquireCoordinates Method

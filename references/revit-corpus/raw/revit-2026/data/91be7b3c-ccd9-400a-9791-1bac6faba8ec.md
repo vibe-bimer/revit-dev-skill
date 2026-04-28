@@ -1,0 +1,1 @@
+# ModelCurveArray.Size Property

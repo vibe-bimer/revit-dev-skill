@@ -1,0 +1,1 @@
+# PipeFittingAndAccessoryConnectorData.GetCoordination Method

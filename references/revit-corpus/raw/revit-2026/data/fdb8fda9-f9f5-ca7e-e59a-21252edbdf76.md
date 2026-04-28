@@ -1,0 +1,1 @@
+# VoltageType.IsInUse Property

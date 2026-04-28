@@ -1,0 +1,1 @@
+# BuiltInFailures.RebarFailures.RebarEndTreatmentOverCrank Property

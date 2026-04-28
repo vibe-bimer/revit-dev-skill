@@ -1,0 +1,1 @@
+# IFCGeometryInfo.GetCurves Method

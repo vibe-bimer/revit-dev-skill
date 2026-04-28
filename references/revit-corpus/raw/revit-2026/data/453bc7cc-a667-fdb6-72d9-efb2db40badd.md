@@ -1,0 +1,1 @@
+# MassLevelData.IsValidConceptualConstructionTypeElement Method

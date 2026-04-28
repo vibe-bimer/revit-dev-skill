@@ -1,0 +1,1 @@
+# FabricationPartCompareType Enumeration

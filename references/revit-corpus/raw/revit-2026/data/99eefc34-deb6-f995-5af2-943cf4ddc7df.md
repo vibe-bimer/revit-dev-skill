@@ -1,0 +1,1 @@
+# BuiltInFailures.StairRampFailures.AntiparallelRampRisers Property

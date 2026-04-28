@@ -1,0 +1,1 @@
+# CompoundStructure.IsValidSegmentId Method

@@ -1,0 +1,1 @@
+# IndexStream.IsValidObject Property

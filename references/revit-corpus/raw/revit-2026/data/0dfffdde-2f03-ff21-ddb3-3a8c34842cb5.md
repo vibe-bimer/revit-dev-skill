@@ -1,0 +1,1 @@
+# PanelScheduleView.RemoveSpace Method

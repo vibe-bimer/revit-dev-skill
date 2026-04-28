@@ -1,0 +1,1 @@
+# LightDistribution.IsValidObject Property

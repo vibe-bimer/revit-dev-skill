@@ -1,0 +1,1 @@
+# ExternalResourceBrowserData.IsValidObject Property
