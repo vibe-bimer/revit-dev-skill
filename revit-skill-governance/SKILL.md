@@ -124,6 +124,7 @@ When updating the skills:
      - RFC1918 私网 IP 字面量拦截
      - `sshpass -p '<WINDOWS_PASSWORD>'` 明文口令拦截（仅允许 `***` / `<WINDOWS_PASSWORD>` / `${WINDOWS_PASSWORD}`）
      - `oauth2:${GITLAB_TOKEN}@` URL 凭据拦截（仅允许占位符）
+   - 扫描范围优先 `*.md/*.html/*.yml/*.yaml` 文档层，避免把 guard 自身脚本中的检测正则当成违规命中（self-trigger）。
 5. **本地提交门禁（强制）**
    - 安装 pre-commit：`bash scripts/install-precommit.sh <skills-root>`
    - 验证：`<skills-root>/.git/hooks/pre-commit` 存在且可执行。
