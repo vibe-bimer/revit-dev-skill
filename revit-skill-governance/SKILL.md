@@ -161,11 +161,14 @@ When the task is **reviewing or editing code/scripts** in this repo (including `
    - 发布后同时执行 `git push origin main` 与 `git push github main`，避免只在单端更新。
    - 若 GitHub 用户名或组织名变更，先 `git remote -v` 检查是否出现 `has moved` 提示，再 `git remote set-url github <new-url>`。
    - 推送后用 `git ls-remote --heads origin` 与 `git ls-remote --heads github` 双端核对 `main` 指向一致。
-9. **大体量引用资料入库门禁（新增）**
-   - 在把 `references/revit-api`、`references/revit-corpus` 这类资料整体复制进 skill 仓库前，先检查是否包含嵌套 git 仓库（如 `chm-converter/.git`）与超大文件（尤其 `*.db`、索引文件）。
-   - 命中嵌套仓库时，默认禁止直接提交 `160000` gitlink；要么移除 `.git` 后当普通目录入库，要么明确改成正式 submodule 并在 README 说明拉取方式。
-   - 命中大文件时（接近或超过 GitHub 50MB 建议阈值），默认优先三选一：`git lfs`、发布工件外链、或在仓库中仅保留最小索引并给下载脚本。
-   - 任何一次“大规模拷贝入库”都要在提交说明里写清：数据来源、体积、是否可复现、后续更新策略。
+9. **引用资料单向镜像同步（日常维护）**
+   - 适用场景：`references/` 里的 Revit API/Wiki 资料来自外部维护仓，需要每天同步到 skill 仓但不反向写回。
+   - 推荐脚本：`~/.hermes/scripts/sync-revit-references.sh`，使用 `rsync -a --delete` 从源仓镜像到 `~/.hermes/skills/revit/references/`。
+   - 同步时必须排除 git 元数据：`--exclude='.git/' --exclude='.gitmodules' --exclude='.gitattributes'`，并在同步后二次清理目标中的残留 `.git` 目录。
+   - 验收命令：
+     - `git ls-files --stage | awk '$1==160000{print $4}'` 应为空（无 gitlink）
+     - `find references -type d -name .git` 应为空（无嵌套仓）
+   - 定时任务建议：每天一次 cron，任务 prompt 内通过 `bash ~/.hermes/scripts/sync-revit-references.sh` 执行（不要用 cron `script` 字段直接跑 `.sh`）。
 
 ## High-value drift patterns to search for
 
