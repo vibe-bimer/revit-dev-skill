@@ -327,7 +327,7 @@ GitLab CE 在 Unraid Docker 上内存 15.7GB/16GB (98%) 易 OOM，Puma 无响应
 sandbox（openclaw VM）挂载在 Unraid br1 上，但 Docker 回包路由走 br0，造成路由不对称导致 RST。
 - 症状：TCP 握手成功，HTTP 请求后立即 RST。所有 Docker 映射端口都受影响（非 Docker 端口如 SSH 22 正常）
 - 诊断：`ip route get ${DEV_HOST}` 显示走 br0 而不是 br1
-- 修复：`ip route add ${DEV_HOST}/32 dev br1 src ${UNRAID_BR1_SRC}`
+- 修复：`ip route add ${DEV_HOST}/32 dev br1`
 - 持久化：写入 `/boot/config/go` 末尾
 - 根本方案：将 openclaw VM 网络从 br1 改为 br0（Unraid WebGUI → VMs → 编辑）
 

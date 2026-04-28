@@ -512,7 +512,7 @@ ssh root@${GITLAB_HOST} "docker restart gitlab"
 ssh Administrator@${REVIT_WINDOWS_HOST} "cd C:/Projects/SuperRoky && git checkout -- . && git clean -fd && git fetch origin && git reset --hard origin/main"
 
 # Unraid Docker 端口 RST（sandbox → Unraid Docker 端口不通）→ 加路由
-ssh root@${GITLAB_HOST} "ip route add ${DEV_HOST}/32 dev br1 src ${UNRAID_BR1_SRC}"
+ssh root@${GITLAB_HOST} "ip route add ${DEV_HOST}/32 dev br1"
 ```
 
 > ⚠️ **绝对禁止 git 失败后手动 scp 覆盖文件继续编译。** 这会导致 Windows git 状态污染，后续 pull 被 reject。

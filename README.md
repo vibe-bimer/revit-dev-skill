@@ -79,7 +79,6 @@ Use placeholders in committed files only, such as:
 - `${REVIT_WINDOWS_HOST}`
 - `${GITLAB_HOST}`
 - `${DEV_HOST}`
-- `${UNRAID_BR1_SRC}`
 - `<WINDOWS_PASSWORD>`
 - `<GITLAB_TOKEN>`
 - `***`
@@ -115,7 +114,6 @@ Fill real values in `~/.config/revit-skill.env`.
 | `REVIT_WINDOWS_HOST` | Windows build host IP/hostname |
 | `GITLAB_HOST` | GitLab server IP/hostname |
 | `DEV_HOST` | Development network host |
-| `UNRAID_BR1_SRC` | Unraid bridge source address |
 | `WINDOWS_USER` | Windows SSH username |
 | `WINDOWS_PASSWORD` | Windows SSH password |
 | `GITLAB_TOKEN` | GitLab access token |

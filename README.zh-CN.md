@@ -111,7 +111,6 @@ scripts/use-private-env.sh <你的命令>
 - `${REVIT_WINDOWS_HOST}`
 - `${GITLAB_HOST}`
 - `${DEV_HOST}`
-- `${UNRAID_BR1_SRC}`
 - `<WINDOWS_PASSWORD>`
 - `<GITLAB_TOKEN>`
 - `***`
@@ -149,7 +148,6 @@ chmod 600 ~/.config/revit-skill.env
 | `REVIT_WINDOWS_HOST` | Windows 构建主机 IP/主机名 |
 | `GITLAB_HOST` | GitLab 服务器 IP/主机名 |
 | `DEV_HOST` | 开发网络主机 |
-| `UNRAID_BR1_SRC` | Unraid 桥接源地址 |
 | `WINDOWS_USER` | Windows SSH 用户名 |
 | `WINDOWS_PASSWORD` | Windows SSH 密码 |
 | `GITLAB_TOKEN` | GitLab 访问令牌 |
