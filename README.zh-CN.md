@@ -1,5 +1,9 @@
 # Revit 开发技能包（中文说明）
 
+![Revit 二次开发工作流架构图（中文）](./references/workflow-architecture-zh.jpg)
+
+> 整体工作流架构图（中文）。
+
 默认文档为英文版：[README.md](./README.md)。
 本文件是完整中文说明，覆盖使用方式、配置方法、机制流程和引用关系。
 
@@ -284,3 +288,12 @@ bash scripts/check-revit-skill-guard.sh .
 ---
 
 如需英文详细说明，请查看 [README.md](./README.md)。
+
+---
+
+## 10. 上游基础仓库引用说明
+
+本技能包在工作流与实践上引用了以下上游仓库作为基础：
+
+- [scotec-Software-Solutions-AB/Bim.FamilyManager](https://github.com/scotec-Software-Solutions-AB/Bim.FamilyManager)
+- [Nice3point/RevitExtensions](https://github.com/Nice3point/RevitExtensions)

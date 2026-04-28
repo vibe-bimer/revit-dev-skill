@@ -1,5 +1,9 @@
 # Revit Dev Skill Pack
 
+![Revit Workflow Architecture (EN)](./references/workflow-architecture-en.jpg)
+
+> Full workflow architecture diagram (English).
+
 Default language: English. Chinese version: [README.zh-CN.md](./README.zh-CN.md).
 
 This repository is a publish-safe skill pack for AI-assisted Revit secondary development.
@@ -238,3 +242,12 @@ If your platform has no runner, local pre-commit + manual guard is still a compl
 4. No private values in committed files
 
 For Chinese full documentation, see [README.zh-CN.md](./README.zh-CN.md).
+
+---
+
+## 10) Upstream foundation repositories
+
+This skill pack references and builds on practices/components from the following upstream repositories:
+
+- [scotec-Software-Solutions-AB/Bim.FamilyManager](https://github.com/scotec-Software-Solutions-AB/Bim.FamilyManager)
+- [Nice3point/RevitExtensions](https://github.com/Nice3point/RevitExtensions)
