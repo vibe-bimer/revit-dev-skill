@@ -128,6 +128,7 @@ When updating the skills:
 5. **本地提交门禁（强制）**
    - 安装 pre-commit：`bash scripts/install-precommit.sh <skills-root>`
    - 验证：`<skills-root>/.git/hooks/pre-commit` 存在且可执行。
+   - 实现细节：安装脚本里先 `cd <skills-root>` 再 `git rev-parse --git-path hooks/pre-commit`，避免 `git -C` + 相对 hook 路径导致 hook 写到错误目录。
 6. **发布前必跑**
    - `bash scripts/check-revit-skill-guard.sh <skills-root>` 通过后再发布。
 7. **本地私有环境加载（不入库）**
