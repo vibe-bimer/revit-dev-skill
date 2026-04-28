@@ -125,7 +125,7 @@ Fill real values in `~/.config/revit-skill.env`.
 
 ### Path portability (important)
 
-Some skill examples include canonical local paths (for example `/home/roky/...`).
+Some skill examples include canonical local paths (for example `~/...`).
 Treat them as **reference layouts**, not hard requirements.
 
 For other Hermes users, map those paths to your own environment:

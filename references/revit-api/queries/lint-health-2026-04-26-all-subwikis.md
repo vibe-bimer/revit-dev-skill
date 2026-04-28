@@ -9,7 +9,7 @@ sources: [local]
 
 # Lint Health Report — revit-api (2026-04-26)
 
-- Wiki root: `/home/roky/roky-wiki/revit-api`
+- Wiki root: `${REVIT_API_WIKI_PATH}`
 - Taxonomy tags: `0`
 - Total pages: `34`
 

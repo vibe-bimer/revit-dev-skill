@@ -13,9 +13,9 @@ confidence: high
 本页定义 Revit 二次开发 AI 工作流的检索路径与语料位置。
 
 ## 语料位置
-- Raw corpus: `/home/roky/revit-corpus/raw/revit-2026/`
-- CHM converter corpus: `/home/roky/revit-corpus/chm-converter/output/revit-2026/`
-- Machine index: `/home/roky/revit-corpus/index/`
+- Raw corpus: `${REVIT_CORPUS_PATH}/raw/revit-2026/`
+- CHM converter corpus: `${REVIT_CORPUS_PATH}/chm-converter/output/revit-2026/`
+- Machine index: `${REVIT_CORPUS_PATH}/index/`
   - `symbol_index.jsonl`
   - `fts.db`
   - `chunk_map.jsonl`

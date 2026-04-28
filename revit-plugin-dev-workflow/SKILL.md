@@ -28,7 +28,7 @@ linked_files:
 > ~/.hermes/skills/revit/scripts/use-private-env.sh <command>
 > ```
 >
-> 路径说明：文中若出现 `/home/roky/...`，按本机路径等价替换，不影响工作流逻辑。
+> 路径说明：文中若出现 `~/...`，按本机路径等价替换，不影响工作流逻辑。
 
 0) 对照架构图：先过 `references/revit-workflow-topology.*`（拓扑）+ `references/revit-workflow-sop.*`（SOP 门禁），确认本次插件线、同步链路、门禁口径
 1) 选插件线：SuperRoky（.NET 8/Nice3point）或 FmRoky（.NET 10/Scotec）
