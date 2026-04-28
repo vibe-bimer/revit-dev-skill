@@ -1,0 +1,17 @@
+{
+  "skill_name": "revit-coding-patterns",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Group 阶段修改功能里，Phase 排序应该怎么做？",
+      "expected_output": "会说明数字阶段名按数值排序，非数字阶段名按 FilteredElementCollector 返回顺序，明确禁止按 Id.Value 作为业务排序。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "WPF 后台线程里更新 ObservableProperty 为什么会炸？",
+      "expected_output": "会指出 PropertyChanged 跨线程问题，并给出 Dispatcher 切回 UI 线程的模式。",
+      "files": []
+    }
+  ]
+}

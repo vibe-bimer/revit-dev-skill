@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Revit workflow ppt slide">
+      <defs>
+        <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#0ea5e9"/></marker>
+        <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#10b981"/></marker>
+        <marker id="arrow-amber" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#f59e0b"/></marker>
+        <marker id="arrow-rose" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#f43f5e"/></marker>
+        <marker id="arrow-gray" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#64748b"/></marker>
+        <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#94a3b8" flood-opacity="0.18"/>
+        </filter>
+      </defs>
+
+      <rect x="0" y="0" width="1600" height="900" rx="24" fill="#f8fbff"/>
+      <rect x="18" y="18" width="1564" height="864" rx="20" fill="#ffffff" stroke="#dbe7ff" stroke-width="1.2"/>
+
+      <!-- Title band -->
+      <rect x="40" y="36" width="1520" height="82" rx="18" fill="linear-gradient(90deg,#eff6ff,#f8fbff)" stroke="#dbe7ff"/>
+      <text x="64" y="74" fill="#0f172a" font-size="18" font-weight="700">Revit 工作流主链路</text>
+      <text x="64" y="98" fill="#64748b" font-size="11">需求 → 知识检索 → 受控编码审查 → Ubuntu 提交 → GitLab 同步 → Windows 构建部署 → Revit 验证</text>
+
+      <!-- Top flow cards -->
+      <g filter="url(#shadow)">
+        <rect x="50" y="150" width="170" height="90" rx="16" fill="#ffffff" stroke="#cbd5e1"/>
+        <text x="135" y="184" text-anchor="middle" fill="#0f172a" font-size="16" font-weight="700">Roky</text>
+        <text x="135" y="208" text-anchor="middle" fill="#64748b" font-size="11">Feishu DM</text>
+      </g>
+      <g filter="url(#shadow)">
+        <rect x="250" y="135" width="230" height="120" rx="16" fill="#ffffff" stroke="#0ea5e9"/>
+        <text x="365" y="170" text-anchor="middle" fill="#0f172a" font-size="16" font-weight="700">Hermes</text>
+        <text x="365" y="194" text-anchor="middle" fill="#64748b" font-size="11">需求分析 / Wiki / Spec</text>
+        <text x="365" y="214" text-anchor="middle" fill="#64748b" font-size="11">触发 build / 审核门禁</text>
+      </g>
+      <g filter="url(#shadow)">
+        <rect x="520" y="135" width="230" height="120" rx="16" fill="#ffffff" stroke="#10b981"/>
+        <text x="635" y="170" text-anchor="middle" fill="#0f172a" font-size="16" font-weight="700">Claude Code</text>
+        <text x="635" y="194" text-anchor="middle" fill="#64748b" font-size="11">编码 + 代码审查</text>
+        <text x="635" y="214" text-anchor="middle" fill="#64748b" font-size="11">仅受控委托</text>
+      </g>
+      <g filter="url(#shadow)">
+        <rect x="790" y="135" width="230" height="120" rx="16" fill="#ffffff" stroke="#f59e0b"/>
+        <text x="905" y="170" text-anchor="middle" fill="#0f172a" font-size="16" font-weight="700">Ubuntu Workspace</text>
+        <text x="905" y="194" text-anchor="middle" fill="#64748b" font-size="11">~/revit-plugin-dev</text>
+        <text x="905" y="214" text-anchor="middle" fill="#64748b" font-size="11">git push 源头 / build.sh</text>
+      </g>
+      <g filter="url(#shadow)">
+        <rect x="1060" y="135" width="230" height="120" rx="16" fill="#ffffff" stroke="#8b5cf6"/>
+        <text x="1175" y="170" text-anchor="middle" fill="#0f172a" font-size="16" font-weight="700">GitLab CE</text>
+        <text x="1175" y="194" text-anchor="middle" fill="#64748b" font-size="11">source hub / sync hub</text>
+        <text x="1175" y="214" text-anchor="middle" fill="#64748b" font-size="11">Runner 目标态</text>
+      </g>
+      <g filter="url(#shadow)">
+        <rect x="1330" y="135" width="220" height="120" rx="16" fill="#ffffff" stroke="#f59e0b"/>
+        <text x="1440" y="170" text-anchor="middle" fill="#0f172a" font-size="16" font-weight="700">Windows Build Host</text>
+        <text x="1440" y="194" text-anchor="middle" fill="#64748b" font-size="11">build + deploy</text>
+        <text x="1440" y="214" text-anchor="middle" fill="#64748b" font-size="11">只 pull，不 push</text>
+      </g>
+
+      <!-- Middle row -->
+      <g filter="url(#shadow)">
+        <rect x="250" y="310" width="320" height="110" rx="16" fill="#ffffff" stroke="#8b5cf6"/>
+        <text x="410" y="342" text-anchor="middle" fill="#0f172a" font-size="16" font-weight="700">Knowledge Base</text>
+        <text x="410" y="366" text-anchor="middle" fill="#64748b" font-size="11">~/wiki-revit / entities / GBrain</text>
+        <text x="410" y="386" text-anchor="middle" fill="#10b981" font-size="11">查 Wiki 后再写代码</text>
+      </g>
+      <g filter="url(#shadow)">
+        <rect x="730" y="310" width="360" height="110" rx="16" fill="#ffffff" stroke="#10b981" stroke-dasharray="6,4"/>
+        <text x="910" y="342" text-anchor="middle" fill="#10b981" font-size="16" font-weight="700">Target CI/CD</text>
+        <text x="910" y="366" text-anchor="middle" fill="#64748b" font-size="11">Runner → build → test → deploy</text>
+        <text x="910" y="386" text-anchor="middle" fill="#64748b" font-size="11">替代纯手工 build.sh</text>
+      </g>
+      <g filter="url(#shadow)">
+        <rect x="1130" y="300" width="420" height="130" rx="16" fill="#ffffff" stroke="#f59e0b"/>
+        <text x="1340" y="334" text-anchor="middle" fill="#0f172a" font-size="16" font-weight="700">Revit Add-ins 2026 → Revit 2026 Smoke Test</text>
+        <text x="1340" y="358" text-anchor="middle" fill="#64748b" font-size="11">DLL / icon / config / smoke test</text>
+        <text x="1340" y="378" text-anchor="middle" fill="#64748b" font-size="11">启动 → 加载 → 点击验证</text>
+        <text x="1340" y="398" text-anchor="middle" fill="#f59e0b" font-size="11">手工 smoke 是当前验证方式</text>
+      </g>
+
+      <!-- Bottom governance cards -->
+      <g filter="url(#shadow)">
+        <rect x="50" y="495" width="470" height="320" rx="18" fill="#fff7f7" stroke="#f43f5e"/>
+        <text x="285" y="530" text-anchor="middle" fill="#f43f5e" font-size="16" font-weight="700">10 条红线总览</text>
+        <line x1="82" y1="548" x2="488" y2="548" stroke="#fecdd3"/>
+        <g font-size="11" fill="#334155">
+          <text x="80" y="580">1. 需求先过 spec 闸门</text>
+          <text x="80" y="606">2. Hermes 不直接改源码</text>
+          <text x="80" y="632">3. 手动 commit 优先，auto-commit 限 2 次</text>
+          <text x="80" y="658">4. SuperRoky 只走 build.sh</text>
+          <text x="80" y="684">5. FmRoky 只走 build-fmroky.sh</text>
+          <text x="80" y="710">6. git 失败立即中止</text>
+          <text x="80" y="736">7. 默认禁止 scp 绕过</text>
+          <text x="80" y="762">8. 写代码前先查 Wiki/API</text>
+          <text x="80" y="788">9. 图标三处同步</text>
+        </g>
+        <text x="285" y="822" text-anchor="middle" fill="#f43f5e" font-size="11" font-weight="700">10. 修完 bug 要回收踩坑</text>
+      </g>
+
+      <g filter="url(#shadow)">
+        <rect x="560" y="495" width="470" height="320" rx="18" fill="#fffaf0" stroke="#f59e0b"/>
+        <text x="795" y="530" text-anchor="middle" fill="#f59e0b" font-size="16" font-weight="700">P0 / P1 / P2 治理分区</text>
+        <line x1="592" y1="548" x2="998" y2="548" stroke="#fde68a"/>
+        <text x="592" y="585" fill="#f43f5e" font-size="12" font-weight="700">P0</text>
+        <text x="628" y="585" fill="#334155" font-size="11">阻断发布：Runner 缺失 / build 失败 / DLL 锁 / git 断链</text>
+        <text x="592" y="625" fill="#f59e0b" font-size="12" font-weight="700">P1</text>
+        <text x="628" y="625" fill="#334155" font-size="11">高优先级：无 spec / commit 破窗 / 无自动测试 / 手工 smoke 过多</text>
+        <text x="592" y="665" fill="#0ea5e9" font-size="12" font-weight="700">P2</text>
+        <text x="628" y="665" fill="#334155" font-size="11">优化项：文档结构 / 知识库索引 / 图表排版 / 分支治理</text>
+        <rect x="592" y="700" width="406" height="84" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+        <text x="795" y="730" text-anchor="middle" fill="#475569" font-size="11">原则：问题挂回受影响模块，不要堆成孤岛</text>
+        <text x="795" y="752" text-anchor="middle" fill="#475569" font-size="11">目标：从人工救火转向门禁治理</text>
+        <text x="795" y="774" text-anchor="middle" fill="#475569" font-size="11">落地：Runner / spec / 审计 / smoke / 归档</text>
+      </g>
+
+      <g filter="url(#shadow)">
+        <rect x="1050" y="495" width="500" height="320" rx="18" fill="#f0fdf4" stroke="#10b981"/>
+        <text x="1300" y="530" text-anchor="middle" fill="#10b981" font-size="16" font-weight="700">当前态 → 目标态</text>
+        <line x1="1082" y1="548" x2="1518" y2="548" stroke="#bbf7d0"/>
+        <text x="1082" y="585" fill="#334155" font-size="11">当前：Hermes 编排 + Claude Code 受控委托 + Windows 手工 smoke</text>
+        <text x="1082" y="625" fill="#334155" font-size="11">当前：GitLab 仅做 sync hub，无 Runner</text>
+        <text x="1082" y="665" fill="#334155" font-size="11">目标：Runner 触发 build / test / deploy / notify</text>
+        <text x="1082" y="705" fill="#334155" font-size="11">目标：spec 落地到 docs/plans，commit 语义化恢复</text>
+        <text x="1082" y="745" fill="#334155" font-size="11">目标：问题面板可追踪，红线变成可审计门禁</text>
+        <rect x="1082" y="770" width="436" height="32" rx="10" fill="#ffffff" stroke="#d1fae5"/>
+        <text x="1300" y="791" text-anchor="middle" fill="#10b981" font-size="11">这是目标架构层，不是今天已经完全落地的现实</text>
+      </g>
+
+      <!-- Arrows -->
+      <line x1="220" y1="195" x2="248" y2="195" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow-blue)"/>
+      <text x="234" y="184" text-anchor="middle" fill="#64748b" font-size="10">需求</text>
+
+      <line x1="480" y1="195" x2="518" y2="195" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow-blue)"/>
+      <text x="499" y="184" text-anchor="middle" fill="#64748b" font-size="10">spec</text>
+
+      <line x1="750" y1="195" x2="788" y2="195" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-green)"/>
+      <text x="769" y="184" text-anchor="middle" fill="#64748b" font-size="10">delegate</text>
+
+      <line x1="1020" y1="195" x2="1058" y2="195" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+      <text x="1039" y="184" text-anchor="middle" fill="#f59e0b" font-size="10">push</text>
+
+      <line x1="1290" y1="195" x2="1328" y2="195" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+      <text x="1309" y="184" text-anchor="middle" fill="#f59e0b" font-size="10">pull / build</text>
+
+      <line x1="1440" y1="255" x2="1440" y2="298" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/>
+      <text x="1454" y="280" fill="#f59e0b" font-size="10">deploy</text>
+
+      <path d="M 365 255 L 365 300" fill="none" stroke="#8b5cf6" stroke-width="2" marker-end="url(#arrow-gray)"/>
+      <path d="M 635 255 L 635 300" fill="none" stroke="#8b5cf6" stroke-width="2" marker-end="url(#arrow-gray)"/>
+      <text x="500" y="286" text-anchor="middle" fill="#8b5cf6" font-size="10">wiki / query</text>
+
+      <line x1="910" y1="255" x2="910" y2="300" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-green)"/>
+      <text x="924" y="279" fill="#10b981" font-size="10">CI/CD</text>
+
+      <line x1="1150" y1="430" x2="1150" y2="490" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-green)"/>
+      <text x="1164" y="465" fill="#10b981" font-size="10">pipeline</text>
+
+      <line x1="1440" y1="430" x2="1440" y2="490" stroke="#64748b" stroke-width="2" marker-end="url(#arrow-gray)"/>
+      <text x="1454" y="465" fill="#64748b" font-size="10">smoke</text>
+
+      <line x1="300" y1="420" x2="300" y2="494" stroke="#f43f5e" stroke-width="2" marker-end="url(#arrow-rose)"/>
+      <line x1="1470" y1="430" x2="1470" y2="494" stroke="#f43f5e" stroke-width="2" marker-end="url(#arrow-rose)"/>
+
+      <!-- Legend -->
+      <text x="40" y="865" fill="#0f172a" font-size="12" font-weight="700">图例</text>
+      <line x1="80" y1="864" x2="108" y2="864" stroke="#0ea5e9" stroke-width="2" marker-end="url(#arrow-blue)"/><text x="118" y="868" fill="#475569" font-size="11">控制流 / 需求</text>
+      <line x1="260" y1="864" x2="288" y2="864" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-green)"/><text x="298" y="868" fill="#475569" font-size="11">Agent / CI-CD</text>
+      <line x1="430" y1="864" x2="458" y2="864" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-amber)"/><text x="468" y="868" fill="#475569" font-size="11">Git push/pull / build / deploy</text>
+      <line x1="690" y1="864" x2="718" y2="864" stroke="#f43f5e" stroke-width="2" marker-end="url(#arrow-rose)"/><text x="728" y="868" fill="#f43f5e" font-size="11">阻塞 / 问题</text>
+      <line x1="850" y1="864" x2="878" y2="864" stroke="#64748b" stroke-width="2" marker-end="url(#arrow-gray)"/><text x="888" y="868" fill="#475569" font-size="11">引用 / 查询 / smoke</text>
+    </svg>

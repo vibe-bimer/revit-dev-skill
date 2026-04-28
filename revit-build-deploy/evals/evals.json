@@ -1,0 +1,17 @@
+{
+  "skill_name": "revit-build-deploy",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "SuperRoky 改完了，帮我从 Ubuntu 推到 GitLab，再让 Windows pull、build、deploy。",
+      "expected_output": "会引用 build.sh 主流程，强调 sync 失败即中止，不会建议手搓 scp 覆盖。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "GitLab 挂了，先给我一个紧急发布方案。",
+      "expected_output": "只会把 scp 直传当作 break-glass 附录，要求用户明确批准并补审计。",
+      "files": []
+    }
+  ]
+}

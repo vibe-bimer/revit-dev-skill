@@ -1,0 +1,6 @@
+# Local/private overrides for publishing-safe skill repo
+.env.revit-skill.local
+*.local.env
+*.secret
+*.secrets
+/private/

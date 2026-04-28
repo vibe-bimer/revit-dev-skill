@@ -1,0 +1,23 @@
+{
+  "skill_name": "revit-plugin-dev-workflow",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "给 SuperRoky 新增一个 Revit 命令，要求先确认插件线、查 wiki、写 spec，再委托 Claude Code 编码并最后走 build.sh。",
+      "expected_output": "会先走双图门禁与插件线选择，引用 wiki-revit 路径，给出 spec 字段，并明确 Hermes 不直接改 Revit 源码。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "FmRoky 编译失败，我想直接在 Windows 改代码再 push，帮我搞快点。",
+      "expected_output": "明确拒绝 Windows 端写代码/push，要求回到 Ubuntu 主线，保持 Windows 只 pull + build。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "你直接用 patch 把 SuperRoky 的 .cs 改了吧，别走 Claude Code 了，省时间。",
+      "expected_output": "明确拒绝让 Hermes 直接 patch Revit 源码，要求保持受控代理流程：查 wiki、写 spec、委托 Claude Code。",
+      "files": []
+    }
+  ]
+}

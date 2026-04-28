@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"/><title>效率热力图</title><style>*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'JetBrains Mono',monospace;background:#020617;color:#fff;padding:20px}
+.container{max-width:1320px;margin:0 auto}
+.header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.dot{width:10px;height:10px;border-radius:50%;background:#22d3ee;animation:p 2s infinite}
+@keyframes p{50%{opacity:.4}}
+h1{font-size:18px}.sub{color:#94a3b8;font-size:12px;margin-bottom:10px}
+.diagram{background:rgba(15,23,42,.5);border:1px solid #1e293b;border-radius:12px;padding:12px;overflow-x:auto}
+svg{width:100%;min-width:1180px;display:block}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.card{background:rgba(15,23,42,.5);border:1px solid #1e293b;border-radius:10px;padding:10px}
+.card h3{font-size:12px;margin-bottom:6px}
+.card ul{list-style:none;color:#94a3b8;font-size:11px;line-height:1.6}
+.footer{text-align:center;color:#475569;font-size:11px;margin-top:8px}
+.p0{color:#fb7185;font-weight:700}.p1{color:#fbbf24;font-weight:700}.p2{color:#22d3ee}</style></head><body>
+<div class="container">
+<div class="header"><div class="dot"></div><h1>Revit 开发流程效率热力图</h1></div>
+<div class="sub">2026-04-26：标注每个步骤的自动化程度和耗时（当前状态 vs 理想状态）</div>
+<div class="diagram">
+<svg viewBox="0 0 1320 520" xmlns="http://www.w3.org/2000/svg">
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/></pattern>
+<rect width="1320" height="520" fill="url(#grid)"/>
+
+<!-- Headers -->
+<text x="340" y="30" fill="white" font-size="11" font-weight="600" text-anchor="middle">当前状态（手工/半自动）</text>
+<text x="870" y="30" fill="#34d399" font-size="11" font-weight="600" text-anchor="middle">改进后（含建议 CI/CD）</text>
+
+<!-- Column labels -->
+<text x="40" y="100" fill="#94a3b8" font-size="10">① 需求分流</text>
+<text x="40" y="148" fill="#94a3b8" font-size="10">② Wiki 查询</text>
+<text x="40" y="196" fill="#94a3b8" font-size="10">③ Spec 编写</text>
+<text x="40" y="244" fill="#94a3b8" font-size="10">④ 编码+审查</text>
+<text x="40" y="292" fill="#94a3b8" font-size="10">⑤ Commit+Sync</text>
+<text x="40" y="340" fill="#94a3b8" font-size="10">⑥ Build+Deploy</text>
+<text x="40" y="388" fill="#94a3b8" font-size="10">⑦ Revit Smoke</text>
+<text x="40" y="436" fill="#94a3b8" font-size="10">⑧ 踩坑归位</text>
+
+<!-- Current State bars (full width = "takes human time") -->
+<g>
+<!-- ① 需求分流: 全人工 2min -->
+<rect x="130" y="88" width="440" height="18" rx="4" fill="#fb7185" opacity="0.7"/>
+<text x="580" y="102" fill="#fb7185" font-size="9">人工 2min · Hermes 引导选择插件线</text>
+
+<!-- ② Wiki查询: 半自动 1min -->
+<rect x="130" y="136" width="180" height="18" rx="4" fill="#fbbf24" opacity="0.7"/>
+<text x="580" y="150" fill="#fbbf24" font-size="9">半自动 1min · search_files + grep</text>
+
+<!-- ③ Spec: 全人工 5min（实际从未落地） -->
+<rect x="130" y="184" width="500" height="18" rx="4" fill="#fb7185" opacity="0.9"/>
+<text x="580" y="198" fill="#fb7185" font-size="9">🔴 全人工 5min · 从未使用 · 红线破窗</text>
+
+<!-- ④ 编码: 半自动 10-30min -->
+<rect x="130" y="232" width="300" height="18" rx="4" fill="#fbbf24" opacity="0.7"/>
+<text x="580" y="246" fill="#fbbf24" font-size="9">半自动 10-30min · delegate_task(zai)+降级</text>
+
+<!-- ⑤ Commit: 全自动（但无语义） -->
+<rect x="130" y="280" width="140" height="18" rx="4" fill="#22d3ee" opacity="0.7"/>
+<text x="580" y="294" fill="#22d3ee" font-size="9">自动 · 但全为 auto commit（无语义）</text>
+
+<!-- ⑥ Build: 手动触发 3-5min -->
+<rect x="130" y="328" width="360" height="18" rx="4" fill="#fb7185" opacity="0.7"/>
+<text x="580" y="342" fill="#fb7185" font-size="9">人工触发 3-5min · ./build.sh SSH→Win→编译</text>
+
+<!-- ⑦ Smoke: 全人工 5min -->
+<rect x="130" y="376" width="480" height="18" rx="4" fill="#fb7185" opacity="0.8"/>
+<text x="580" y="390" fill="#fb7185" font-size="9">全人工 5min · 开Revit→点按钮→看结果</text>
+
+<!-- ⑧ 踩坑: 半自动 2min -->
+<rect x="130" y="424" width="220" height="18" rx="4" fill="#fbbf24" opacity="0.7"/>
+<text x="580" y="438" fill="#fbbf24" font-size="9">半自动 2min · §1.8 规则触发后人工判断</text>
+</g>
+
+<!-- Improved State bars -->
+<g>
+<!-- ① 需求分流: 不变 -->
+<rect x="700" y="88" width="440" height="18" rx="4" fill="#fb7185" opacity="0.5"/>
+<text x="1150" y="102" fill="#94a3b8" font-size="9">人工 2min（无法自动化）</text>
+
+<!-- ② Wiki: 不变 -->
+<rect x="700" y="136" width="180" height="18" rx="4" fill="#fbbf24" opacity="0.5"/>
+<text x="1150" y="150" fill="#94a3b8" font-size="9">半自动 1min</text>
+
+<!-- ③ Spec: 强制执行 -->
+<rect x="700" y="184" width="240" height="18" rx="4" fill="#34d399" opacity="0.8"/>
+<text x="1150" y="198" fill="#34d399" font-size="9">🆕 Hermes 强要求 spec 再编码</text>
+
+<!-- ④ 编码: Claude Code 可用时更快 -->
+<rect x="700" y="232" width="200" height="18" rx="4" fill="#34d399" opacity="0.7"/>
+<text x="1150" y="246" fill="#34d399" font-size="9">半自动 5-15min · Claude Code ACP</text>
+
+<!-- ⑤ Commit: 强制语义 -->
+<rect x="700" y="280" width="200" height="18" rx="4" fill="#34d399" opacity="0.7"/>
+<text x="1150" y="294" fill="#34d399" font-size="9">🆕 语义化 commit · Guard 拦截 auto</text>
+
+<!-- ⑥ Build: GitLab CI 自动 -->
+<rect x="700" y="328" width="160" height="18" rx="4" fill="#34d399" opacity="0.9"/>
+<text x="1150" y="342" fill="#34d399" font-size="9">🆕 GitLab CI 自动 2min · push→build→deploy</text>
+
+<!-- ⑦ Smoke: 仍人工但可减频 -->
+<rect x="700" y="376" width="360" height="18" rx="4" fill="#fbbf24" opacity="0.6"/>
+<text x="1150" y="390" fill="#fbbf24" font-size="9">人工 5min · 仅 CI 失败时介入</text>
+
+<!-- ⑧ 踩坑: 自动化 -->
+<rect x="700" y="424" width="180" height="18" rx="4" fill="#34d399" opacity="0.8"/>
+<text x="1150" y="438" fill="#34d399" font-size="9">🆕 cron 定期扫描 + 策略归类</text>
+</g>
+
+<!-- Legend -->
+<rect x="40" y="475" width="14" height="14" rx="3" fill="#fb7185" opacity="0.7"/>
+<text x="60" y="486" fill="#94a3b8" font-size="9">人工</text>
+<rect x="120" y="475" width="14" height="14" rx="3" fill="#fbbf24" opacity="0.7"/>
+<text x="140" y="486" fill="#94a3b8" font-size="9">半自动</text>
+<rect x="210" y="475" width="14" height="14" rx="3" fill="#22d3ee" opacity="0.7"/>
+<text x="230" y="486" fill="#94a3b8" font-size="9">自动（有缺陷）</text>
+<rect x="330" y="475" width="14" height="14" rx="3" fill="#34d399" opacity="0.8"/>
+<text x="350" y="486" fill="#94a3b8" font-size="9">自动（建议）</text>
+</svg></div>
+<div class="footer">效率热力图 · 当前 8 步中 4 步全人工 · 改进后仅 2 步必人工</div></div></body></html>
