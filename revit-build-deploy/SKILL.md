@@ -15,6 +15,7 @@ description: Build and deploy Revit 2026 plugins (SuperRoky and FmRoky). Use whe
 
 - 已移除对 `architecture.md` 的历史引用，统一改为 `features.md` + workflow 阶段总览。
 - 所有凭据示例已脱敏，真实凭据统一从 GBrain/密钥管理读取。
+- 2026-04-28：新增 `E150` Revit 进程门禁（编译前检查 `Revit.exe` 占用），并支持 `FORCE_KILL_REVIT=1` 自动关闭后继续构建。
 
 ## 环境概要
 
@@ -39,6 +40,9 @@ cd ~/revit-plugin-dev
 ./build.sh --sync-only            # 仅同步文件（不编译不部署）
 ./build.sh --config Debug.R26     # 指定配置
 ```
+
+> 前置门禁：脚本会先检查 Windows 端 `Revit.exe` 是否在运行。检测到运行会直接报 `E150` 中止，避免 DLL 锁定导致编译失败。
+> 如需由脚本自动关闭 Revit 再继续，可临时使用：`FORCE_KILL_REVIT=1 ./build.sh`。
 
 **流程（全自动化，失败即中止）：**
 1. Ubuntu 端提交并推送：`git add -A` → 若有变更则 `git commit -m "auto: build sync"` → `git push`（无变更则跳过 commit）
@@ -108,6 +112,9 @@ cd ~/revit-plugin-dev
 ./build-fmroky.sh --build-only       # 仅编译（不部署）
 ./build-fmroky.sh --deploy-only      # 仅部署（不编译）
 ```
+
+> 前置门禁：脚本会先检查 Windows 端 `Revit.exe` 是否在运行。检测到运行会直接报 `E150` 中止，避免 DLL 锁定导致编译失败。
+> 如需由脚本自动关闭 Revit 再继续，可临时使用：`FORCE_KILL_REVIT=1 ./build-fmroky.sh`。
 
 **流程（编译+部署一体化）：**
 1. Ubuntu 端提交并推送：`git add -A` → 若有变更则 `git commit -m "auto: build sync"` → `git push gitlab develop:main`（无变更则跳过 commit）
@@ -378,11 +385,33 @@ warning CS0219: 变量"sharedContextName"已被赋值，但从未使用过它的
 ```
 来自 Scotec.Revit.Isolation source generator 自动生成的 `RevitAssemblyLoadContextInitializer.g.cs`，不是开发者写的代码，无法修改，可忽略。
 
-### Revit 运行时 DLL 被锁
+### Revit 运行时 DLL 被锁（常见于 MSB3231）
 ```
 Access to the path 'CommunityToolkit.Mvvm.dll' is denied.
 ```
-**必须先关闭 Revit 再编译。**
+或：
+```
+Nice3point.Revit.Publish.targets(...): error MSB3231: 无法移除目录 ... Access to the path 'Nice3point.Revit.Extensions.dll' is denied.
+```
+**根因**：Windows 上仍有 `Revit.exe` 占用 Addins 目录，导致 build 脚本在清理/复制阶段失败。
+
+**快速处置（先查再杀再重跑）：**
+```bash
+# 1) 查 Revit 进程
+~/.hermes/skills/revit/scripts/use-private-env.sh /bin/bash -lc \
+  'ssh Administrator@${REVIT_WINDOWS_HOST} "tasklist | findstr /I Revit.exe"'
+
+# 2) 若存在进程，强制关闭
+~/.hermes/skills/revit/scripts/use-private-env.sh /bin/bash -lc \
+  'ssh Administrator@${REVIT_WINDOWS_HOST} "taskkill /F /IM Revit.exe"'
+
+# 3) 重新执行标准构建入口
+cd ~/revit-plugin-dev && ./build.sh
+# 或
+cd ~/revit-plugin-dev && ./build-fmroky.sh
+```
+
+**门禁建议**：看到上述 MSB3231/Access denied 时，不要继续猜代码问题，先按“进程占用”路径处理。
 
 ### 编译报错 "SDK not recognized"
 ```powershell
