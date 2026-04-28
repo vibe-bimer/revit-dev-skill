@@ -304,7 +304,19 @@ bash scripts/check-revit-skill-guard.sh .
 
 ---
 
-## 11. 上游基础仓库引用说明
+## 11. 开源协议
+
+本仓库采用 **Apache License 2.0**。
+
+- ✅ 允许商用
+- ✅ 包含专利授权（贡献者授予）
+- ✅ 使用/再分发需保留来源声明（保留 LICENSE + NOTICE）
+
+完整条款见 [LICENSE](./LICENSE) 与 [NOTICE](./NOTICE)。
+
+---
+
+## 12. 上游基础仓库引用说明
 
 本技能包在工作流与实践上引用了以下上游仓库作为基础：
 

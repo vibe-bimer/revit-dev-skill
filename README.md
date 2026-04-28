@@ -291,7 +291,19 @@ For Chinese full documentation, see [README.zh-CN.md](./README.zh-CN.md).
 
 ---
 
-## 12) Upstream foundation repositories
+## 12) License
+
+This repository is licensed under **Apache License 2.0**.
+
+- ✅ Commercial use allowed
+- ✅ Patent grant included (from contributors)
+- ✅ Attribution required (retain LICENSE + NOTICE)
+
+See [LICENSE](./LICENSE) and [NOTICE](./NOTICE) for details.
+
+---
+
+## 13) Upstream foundation repositories
 
 This skill pack references and builds on practices/components from the following upstream repositories:
 
