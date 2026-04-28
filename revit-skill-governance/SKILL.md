@@ -18,7 +18,8 @@ Use this skill when the task is not "build the plugin", but **audit and maintain
 - Dual-diagram truth stays aligned:
   - topology = roles / infra / push-pull boundaries
   - SOP = execution order / gates / rollback
-- `revit-plugin-dev-workflow` stays the router, not a dumping ground
+- 根入口 `revit-root-router` 保持薄封装（只分流 + 环境规则，不承载实现细节）
+- `revit-plugin-dev-workflow` 作为主流程入口保持精简，不变成信息堆场
 - `revit-build-deploy` does not reintroduce dangerous default bypasses
 - `revit-coding-patterns` keeps API rules correct and does not regress to stale folklore
 - evals are not just skeletons; they leave evidence
@@ -42,6 +43,11 @@ Look for drift in these areas:
 
 ### 2. Enforce single-source-of-truth
 When the same rule appears in multiple skills, decide which file owns it.
+
+Additionally verify routing contract consistency:
+- root `SKILL.md` (`revit-root-router`) exists and is the default dispatcher
+- each child skill contains a `## 路由声明` section
+- child declarations do not contradict root routing and boundary rules
 
 Preferred ownership:
 - workflow routing / red lines / phase gates → `revit-plugin-dev-workflow`

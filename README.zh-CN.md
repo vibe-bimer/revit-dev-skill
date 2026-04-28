@@ -58,8 +58,37 @@
 ### 2.3 配置与流水线
 
 - `.env.revit-skill.example`：本地私有配置模板（示例，不含真实值）
-- `.gitlab-ci.yml`：GitLab CI 最小流水线（仅执行 guard）
 - `.gitignore`：忽略本地敏感配置文件
+
+---
+
+## 2. 在其他 Hermes 环境安装
+
+这个技能包可以直接通过 git clone 安装到其他 Hermes 主机：
+
+```bash
+# 方案 A：保持推荐路径
+mkdir -p ~/.hermes/skills
+git clone <your-repo-url> ~/.hermes/skills/revit
+
+# 方案 B：克隆到其他目录（可行）
+# 但需要在你的本地文档/命令里同步路径映射
+```
+
+克隆后执行：
+
+```bash
+cd ~/.hermes/skills/revit
+cp .env.revit-skill.example ~/.config/revit-skill.env
+chmod 600 ~/.config/revit-skill.env
+scripts/install-precommit.sh .
+```
+
+实际运行时统一用：
+
+```bash
+scripts/use-private-env.sh <你的命令>
+```
 
 ---
 
@@ -111,6 +140,19 @@ chmod 600 ~/.config/revit-skill.env
 
 2) 在 `~/.config/revit-skill.env` 填真实值（仅本机保存）。
 
+### 4.1.1 路径可移植说明（重要）
+
+部分 skill 示例中会出现 `/home/roky/...` 这类路径。它们是**参考布局**，不是强绑定要求。
+
+其他用户安装时按本机环境替换即可：
+
+- skill 根目录：`~/.hermes/skills/revit`
+- 私有 env：`~/.config/revit-skill.env`
+- 工程目录：你自己的项目路径（例如 `~/revit-plugin-dev`）
+- wiki / corpus：你自己的本地路径或挂载路径
+
+原则：命令结构不变，只替换机器相关前缀路径。
+
 ### 4.2 加载方式
 
 方式 A（当前 shell 生效）：
@@ -160,7 +202,7 @@ bash scripts/check-revit-skill-guard.sh .
 2. README（中英）更新完成
 3. 确认示例配置无真实值
 4. 推送远端
-5. CI 再跑 guard（与本地同一规则）
+5. 如需远端校验，在目标平台自行配置 CI/runner 执行同一个 guard 脚本
 
 ---
 
@@ -202,13 +244,17 @@ bash scripts/check-revit-skill-guard.sh .
 
 ---
 
-## 7. CI 与 Hook 协同机制
+## 7. 远端 CI（可选）
 
-- 本地：`pre-commit` 自动执行 guard
-- 远端：`.gitlab-ci.yml` 在 push/MR 执行 guard
-- 两端规则一致，避免“本地能过、远端失败”
+本仓库不绑定特定平台的 CI 模板。
 
-如果 pipeline 长期 `pending`，通常是 GitLab 没有可用 runner，不是配置语法问题。
+如果目标平台有可用 runner，建议只加一个远端任务，执行：
+
+```bash
+bash scripts/check-revit-skill-guard.sh .
+```
+
+如果平台没有 runner，本地 pre-commit + 手动 guard 仍然是完整可用路径。
 
 ---
 

@@ -27,12 +27,41 @@ Support assets:
 - `scripts/install-precommit.sh` — installs git pre-commit hook
 - `scripts/use-private-env.sh` — loads local private env before running a command
 - `.env.revit-skill.example` — template only (no real values)
-- `.gitlab-ci.yml` — CI job running the guard script
 - `references/` and module `references/` — diagrams, dashboards, and supporting docs
 
 ---
 
-## 2) Security model (how publishing stays safe)
+## 2) Install on another Hermes
+
+You can install this skill pack on any Hermes host with plain git clone:
+
+```bash
+# option A: keep exact canonical path
+mkdir -p ~/.hermes/skills
+git clone <your-repo-url> ~/.hermes/skills/revit
+
+# option B: clone elsewhere and set your own path references
+# (supported, as long as you update local path mappings in your usage docs)
+```
+
+After clone:
+
+```bash
+cd ~/.hermes/skills/revit
+cp .env.revit-skill.example ~/.config/revit-skill.env
+chmod 600 ~/.config/revit-skill.env
+scripts/install-precommit.sh .
+```
+
+Then run commands via:
+
+```bash
+scripts/use-private-env.sh <your-command>
+```
+
+---
+
+## 3) Security model (how publishing stays safe)
 
 This repo uses a two-layer model:
 
@@ -66,6 +95,20 @@ chmod 600 ~/.config/revit-skill.env
 
 Fill real values in `~/.config/revit-skill.env`.
 
+### Path portability (important)
+
+Some skill examples include canonical local paths (for example `/home/roky/...`).
+Treat them as **reference layouts**, not hard requirements.
+
+For other Hermes users, map those paths to your own environment:
+
+- Skill root: `~/.hermes/skills/revit`
+- Private env file: `~/.config/revit-skill.env`
+- Project workspace: your own repo path (for example `~/revit-plugin-dev`)
+- Wiki and corpus paths: your own local paths or mounted volumes
+
+Rule: keep command structure, replace machine-specific prefixes.
+
 ### Option A: load in current shell
 
 ```bash
@@ -95,9 +138,9 @@ This wrapper loads `~/.config/revit-skill.env` and then runs your command.
 
 1. Guard scan (local): `bash scripts/check-revit-skill-guard.sh .`
 2. Pre-commit hook gate (local): installed by `scripts/install-precommit.sh .`
-3. CI gate (remote): `.gitlab-ci.yml` runs the same guard script on push/MR
+3. Optional remote check: configure your own CI/runner to run the same guard script
 
-This gives consistent checks on both local and remote sides.
+This gives consistent checks and keeps publishing safe even without platform-specific CI templates.
 
 ---
 
@@ -157,12 +200,17 @@ Primary references (inside module):
 
 ---
 
-## 7) GitLab CI behavior
+## 7) Remote CI (optional)
 
-Current CI only runs the guard scan. It is intentionally minimal.
+This repository does not require a fixed platform CI template.
 
-If pipeline remains `pending`, verify whether GitLab runner exists.
-Without runner, CI config is valid but jobs cannot execute.
+If your platform has runners available, configure one remote job to run:
+
+```bash
+bash scripts/check-revit-skill-guard.sh .
+```
+
+If your platform has no runner, local pre-commit + manual guard is still a complete safe path.
 
 ---
 
