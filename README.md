@@ -21,7 +21,6 @@ Core modules:
 - `revit-plugin-dev-workflow/` — end-to-end Revit workflow, phase gates, and operating boundaries
 - `revit-build-deploy/` — build/deploy procedures and runbook-style commands
 - `revit-coding-patterns/` — coding patterns and pitfall references
-- `revit-duct-segmentation-workflow/` — focused workflow for duct segmentation tasks
 - `revit-tunit-testing/` — test conventions
 - `revit-skill-governance/` — governance rules and drift checks
 

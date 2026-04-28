@@ -13,7 +13,7 @@ RG_GLOBS=(
   --glob '*.yaml'
   --glob '*.sh'
   --glob '*.py'
-  --glob '!scripts/check-revit-skill-guard.sh'
+  --glob '!**/scripts/check-revit-skill-guard.sh'
 )
 
 # 1) Legacy forbidden references / workflow drift

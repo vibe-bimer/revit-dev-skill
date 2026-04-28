@@ -36,8 +36,6 @@
 - `revit-coding-patterns/`  
   常用编码模式、框架差异与踩坑修复经验
 
-- `revit-duct-segmentation-workflow/`  
-  风管分段专题流程
 
 - `revit-tunit-testing/`  
   测试规范与验证策略
