@@ -30,6 +30,7 @@ Support assets:
 - `scripts/check-revit-skill-guard.sh` — sensitive-info guard
 - `scripts/install-precommit.sh` — installs git pre-commit hook
 - `scripts/use-private-env.sh` — loads local private env before running a command
+- `scripts/refresh-eval-dashboard.py` — regenerates `references/eval-dashboard.md` from eval assets
 - `.env.revit-skill.example` — template only (no real values)
 - `references/` and module `references/` — diagrams, dashboards, and supporting docs
 
@@ -86,9 +87,18 @@ Use placeholders in committed files only, such as:
 
 Do not commit real private IPs, passwords, or tokens.
 
+### Guard script check scope
+
+`check-revit-skill-guard.sh` intercepts by default:
+
+- RFC1918 private IP literals
+- Hardcoded `sshpass` passwords
+- Hardcoded OAuth tokens in URLs
+- Key anti-patterns for workflow drift
+
 ---
 
-## 3) Required local configuration
+## 4) Required local configuration
 
 Create a private local env file:
 
@@ -98,6 +108,20 @@ chmod 600 ~/.config/revit-skill.env
 ```
 
 Fill real values in `~/.config/revit-skill.env`.
+
+### Environment variables
+
+| Variable | Purpose |
+|----------|---------|
+| `REVIT_WINDOWS_HOST` | Windows build host IP/hostname |
+| `GITLAB_HOST` | GitLab server IP/hostname |
+| `DEV_HOST` | Development network host |
+| `UNRAID_BR1_SRC` | Unraid bridge source address |
+| `WINDOWS_USER` | Windows SSH username |
+| `WINDOWS_PASSWORD` | Windows SSH password |
+| `GITLAB_TOKEN` | GitLab access token |
+| `REVIT_API_WIKI_PATH` | Local Revit API wiki root (e.g. `/home/you/roky-wiki/revit-api/entities/`) |
+| `REVIT_CORPUS_PATH` | Local Revit corpus root (e.g. `/home/you/revit-corpus/`) |
 
 ### Path portability (important)
 
@@ -129,16 +153,16 @@ This wrapper loads `~/.config/revit-skill.env` and then runs your command.
 
 ---
 
-## 4) Mechanism and execution flow
+## 5) Mechanism and execution flow
 
-### 4.1 Development-side mechanism
+### 5.1 Development-side mechanism
 
 1. Start from workflow module (`revit-plugin-dev-workflow`)
 2. Use coding patterns and API references to constrain implementation
 3. Use build/deploy module to execute platform-specific build path
 4. Run validations and update references if needed
 
-### 4.2 Publish-side mechanism
+### 5.2 Publish-side mechanism
 
 1. Guard scan (local): `bash scripts/check-revit-skill-guard.sh .`
 2. Pre-commit hook gate (local): installed by `scripts/install-precommit.sh .`
@@ -148,23 +172,23 @@ This gives consistent checks and keeps publishing safe even without platform-spe
 
 ---
 
-## 5) Daily usage workflow
+## 6) Daily usage workflow
 
-### 5.1 First-time setup
+### 6.1 First-time setup
 
 ```bash
 # from repo root
 scripts/install-precommit.sh .
 ```
 
-### 5.2 Before running any Revit workflow commands
+### 6.2 Before running any Revit workflow commands
 
 ```bash
 source ~/.config/revit-skill.env
 # or: scripts/use-private-env.sh <cmd>
 ```
 
-### 5.3 Before commit / push
+### 6.3 Before commit / push
 
 ```bash
 bash scripts/check-revit-skill-guard.sh .
@@ -174,7 +198,7 @@ If guard fails, fix placeholders/secrets first, then commit.
 
 ---
 
-## 6) Required references by module
+## 7) Required references by module
 
 ### `revit-plugin-dev-workflow`
 
@@ -204,7 +228,7 @@ Primary references (inside module):
 
 ---
 
-## 7) Remote CI (optional)
+## 8) Remote CI (optional)
 
 This repository does not require a fixed platform CI template.
 
@@ -218,23 +242,37 @@ If your platform has no runner, local pre-commit + manual guard is still a compl
 
 ---
 
-## 8) Quick troubleshooting
+## 9) Quick troubleshooting & FAQ
 
-- `guard FAIL: private IP literal`  
+### Troubleshooting
+
+- `guard FAIL: private IP literal`
   Replace private IP with placeholder variable in committed docs.
 
-- `guard FAIL: hardcoded sshpass password`  
+- `guard FAIL: hardcoded sshpass password`
   Replace plaintext password with approved placeholder.
 
-- `guard FAIL: hardcoded oauth token in URL`  
+- `guard FAIL: hardcoded oauth token in URL`
   Replace token with approved placeholder.
 
-- Wrapper cannot find env file  
+- Wrapper cannot find env file
   Create `~/.config/revit-skill.env` from `.env.revit-skill.example`.
+
+### FAQ
+
+**Q1: Do I need to `source` the env file every time?**
+- Manual `source`: only effective in the current shell.
+- Recommended: use `scripts/use-private-env.sh <cmd>` for per-command auto-loading.
+
+**Q2: Why are example files devoid of real values?**
+- The repo targets public publishing. Real values must stay in the local private env file.
+
+**Q3: What if the guard blocks my commit?**
+- Replace flagged items with approved placeholders, or move real values to `~/.config/revit-skill.env`.
 
 ---
 
-## 9) Release checklist
+## 10) Release checklist
 
 1. `bash scripts/check-revit-skill-guard.sh .` passes
 2. `git status` is clean and reviewed
@@ -245,7 +283,15 @@ For Chinese full documentation, see [README.zh-CN.md](./README.zh-CN.md).
 
 ---
 
-## 10) Upstream foundation repositories
+## 11) Maintenance recommendations
+
+- Update both English and Chinese READMEs together whenever the workflow changes
+- When adding new sensitive-field rules, update the guard script first, then update doc examples
+- Use `revit-skill-governance` as the final pre-release authority
+
+---
+
+## 12) Upstream foundation repositories
 
 This skill pack references and builds on practices/components from the following upstream repositories:
 

@@ -66,7 +66,7 @@
 
 ---
 
-## 2. 在其他 Hermes 环境安装
+## 3. 在其他 Hermes 环境安装
 
 这个技能包可以直接通过 git clone 安装到其他 Hermes 主机：
 
@@ -96,7 +96,7 @@ scripts/use-private-env.sh <你的命令>
 
 ---
 
-## 3. 安全设计（机制）
+## 4. 安全设计（机制）
 
 仓库采用双层机制，保证“可用 + 可公开发布”：
 
@@ -106,7 +106,7 @@ scripts/use-private-env.sh <你的命令>
 2. **私有层（不提交）**  
    本地环境变量文件中的真实主机、口令、令牌
 
-### 3.1 占位符规则
+### 4.1 占位符规则
 
 可提交内容必须使用占位符，例如：
 
@@ -120,7 +120,7 @@ scripts/use-private-env.sh <你的命令>
 
 禁止提交真实内网 IP、真实密码、真实 token。
 
-### 3.2 守卫脚本检查范围
+### 4.2 守卫脚本检查范围
 
 `check-revit-skill-guard.sh` 默认拦截：
 
@@ -131,9 +131,9 @@ scripts/use-private-env.sh <你的命令>
 
 ---
 
-## 4. 本地配置与日常使用
+## 5. 本地配置与日常使用
 
-### 4.1 首次配置
+### 5.1 首次配置
 
 1) 复制模板：
 
@@ -144,7 +144,21 @@ chmod 600 ~/.config/revit-skill.env
 
 2) 在 `~/.config/revit-skill.env` 填真实值（仅本机保存）。
 
-### 4.1.1 路径可移植说明（重要）
+### 环境变量一览
+
+| 变量 | 用途 |
+|------|------|
+| `REVIT_WINDOWS_HOST` | Windows 构建主机 IP/主机名 |
+| `GITLAB_HOST` | GitLab 服务器 IP/主机名 |
+| `DEV_HOST` | 开发网络主机 |
+| `UNRAID_BR1_SRC` | Unraid 桥接源地址 |
+| `WINDOWS_USER` | Windows SSH 用户名 |
+| `WINDOWS_PASSWORD` | Windows SSH 密码 |
+| `GITLAB_TOKEN` | GitLab 访问令牌 |
+| `REVIT_API_WIKI_PATH` | 本地 Revit API Wiki 根路径（如 `/home/you/roky-wiki/revit-api/entities/`） |
+| `REVIT_CORPUS_PATH` | 本地 Revit 语料库根路径（如 `/home/you/revit-corpus/`） |
+
+### 5.1.1 路径可移植说明（重要）
 
 部分 skill 示例中会出现 `/home/roky/...` 这类路径。它们是**参考布局**，不是强绑定要求。
 
@@ -157,7 +171,7 @@ chmod 600 ~/.config/revit-skill.env
 
 原则：命令结构不变，只替换机器相关前缀路径。
 
-### 4.2 加载方式
+### 5.2 加载方式
 
 方式 A（当前 shell 生效）：
 
@@ -173,7 +187,7 @@ scripts/use-private-env.sh <你的命令>
 
 说明：方式 B 不依赖你当前 shell 是否已 source，更稳。
 
-### 4.3 提交前门禁
+### 5.3 提交前门禁
 
 安装 pre-commit：
 
@@ -185,9 +199,9 @@ scripts/install-precommit.sh .
 
 ---
 
-## 5. 典型流程（从开发到发布）
+## 6. 典型流程（从开发到发布）
 
-### 5.1 日常开发流程
+### 6.1 日常开发流程
 
 1. 进入仓库根目录
 2. 加载私有 env（`source` 或 `use-private-env.sh`）
@@ -200,7 +214,7 @@ bash scripts/check-revit-skill-guard.sh .
 
 5. `git commit`（pre-commit 自动二次检查）
 
-### 5.2 发布流程（GitLab / GitHub）
+### 6.2 发布流程（GitLab / GitHub）
 
 1. guard 全绿
 2. README（中英）更新完成
@@ -210,9 +224,9 @@ bash scripts/check-revit-skill-guard.sh .
 
 ---
 
-## 6. 引用关系与依赖说明（需要哪些引用）
+## 7. 引用关系与依赖说明（需要哪些引用）
 
-### 6.1 `revit-plugin-dev-workflow` 依赖引用
+### 7.1 `revit-plugin-dev-workflow` 依赖引用
 
 主要引用文件：
 
@@ -223,7 +237,7 @@ bash scripts/check-revit-skill-guard.sh .
 
 用途：环境事实、功能状态、流程拓扑、SOP 门禁。
 
-### 6.2 `revit-build-deploy` 依赖引用
+### 7.2 `revit-build-deploy` 依赖引用
 
 - `revit-build-deploy/SKILL.md`
 - `revit-build-deploy/evals/evals.json`
@@ -231,7 +245,7 @@ bash scripts/check-revit-skill-guard.sh .
 
 用途：构建部署命令口径、评估项定义、历史评估结果。
 
-### 6.3 `revit-coding-patterns` 依赖引用
+### 7.3 `revit-coding-patterns` 依赖引用
 
 - `revit-coding-patterns/references/nice3point-patterns.md`
 - `revit-coding-patterns/references/scotec-patterns.md`
@@ -239,7 +253,7 @@ bash scripts/check-revit-skill-guard.sh .
 
 用途：框架差异、API 模式、高频坑点。
 
-### 6.4 全局引用
+### 7.4 全局引用
 
 - `references/eval-dashboard.md`
 - `references/eval-runbook.md`
@@ -248,7 +262,7 @@ bash scripts/check-revit-skill-guard.sh .
 
 ---
 
-## 7. 远端 CI（可选）
+## 8. 远端 CI（可选）
 
 本仓库不绑定特定平台的 CI 模板。
 
@@ -262,7 +276,7 @@ bash scripts/check-revit-skill-guard.sh .
 
 ---
 
-## 8. 常见问题
+## 9. 常见问题
 
 ### Q1：每次都要手动 `source` 吗？
 
@@ -279,7 +293,7 @@ bash scripts/check-revit-skill-guard.sh .
 
 ---
 
-## 9. 维护建议
+## 10. 维护建议
 
 - 每次流程调整，同时更新中英 README
 - 新增敏感字段规则时，先更新 guard，再更新文档示例
@@ -291,7 +305,7 @@ bash scripts/check-revit-skill-guard.sh .
 
 ---
 
-## 10. 上游基础仓库引用说明
+## 11. 上游基础仓库引用说明
 
 本技能包在工作流与实践上引用了以下上游仓库作为基础：
 

@@ -6,9 +6,10 @@ import re
 from pathlib import Path
 from datetime import date
 
-ROOT = Path('/home/roky/.hermes/skills/revit')
+ROOT = Path(__file__).resolve().parent.parent
 DASHBOARD = ROOT / 'references' / 'eval-dashboard.md'
 RUNBOOK = ROOT / 'references' / 'eval-runbook.md'
+# Only modules that have evals/ directories with evals.json
 SKILLS = [
     'revit-plugin-dev-workflow',
     'revit-build-deploy',

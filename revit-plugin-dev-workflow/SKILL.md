@@ -32,7 +32,7 @@ linked_files:
 
 0) 对照架构图：先过 `references/revit-workflow-topology.*`（拓扑）+ `references/revit-workflow-sop.*`（SOP 门禁），确认本次插件线、同步链路、门禁口径
 1) 选插件线：SuperRoky（.NET 8/Nice3point）或 FmRoky（.NET 10/Scotec）
-2) 查 Wiki：`/home/roky/roky-wiki/revit-api/entities/` + `/home/roky/revit-corpus/index/` + `/home/roky/revit-corpus/raw/revit-2026/`
+2) 查 Wiki：`${REVIT_API_WIKI_PATH}` + `${REVIT_CORPUS_PATH}/index/` + `${REVIT_CORPUS_PATH}/raw/revit-2026/`
 3) 写 spec：目标/文件变更/API 依据/验收标准/回滚策略/可观测性
 4) 委托代理：默认 Claude Code 进行编码+审查（Hermes 不直接改 Revit 源码）
 5) 手动提交：`git commit -m "中文描述"`（默认必须中文；auto-commit 仅兜底）
@@ -84,7 +84,7 @@ Mandatory questions to settle before coding:
 ```
 ① 对照架构图  → topology + sop 双图先确认执行边界
 ② 选插件线    → SuperRoky（Nice3point/.NET 8）或 FmRoky（Scotec/.NET 10）
-③ 查 Wiki     → /home/roky/roky-wiki/revit-api/entities/ + /home/roky/revit-corpus/index/ + /home/roky/revit-corpus/raw/revit-2026/ 找 API 签名和示例
+③ 查 Wiki     → ${REVIT_API_WIKI_PATH} + ${REVIT_CORPUS_PATH}/index/ + ${REVIT_CORPUS_PATH}/raw/revit-2026/ 找 API 签名和示例
 ④ 写 spec     → 明确改什么、怎么改，输出给 Claude Code（含回滚与可观测性）
 ⑤ 编码+审查   → 委托 Claude Code（delegate_task），一次任务包含编码和审查
 ⑥ 编译部署    → SuperRoky: ./build.sh ｜ FmRoky: ./build-fmroky.sh
@@ -270,8 +270,8 @@ src/MyPlugin/
 
 流程：
 ```
-1. 查 Wiki 示例 → /home/roky/roky-wiki/revit-api/entities/ 找现成代码片段
-2. 查 API 签名 → /home/roky/revit-corpus/raw/revit-2026/core/ grep 方法签名
+1. 查 Wiki 示例 → ${REVIT_API_WIKI_PATH} 找现成代码片段
+2. 查 API 签名 → ${REVIT_CORPUS_PATH}/raw/revit-2026/core/ grep 方法签名
 3. 读现有代码 → search_files 找插件中相关的 Commands/Services
 4. 综合分析 → Wiki API + 现有代码结构 → 制定实现方案
 5. 写 spec → 委托 Claude Code 编码
@@ -280,10 +280,10 @@ src/MyPlugin/
 **具体操作：**
 ```bash
 # Step 1: 找 Wiki 示例
-search_files(pattern="Family|FamilySymbol|LoadFamily", path="/home/roky/roky-wiki/revit-api/entities/")
+search_files(pattern="Family|FamilySymbol|LoadFamily", path="${REVIT_API_WIKI_PATH}")
 
 # Step 2: 找 API 签名（如果 entities 没有足够的细节）
-search_files(pattern="LoadFamily|FamilySymbol", path="/home/roky/revit-corpus/raw/revit-2026/core/")
+search_files(pattern="LoadFamily|FamilySymbol", path="${REVIT_CORPUS_PATH}/raw/revit-2026/core/")
 
 # Step 3: 读插件现有相关代码
 search_files(pattern="Family|LoadFamily", path="~/revit-plugin-dev/src/SuperRoky/source/")
@@ -416,7 +416,7 @@ delegate_task(
 {spec}
 
 项目: ~/revit-plugin-dev/src/SuperRoky/
-API Wiki: /home/roky/revit-corpus/raw/revit-2026/ + /home/roky/roky-wiki/revit-api/entities/
+API Wiki: ${REVIT_CORPUS_PATH}/raw/revit-2026/ + ${REVIT_API_WIKI_PATH}
 
 审查清单:
 1. Transaction 使用是否正确（必须在 tx 内操作文档）
@@ -622,7 +622,7 @@ ssh root@${GITLAB_HOST} "ip route add ${DEV_HOST}/32 dev br1 src ${UNRAID_BR1_SR
 
 **Bug 修复和新功能走同一条路：Wiki 先行 → Claude Code 编码 + 审查 → build.sh 部署。**
 
-1. 查 Wiki：`/home/roky/revit-corpus/raw/revit-2026/` 或 `/home/roky/roky-wiki/revit-api/entities/`
+1. 查 Wiki：`${REVIT_CORPUS_PATH}/raw/revit-2026/` 或 `${REVIT_API_WIKI_PATH}`
 2. Claude Code 编码 + 审查（§1.5）
 3. `./build.sh` 验证
 4. 踩坑捕获（§1.8）

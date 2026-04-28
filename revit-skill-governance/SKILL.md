@@ -117,9 +117,19 @@ When updating the skills:
 3. Classify findings into P0 / P1 / P2
 4. Patch the highest-risk drift first
 5. Run the guard script:
-   - `bash /home/roky/.hermes/skills/revit/scripts/check-revit-skill-guard.sh`
+   - `bash scripts/check-revit-skill-guard.sh .`
 6. Validate eval assets still exist and latest runs are referenced by the dashboard
 7. Summarize what was changed and what follow-ups remain
+
+### Claude Code CLI enforcement for review/edit tasks
+
+When the task is **reviewing or editing code/scripts** in this repo (including `*.sh`, `*.py`, and automation logic), run the actual review/edit pass through Claude Code CLI first, then apply vetted changes.
+
+- Preferred review invocation:
+  - `claude -p "<review prompt>"`
+- If review is long-running, run Claude in background and poll process output instead of skipping review.
+- Keep Hermes as orchestrator: gather context, call Claude CLI, then execute concrete file patches and verification.
+- For pure markdown/doc updates, direct patching is fine; for code/script changes, Claude CLI review is the default gate.
 
 ## GitHub 发布前脱敏基线（新增）
 

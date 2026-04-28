@@ -16,7 +16,7 @@
 | SSH | `Administrator@${REVIT_WINDOWS_HOST}` / `***`（凭据见 GBrain） |
 | GitLab | `http://${GITLAB_HOST}:8929` / group: `revit-dev` / token: `***`（见 GBrain） |
 | 插件部署目录 | `C:\ProgramData\Autodesk\Revit\Addins\2026\` |
-| Revit API Wiki | `/home/roky/roky-wiki/revit-api/entities/` (wiki) + `/home/roky/revit-corpus/index/` (machine index) + `/home/roky/revit-corpus/raw/revit-2026/` (raw) |
+| Revit API Wiki | `${REVIT_API_WIKI_PATH}` (wiki) + `${REVIT_CORPUS_PATH}/index/` (machine index) + `${REVIT_CORPUS_PATH}/raw/revit-2026/` (raw) |
 
 | 插件 | 框架 | SDK | 远程路径 | 本地路径 | 编译脚本 | GitLab 仓库 |
 |------|------|-----|----------|----------|----------|------------|
