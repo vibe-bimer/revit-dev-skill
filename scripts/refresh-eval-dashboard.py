@@ -80,13 +80,14 @@ def render() -> str:
         results = sorted((skill_dir / 'evals' / 'results').glob('*.md'))
         parsed = [parse_result(p) for p in results]
         bootstrap = next((r for r in parsed if r['mode'] == 'BOOTSTRAP'), None)
-        live_runs = [r for r in parsed if r['mode'] == 'LIVE_RUN']
-        latest = live_runs[-1] if live_runs else (parsed[-1] if parsed else None)
+        non_bootstrap_runs = [r for r in parsed if r['mode'] != 'BOOTSTRAP']
+        latest = parsed[-1] if parsed else None
         latest_run = latest['run_id'] if latest else 'n/a'
+        latest_label = latest['path'].stem if latest else 'n/a'
         verdict = latest['verdict'] if latest else 'BOOTSTRAP'
         mode = latest['mode'] if latest else 'BOOTSTRAP'
         status = STATUS_EMOJI.get(verdict, '🟡 观察')
-        rows.append(f"| `{skill}` | {len(eval_json['evals'])} | `{date.today()}-{latest_run}` | {mode} | {verdict} | {status} |")
+        rows.append(f"| `{skill}` | {len(eval_json['evals'])} | `{latest_label}` | {mode} | {verdict} | {status} |")
 
         lines = [
             f"### {skill}",
@@ -94,10 +95,10 @@ def render() -> str:
         ]
         if bootstrap:
             lines.append(f"- bootstrap：`{skill}/evals/results/{bootstrap['path'].name}`")
-        if live_runs:
-            lines.append('- live runs：')
-            for r in live_runs:
-                lines.append(f"  - `{skill}/evals/results/{r['path'].name}`")
+        if non_bootstrap_runs:
+            lines.append('- runs：')
+            for r in non_bootstrap_runs:
+                lines.append(f"  - `{skill}/evals/results/{r['path'].name}` ({r['mode']})")
         lines.append('- 核心验证点：')
         for point in extract_core_points(skill, latest['run_id'] if latest else ''):
             lines.append(f"  - {point}")

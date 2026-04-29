@@ -24,12 +24,21 @@ if rg -n --hidden "${RG_GLOBS[@]}" "$LEGACY_PATTERN" "$ROOT"; then
   exit 1
 fi
 
+PHASE_ORDER_DRIFT_FILES=(
+  "$ROOT/revit-plugin-dev-workflow/SKILL.md"
+  "$ROOT/revit-build-deploy/SKILL.md"
+)
+if rg -n 'OrderBy\(p => p\.Id\.Value\)' "${PHASE_ORDER_DRIFT_FILES[@]}"; then
+  echo
+  echo "[guard] FAIL: found forbidden Phase-ordering anti-pattern outside coding references"
+  exit 1
+fi
+
 EXTRA_CHECKS=(
-  'OrderBy\\(p => p\\.Id\\.Value\\)'
   '绕过方案（scp 直传 Windows）'
 )
 for extra in "${EXTRA_CHECKS[@]}"; do
-  if rg -n --hidden --glob '*.md' --glob '*.html' "$extra" "$ROOT"; then
+  if rg -n --hidden "${RG_GLOBS[@]}" "$extra" "$ROOT"; then
     echo
     echo "[guard] FAIL: found workflow drift pattern: $extra"
     exit 1
