@@ -316,6 +316,8 @@ fatal: Unable to persist credentials with the 'wincredman' credential store.
 </RevitAddIns>
 ```
 
+> 说明：以上 `.addin` 示例只负责插件装载入口，不承担 Ribbon 按钮图标同步。图标仍以 `csproj` 资源声明 + `Application.cs` 的 `SetImage/SetLargeImage` + `Resources/Icons/` 实际 PNG 文件为准。
+
 **GitLab unhealthy / 502 / OOM：**
 GitLab CE 在 Unraid Docker 上内存 15.7GB/16GB (98%) 易 OOM，Puma 无响应导致 HTTP reset。
 - 症状：TCP 握手成功但 HTTP 响应阶段 `Connection reset by peer`，workhorse 日志 `badgateway: failed to receive response`

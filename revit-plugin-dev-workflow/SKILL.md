@@ -96,12 +96,12 @@ Mandatory questions to settle before coding:
 
 - `references/environment.md`：环境路径、凭据入口、Git/SSH/NuGet 速查
 - `references/features.md`：插件功能状态与依赖追踪
-- `references/revit-workflow-topology-v3.html` / `.png`：系统拓扑图
+- `references/revit-workflow-topology-v5-light.html` / `.png`：系统拓扑图（当前推荐版本）
 - `references/revit-workflow-sop.html` / `.png`：SOP 门禁图
 
 | 图 | 文件 | 用途 |
 |---|---|---|
-| 图A：系统拓扑 | `references/revit-workflow-topology-v3.html` / `.png` | 角色、基础设施、push-pull 链路 |
+| 图A：系统拓扑 | `references/revit-workflow-topology-v5-light.html` / `.png` | 角色、基础设施、push-pull 链路 |
 | 图B：SOP 门禁 | `references/revit-workflow-sop.html` / `.png` | 步骤、门禁、回滚分支 |
 
 双图位于 `references/` 下；按需打开对应的 HTML 或 PNG 文件即可。
@@ -324,7 +324,7 @@ python3 ~/.hermes/skills/remix-icon/scripts/fetch_icon.py --keyword "layers" --t
 如果 `delegate_task` 连续返回上游错误（如 `HTTP 503: Service temporarily unavailable`），不要原地空转，也不要违反红线自己改 `.cs/.xaml` 源码。正确做法：
 
 1. **先把分析做满**：读目标命令、对话框、相关 ViewModel/服务代码，确认主流程、统计口径、现有死逻辑。
-2. **落完整 spec 到仓库**：写入 `~/revit-plugin-dev/docs/plans/YYYY-MM-DD-<feature>-spec.md`，至少包含：目标、变更文件、API 依据、技术约束、关键修复点、验收标准、回滚策略、可观测性。
+2. **落完整 spec 到目标业务仓**：写入目标项目仓（如 `~/revit-plugin-dev`）下的 `docs/plans/YYYY-MM-DD-<feature>-spec.md`，至少包含：目标、变更文件、API 依据、技术约束、关键修复点、验收标准、回滚策略、可观测性。
 3. **再落实施拆解**：补一份 `...-implementation-breakdown.md`，把改动拆成代理可直接执行的任务（入口切换、数据结构、算法、summary、UI 文案、构建验证）。
 4. **继续重试受控代理**：以这两份文档为上下文重新委托；代理恢复后无需重新梳理需求。
 5. **如果代理超时/迭代耗尽但已经动过代码**：不要当成“全失败”直接丢掉。立刻人工接管做三件事：
@@ -656,7 +656,7 @@ ssh root@${GITLAB_HOST} "ip route add ${DEV_HOST}/32 dev br1"
 - `revit-coding-patterns` — 代码模式与踩坑 FAQ（DLL 加载、命名空间冲突、WPF 跨线程、DockablePane、预览图等）
 - `revit-tunit-testing` — TUnit 单元测试规范
 - `references/features.md` — SuperRoky / FmRoky 功能跟踪（状态、owner、依赖）
-- `references/revit-workflow-topology-v3.html` — 图A：系统拓扑图（角色/基础设施/push-pull）
+- `references/revit-workflow-topology-v5-light.html` — 图A：系统拓扑图（角色/基础设施/push-pull，当前推荐版本）
 - `references/revit-workflow-sop.html` — 图B：标准化流程图（步骤/门禁/回滚）
 
 ---

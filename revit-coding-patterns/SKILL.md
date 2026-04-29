@@ -127,7 +127,9 @@ using var font = new Font("Segoe UI", 11, System.Drawing.FontStyle.Bold);
 图标同步三处（任一遗漏都不显示）：
 1. csproj 的 `<Resource Include="..."/>`
 2. `AddPushButton<>()` 的 `SetImage` + `SetLargeImage`
-3. .addin 清单的 `<Icon16>` + `<Icon32>`
+3. `Resources/Icons/` 下实际 PNG 文件（16px + 32px）
+
+> 当前 Revit 工作流中的 `.addin` 示例不依赖 `<Icon16>` / `<Icon32>` 字段；不要把它当成默认第三同步点。
 
 ---
 
