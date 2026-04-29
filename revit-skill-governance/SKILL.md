@@ -169,11 +169,20 @@ When the task is **reviewing or editing code/scripts** in this repo (including `
      - `git ls-files --stage | awk '$1==160000{print $4}'` 应为空（无 gitlink）
      - `find references -type d -name .git` 应为空（无嵌套仓）
    - 定时任务建议：每天一次 cron，任务 prompt 内通过 `bash ~/.hermes/scripts/sync-revit-references.sh` 执行（不要用 cron `script` 字段直接跑 `.sh`）。
+10. **发布去本机绝对路径（可移植性）**
+   - 对外发布前，仓库中不得出现个人绝对路径字面量（如 `/home/roky/...`）。
+   - 文档展示层优先用 `~/...`；可执行配置层优先用 `${HOME}`、`${REVIT_SKILL_ROOT}`、`${REVIT_API_WIKI_PATH}`、`${REVIT_CORPUS_PATH}`。
+   - 必跑检查：`rg -n --hidden '/home/roky/' .` 应无命中；若命中仅允许在本地私有 env（不入库）中存在。
+   - 同步来的索引数据（如 `references/revit-corpus/index/*.jsonl`）若含绝对路径，发布前应重写为环境变量路径或相对路径。
 
 ## High-value drift patterns to search for
 
 ### Code / text drift
 - `OrderBy(p => p.Id.Value)`
+- guard regex over-escaped so drift checks silently no-op (for example literal `\\(` / `\\.` passed through to ripgrep instead of `\(` / `\.`)
+- stale topology version references (`v3` still cited after `references/README.md` switches recommended baseline to `v5-light`)
+- icon sync contradictions across skills (PNG files vs phantom `.addin` icon fields)
+- eval dashboard fabricating "latest run" date via `date.today()` instead of result-file date
 - stale architecture file references (`architecture.md`, old workflow asset names)
 - plain-text dangerous bypass instructions in正文
 - Windows push/edit language
@@ -187,7 +196,7 @@ When the task is **reviewing or editing code/scripts** in this repo (including `
 ### Enforcement drift (rules that exist on paper but not in practice)
 - **SOP redline mismatch**：SOP 图（`sop.html`）列的红线数量与 `revit-plugin-dev-workflow` SKILL.md 的 10 条红线是否一致
 - **Commit quality collapse**：`git log --oneline -20` 检查 auto-commit 占比。如果连续 10+ 条全为 `auto: build.sh 同步`，红线 #3（语义化 commit）已破窗
-- **Spec template usage**：检查 `docs/plans/` 目录是否存在、是否包含 spec 文件。如果目录为空或不存在，spec 门禁未落地
+- **Spec template usage**：检查目标业务仓（如 `~/revit-plugin-dev`）下的 `docs/plans/` 目录是否存在、是否包含 spec 文件。skill 仓本身只维护模板与治理规则，不应把 skill 仓缺少 `docs/plans/` 误判成业务仓未落地
 - **Guard script presence**：`revit/scripts/check-revit-skill-guard.sh` 是否存在且可执行
 - **CI/CD gap**：是否存在 `.gitlab-ci.yml`、GitLab Runner 是否注册。注意：Revit WPF 项目 Ubuntu 无法编译，Runner 必须在 Windows 上
 - **Agent delegation health**：`delegate_task` 是否可正常调用（简单 E2E 测试：读/写 `/tmp/test.txt`）
@@ -227,11 +236,10 @@ This skill was created after a real hardening pass on the Revit skill stack wher
 - add `scripts/refresh-eval-dashboard.py` so the dashboard is regenerated from eval assets instead of hand-maintained
 - clean stale ballast from the main workflow skill
 
-**2026-04-26 Review session additions:**
-- Added enforcement drift patterns (commit quality collapse, spec template usage, SOP redline mismatch, CI/CD gap, agent delegation health)
-- Discovered that SuperRoky had 20 consecutive auto-commits — redline #3 was completely broken in practice
-- Confirmed that `docs/plans/` directory never existed — spec template was pure paper
-- Verified `delegate_task` E2E health via simple `/tmp/test.txt` read/write test (23s, 4 tool calls)
-- Validated that `.gitlab-ci.yml` for Revit WPF projects MUST target a Windows GitLab Runner (Ubuntu can't compile WPF)
-
-These are not hypothetical nice-to-haves. They are the first places this skill should check next time.
+**2026-04-30 Review session additions:**
+- Found a real enforcement bug: `check-revit-skill-guard.sh` used over-escaped regex in `EXTRA_CHECKS`, so the intended `OrderBy(p => p.Id.Value)` drift check could silently miss real matches while the script still returned PASS
+- Confirmed `revit-coding-patterns` had drifted from the main workflow on icon sync: the third sync point is actual PNG files under `Resources/Icons/`, not `.addin` `<Icon16>/<Icon32>` fields
+- Confirmed `revit-plugin-dev-workflow` still cited `topology-v3` after `references/README.md` promoted `v5-light` as the active baseline; governance should verify version drift, not just existence of any topology file
+- Found evidence-chain bug in `scripts/refresh-eval-dashboard.py`: `Latest Run` was rendered as `date.today() + run_id`, which can fake freshness without a new eval run
+- Clarified spec-evidence scope: `docs/plans/` verification belongs to the target business repo (for example `~/revit-plugin-dev`), not the skill repo itself
+- Practical rule: when reviewing guardrails, run both `bash -x scripts/check-revit-skill-guard.sh .` and targeted `rg` probes; a green PASS alone is not proof the guard is catching the intended pattern
