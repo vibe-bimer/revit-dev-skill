@@ -1,14 +1,14 @@
 # Revit Skill Eval Dashboard
 
-_Last updated: 2026-04-30_
+_Last evidence: 2026-04-30-run-007_
 
 ## 总览
 
 | Skill | Evals | Latest Run | Mode | Verdict | Status |
 |---|---:|---|---|---|---|
-| `revit-plugin-dev-workflow` | 3 | `2026-04-30-run-004` | MANUAL_REVIEW | PASS | ✅ 稳定 |
-| `revit-build-deploy` | 2 | `2026-04-30-run-004` | MANUAL_REVIEW | PASS | ✅ 稳定 |
-| `revit-coding-patterns` | 2 | `2026-04-30-run-004` | MANUAL_REVIEW | PASS | ✅ 稳定 |
+| `revit-plugin-dev-workflow` | 3 | `2026-04-30-run-005` | MANUAL_REVIEW | PASS | ✅ 稳定 |
+| `revit-build-deploy` | 2 | `2026-04-30-run-007` | MANUAL_REVIEW | PASS | ✅ 稳定 |
+| `revit-coding-patterns` | 2 | `2026-04-30-run-005` | MANUAL_REVIEW | PASS | ✅ 稳定 |
 
 ## 运行记录索引
 
@@ -19,6 +19,7 @@ _Last updated: 2026-04-30_
   - `revit-plugin-dev-workflow/evals/results/2026-04-21-run-002.md` (LIVE_RUN)
   - `revit-plugin-dev-workflow/evals/results/2026-04-21-run-003.md` (LIVE_RUN)
   - `revit-plugin-dev-workflow/evals/results/2026-04-30-run-004.md` (MANUAL_REVIEW)
+  - `revit-plugin-dev-workflow/evals/results/2026-04-30-run-005.md` (MANUAL_REVIEW)
 - 核心验证点：
   - 双图门禁 → 选插件线 → Wiki → Spec → Claude Code → build 主线
   - 明确拒绝 Windows 端改代码 / push
@@ -29,6 +30,9 @@ _Last updated: 2026-04-30_
   - `revit-build-deploy/evals/results/2026-04-21-run-002.md` (LIVE_RUN)
   - `revit-build-deploy/evals/results/2026-04-21-run-003.md` (LIVE_RUN)
   - `revit-build-deploy/evals/results/2026-04-30-run-004.md` (MANUAL_REVIEW)
+  - `revit-build-deploy/evals/results/2026-04-30-run-005.md` (MANUAL_REVIEW)
+  - `revit-build-deploy/evals/results/2026-04-30-run-006.md` (MANUAL_REVIEW)
+  - `revit-build-deploy/evals/results/2026-04-30-run-007.md` (MANUAL_REVIEW)
 - 核心验证点：
   - Ubuntu → GitLab → Windows 的 build/deploy 主线
   - GitLab 故障时只允许 break-glass，不默认推荐 scp 野路子
@@ -39,6 +43,7 @@ _Last updated: 2026-04-30_
   - `revit-coding-patterns/evals/results/2026-04-21-run-002.md` (LIVE_RUN)
   - `revit-coding-patterns/evals/results/2026-04-21-run-003.md` (LIVE_RUN)
   - `revit-coding-patterns/evals/results/2026-04-30-run-004.md` (MANUAL_REVIEW)
+  - `revit-coding-patterns/evals/results/2026-04-30-run-005.md` (MANUAL_REVIEW)
 - 核心验证点：
   - Phase 排序：数字按数值，非数字按 Collector 顺序，禁止 `Id.Value` 业务排序
   - WPF 后台线程 PropertyChanged 跨线程修复模式
@@ -47,9 +52,9 @@ _Last updated: 2026-04-30_
 
 | Skill | Follow-up |
 |---|---|
-| `revit-plugin-dev-workflow` | 后续可补一条针对“目标业务仓 docs/plans 缺失”的 LIVE_RUN |
-| `revit-build-deploy` | 未来可再补一个“用户已明确批准”的对照样例，验证输出会转入受控灾备命令 |
-| `revit-coding-patterns` | 未来可加一个反例：测试模型是否会把 `OrderBy(p => p.Id.Value)` 当成“项目顺序”误讲出来 |
+| `revit-plugin-dev-workflow` | 可补一条 LIVE_RUN：真实业务仓 `docs/plans/` spec 证据链检查。 |
+| `revit-build-deploy` | 后续可把 `scripts/test-revit-skill-guard.sh` 接入 pre-commit 或 CI。 |
+| `revit-coding-patterns` | 后续可加一个 negative eval，防止模型把 API 迁移示例误读成 Phase 排序建议。 |
 
 ## 使用方式
 

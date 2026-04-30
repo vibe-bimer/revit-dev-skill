@@ -10,204 +10,106 @@ description: Review and harden the Revit skill ecosystem against the latest dual
 - 默认由根入口 `revit-root-router` 路由调用。
 - 仅用于技能治理与漂移修复，不替代业务开发流程入口。
 
+## 职责边界
 
-Use this skill when the task is not "build the plugin", but **audit and maintain the skills that define how Revit work should be done**.
+本 skill 只管 Revit skill 体系治理：规则漂移、门禁、发布审计、eval 证据链。业务开发流程回到 `revit-plugin-dev-workflow`，编译部署回到 `revit-build-deploy`。
 
-## What this skill protects
+保护的单点真相：
 
-- Dual-diagram truth stays aligned:
-  - topology = roles / infra / push-pull boundaries
-  - SOP = execution order / gates / rollback
-- 根入口 `revit-root-router` 保持薄封装（只分流 + 环境规则，不承载实现细节）
-- `revit-plugin-dev-workflow` 作为主流程入口保持精简，不变成信息堆场
-- `revit-build-deploy` does not reintroduce dangerous default bypasses
-- `revit-coding-patterns` keeps API rules correct and does not regress to stale folklore
-- evals are not just skeletons; they leave evidence
-
-## Review checklist
-
-### 1. Check architecture alignment first
-Open and compare:
-- `revit-plugin-dev-workflow/references/revit-workflow-topology.html`
-- `revit-plugin-dev-workflow/references/revit-workflow-sop.html`
-- `revit-plugin-dev-workflow/SKILL.md`
-- `revit-build-deploy/SKILL.md`
-- `revit-coding-patterns/SKILL.md`
-
-Look for drift in these areas:
-- Windows must remain **pull/build/deploy only**
-- Ubuntu remains the main control plane
-- GitLab remains the sync hub
-- Hermes must not directly edit Revit source
-- dual-diagram gate must stay visible near the top of workflow entrypoints
-
-### 2. Enforce single-source-of-truth
-When the same rule appears in multiple skills, decide which file owns it.
-
-Additionally verify routing contract consistency:
-- root `SKILL.md` (`revit-root-router`) exists and is the default dispatcher
-- each child skill contains a `## 路由声明` section
-- child declarations do not contradict root routing and boundary rules
-
-Preferred ownership:
-- workflow routing / red lines / phase gates → `revit-plugin-dev-workflow`
+- workflow routing / 红线 / phase gates → `revit-plugin-dev-workflow`
 - build / deploy / sync / `.addin` / script behavior → `revit-build-deploy`
 - API behavior / WPF / coding pitfalls → `revit-coding-patterns`
 - environment facts / paths / credentials entry points → `revit-plugin-dev-workflow/references/environment.md`
+- guard 规则细则 → `references/guard-policy.md`
+- 发布审计 → `references/release-audit-checklist.md`
+- Revit 实机冒烟 → `references/revit-smoke-checklist.md`
+- FmRoky warning 基线 → `references/fmroky-warning-baseline.md`
 
-Do not let one skill silently become a second truth source.
+## Review checklist
 
-### 3. Kill dangerous defaults
-Watch especially for:
-- `scp` or direct-copy bypasses presented like normal workflow
-- Windows-side source edits or push paths
-- stale architecture file references (`architecture.md`, old workflow asset names)
-- wording that weakens hard rules into suggestions
+1. **先定 scope**：如果用户排除 reference/wiki mirror（例如 `revit-plugin-dev-workflow/references/`），不要把 excluded subtree 的问题提升为主 findings。
+2. **架构一致性**：确认 topology/SOP 双图、workflow 主 skill、build/coding 子 skill 没有互相打架。
+3. **路由一致性**：根 `SKILL.md` 是薄封装；每个子 skill 有 `## 路由声明`，且不越权。
+4. **危险默认清理**：默认禁止 Windows 写代码/push、默认 scp 直传、Git 失败后绕过主线、跳过 spec。
+5. **Phase 排序热点**：数字阶段名按数值；非数字阶段名按 Collector 顺序；禁止把 `Id.Value` 当业务排序。
+6. **guard 真实可执行**：规则不能只写在文档里，必须被 `scripts/check-revit-skill-guard.sh` 或 fixture 测试覆盖。
+7. **eval 证据链**：skill 改动后补 result，刷新 dashboard；dashboard freshness 必须来自 result 文件名，不用 wall-clock 日期伪造。
 
-If a bypass must exist, downgrade it to **break-glass** with:
-- default forbidden
-- explicit approval requirement
-- audit log requirement
-- return-to-mainline cleanup requirement
+## 必跑命令
 
-### 4. Check known regression hotspot: Phase ordering
-The correct rule is:
-- numeric phase names → sort numerically
-- non-numeric phase names → keep `FilteredElementCollector` returned order
-- do **not** use `Id.Value` as business ordering
+日常治理改动后：
 
-If any skill reintroduces `OrderBy(p => p.Id.Value)` as the recommended business sort, patch it immediately.
+```bash
+bash scripts/check-revit-skill-guard.sh .
+python3 scripts/refresh-eval-dashboard.py
+```
 
-### 5. Keep workflow skill lean
-`revit-plugin-dev-workflow` should hold:
-- quick card
-- dual-diagram gate
-- routing logic
-- red lines
-- spec pattern
-- phase gates / break-glass governance
+改过 guard 逻辑后额外必跑：
 
-Push environment matrices and static lookup material into `references/` files.
-If the workflow skill starts carrying large environment tables again, split them out.
+```bash
+bash -n scripts/check-revit-skill-guard.sh
+bash -n scripts/test-revit-skill-guard.sh
+bash scripts/test-revit-skill-guard.sh
+bash scripts/check-revit-skill-guard.sh .
+```
 
-Also remove stale low-value ballast when it accumulates:
-- historical maintenance logs that have already been absorbed into current rules
-- text-mode topology/ASCII architecture duplicates once the dual diagrams are authoritative
-- viewer command blocks (`xdg-open ...`) when a short reference note is enough
-- old references to workflow chapter names after content has moved into `references/environment.md`
+发布前完整审计按：
 
-### 6. Maintain eval evidence, not just eval definitions
-Minimum eval stack for core Revit skills:
-- `evals/evals.json`
-- `evals/results/<date>-run-xxx.md`
-- shared guidance in `revit/references/eval-runbook.md`
-- portfolio view in `revit/references/eval-dashboard.md`
-- auto-refresh script: `revit/scripts/refresh-eval-dashboard.py`
+```bash
+bash scripts/check-revit-skill-guard.sh .
+bash scripts/test-revit-skill-guard.sh
+python3 scripts/refresh-eval-dashboard.py
+git status --short
+git diff --stat
+git ls-files --stage | awk '$1==160000{print $4}'
+find . -mindepth 2 -name .git -type d
+find . -path '*/tests/tests' -type d
+```
 
-When updating the skills:
-1. update the relevant eval definition if coverage changed
-2. add a new results file for the review/run
-3. regenerate the dashboard with `python3 scripts/refresh-eval-dashboard.py`
-4. verify the dashboard points at the latest run instead of hand-editing stale status
+详见 `references/release-audit-checklist.md`。
 
-## Recommended workflow
+## Guard policy 快速口径
 
-1. Read the dual diagrams and core skills
-2. Search for drift patterns across `~/.hermes/skills/revit/`
-3. Classify findings into P0 / P1 / P2
-4. Patch the highest-risk drift first
-5. Run the guard script:
-   - `bash scripts/check-revit-skill-guard.sh .`
-6. Validate eval assets still exist and latest runs are referenced by the dashboard
-7. Summarize what was changed and what follow-ups remain
+`check-revit-skill-guard.sh` 当前覆盖：
 
-### Claude Code CLI enforcement for review/edit tasks
+- legacy architecture / workflow drift
+- Phase `OrderBy(p => p.Id.Value)` 主线回流
+- scp 直传默认绕过文案
+- RFC1918 私网 IP 字面量
+- `sshpass` 明文密码
+- OAuth token URL
+- 个人绝对路径
+- 嵌套 `.git`
+- gitlink/submodule
+- `tests/tests/` 重复目录 artifact
 
-When the task is **reviewing or editing code/scripts** in this repo (including `*.sh`, `*.py`, and automation logic), run the actual review/edit pass through Claude Code CLI first, then apply vetted changes.
+临时排除用户明确 out-of-scope 的 reference/wiki 子树：
 
-- Preferred review invocation:
-  - `claude -p "<review prompt>"`
-- If review is long-running, run Claude in background and poll process output instead of skipping review.
-- Keep Hermes as orchestrator: gather context, call Claude CLI, then execute concrete file patches and verification.
-- For pure markdown/doc updates, direct patching is fine; for code/script changes, Claude CLI review is the default gate.
+```bash
+GUARD_SKIP='revit-plugin-dev-workflow/references/**' bash scripts/check-revit-skill-guard.sh .
+```
 
-## GitHub 发布前脱敏基线（新增）
+不要把临时排除写死成永久默认。详见 `references/guard-policy.md`。
 
-当 Revit skills 准备发布到公开仓库时，除常规治理外，必须额外完成：
+## Claude Code CLI enforcement
 
-1. **环境变量占位符化**
-   - 主机/IP/凭据示例改为 `${REVIT_WINDOWS_HOST}`、`${GITLAB_HOST}`、`${GITLAB_TOKEN}`、`${WINDOWS_PASSWORD}` 等。
-2. **私有配置外置**
-   - 提供 `.env.*.example` 模板；真实值只放本地私有 env，不入库。
-3. **仓库忽略规则**
-   - `.gitignore` 显式忽略本地密钥文件（如 `*.local.env`, `*.secret`）。
-4. **守卫脚本门禁**
-   - 在 `scripts/check-revit-skill-guard.sh` 增加并验证：
-     - RFC1918 私网 IP 字面量拦截
-     - `sshpass -p '<WINDOWS_PASSWORD>'` 明文口令拦截（仅允许 `***` / `<WINDOWS_PASSWORD>` / `${WINDOWS_PASSWORD}`）
-     - `oauth2:${GITLAB_TOKEN}@` URL 凭据拦截（仅允许占位符）
-   - 扫描范围覆盖 `*.md/*.html/*.yml/*.yaml/*.sh/*.py`，避免“文档层安全、脚本层漏检”。
-   - 必须显式排除 guard 自身文件（如 `scripts/check-revit-skill-guard.sh`），避免正则样例触发 self-trigger。
-5. **本地提交门禁（强制）**
-   - 安装 pre-commit：`bash scripts/install-precommit.sh <skills-root>`
-   - 验证：`<skills-root>/.git/hooks/pre-commit` 存在且可执行。
-   - 实现细节：安装脚本里先 `cd <skills-root>` 再 `git rev-parse --git-path hooks/pre-commit`，避免 `git -C` + 相对 hook 路径导致 hook 写到错误目录。
-6. **发布前必跑**
-   - `bash scripts/check-revit-skill-guard.sh <skills-root>` 通过后再发布。
-7. **本地私有环境加载（不入库）**
-   - 维护 `.env.revit-skill.example`（仅模板）+ 私有 `~/.config/revit-skill.env`（真实值）。
-   - 使用 `bash scripts/use-private-env.sh <command...>` 执行命令，避免把真实值写回文档。
-8. **双远端发布一致性（GitLab + GitHub）**
-   - 发布后同时执行 `git push origin main` 与 `git push github main`，避免只在单端更新。
-   - 若 GitHub 用户名或组织名变更，先 `git remote -v` 检查是否出现 `has moved` 提示，再 `git remote set-url github <new-url>`。
-   - 推送后用 `git ls-remote --heads origin` 与 `git ls-remote --heads github` 双端核对 `main` 指向一致。
-9. **引用资料单向镜像同步（日常维护）**
-   - 适用场景：`references/` 里的 Revit API/Wiki 资料来自外部维护仓，需要每天同步到 skill 仓但不反向写回。
-   - 推荐脚本：`~/.hermes/scripts/sync-revit-references.sh`，使用 `rsync -a --delete` 从源仓镜像到 `~/.hermes/skills/revit/references/`。
-   - 同步时必须排除 git 元数据：`--exclude='.git/' --exclude='.gitmodules' --exclude='.gitattributes'`，并在同步后二次清理目标中的残留 `.git` 目录。
-   - 验收命令：
-     - `git ls-files --stage | awk '$1==160000{print $4}'` 应为空（无 gitlink）
-     - `find references -type d -name .git` 应为空（无嵌套仓）
-   - 定时任务建议：每天一次 cron，任务 prompt 内通过 `bash ~/.hermes/scripts/sync-revit-references.sh` 执行（不要用 cron `script` 字段直接跑 `.sh`）。
-10. **发布去本机绝对路径（可移植性）**
-   - 对外发布前，仓库中不得出现个人绝对路径字面量（如 `/home/roky/...`）。
-   - 文档展示层优先用 `~/...`；可执行配置层优先用 `${HOME}`、`${REVIT_SKILL_ROOT}`、`${REVIT_API_WIKI_PATH}`、`${REVIT_CORPUS_PATH}`。
-   - 必跑检查：`rg -n --hidden '/home/roky/' .` 应无命中；若命中仅允许在本地私有 env（不入库）中存在。
-   - 同步来的索引数据（如 `references/revit-corpus/index/*.jsonl`）若含绝对路径，发布前应重写为环境变量路径或相对路径。
+当任务涉及审查或修改代码/脚本（包括 `*.sh`、`*.py`、自动化逻辑），先用 Claude Code CLI 做实际 review/edit pass，再由 Hermes 验证落地。
 
-## High-value drift patterns to search for
+推荐：
 
-### Code / text drift
-- `OrderBy(p => p.Id.Value)`
-- guard regex over-escaped so drift checks silently no-op (for example literal `\\(` / `\\.` passed through to ripgrep instead of `\(` / `\.`)
-- stale topology version references (`v3` still cited after `references/README.md` switches recommended baseline to `v5-light`)
-- icon sync contradictions across skills (PNG files vs phantom `.addin` icon fields)
-- eval dashboard fabricating "latest run" date via `date.today()` instead of result-file date
-- stale architecture file references (`architecture.md`, old workflow asset names)
-- plain-text dangerous bypass instructions in正文
-- Windows push/edit language
-- wiki path drift between diagrams and skills
-- plaintext secrets or passwords in build/deploy scripts (`REMOTE_PASS=...`, SSH passwords, tokens)
-- private network literals in docs/examples (e.g. `172.16-31.x.x`, `192.168.x.x`, `10.x.x.x`) that should be replaced with env placeholders before public release
-- credentials embedded in URL examples (`oauth2:${GITLAB_TOKEN}@${GITLAB_HOST}`) instead of placeholders (`<GITLAB_TOKEN>` / `${GITLAB_TOKEN}`)
-- **guard self-trigger risk**：文档示例若写成 `sshpass -p '<WINDOWS_PASSWORD>'`、`oauth2:${GITLAB_TOKEN}@` 也会被门禁命中；示例请统一写成可豁免占位符（`***`、`<GITLAB_TOKEN>` 或 `${...}`）
-- duplicate test tree leftovers (for example `tests/tests/`) and other sync artifacts that should be deleted
+```bash
+claude -p "<review or edit prompt>" --allowedTools 'Read,Write,Edit,Bash' --max-turns 20
+```
 
-### Enforcement drift (rules that exist on paper but not in practice)
-- **SOP redline mismatch**：SOP 图（`sop.html`）列的红线数量与 `revit-plugin-dev-workflow` SKILL.md 的 10 条红线是否一致
-- **Commit quality collapse**：`git log --oneline -20` 检查 auto-commit 占比。如果连续 10+ 条全为 `auto: build.sh 同步`，红线 #3（语义化 commit）已破窗
-- **Spec template usage**：检查目标业务仓（如 `~/revit-plugin-dev`）下的 `docs/plans/` 目录是否存在、是否包含 spec 文件。skill 仓本身只维护模板与治理规则，不应把 skill 仓缺少 `docs/plans/` 误判成业务仓未落地
-- **Guard script presence**：`revit/scripts/check-revit-skill-guard.sh` 是否存在且可执行
-- **CI/CD gap**：是否存在 `.gitlab-ci.yml`、GitLab Runner 是否注册。注意：Revit WPF 项目 Ubuntu 无法编译，Runner 必须在 Windows 上
-- **Agent delegation health**：`delegate_task` 是否可正常调用（简单 E2E 测试：读/写 `/tmp/test.txt`）
+Hermes 负责最终验证：读 diff、跑 guard/test、确认文件确实写入。
 
-## Output format
+## 输出格式
 
-Return the review as:
+返回治理审查时使用：
 
 ### Executive summary
 - overall state
-- whether the skill stack is stable or drifting
+- stable or drifting
 
 ### Findings
 - P0 must-fix
@@ -220,26 +122,13 @@ Return the review as:
 
 ### Verification
 - guard result
-- eval/dashboard integrity result
+- fixture/eval/dashboard result
 
 ### Remaining follow-ups
 - next best 1-3 actions only
 
 ## Notes from actual use
 
-This skill was created after a real hardening pass on the Revit skill stack where the agent had to:
-- demote an `scp` bypass from default workflow to break-glass only
-- unify wiki paths between topology and workflow docs
-- remove stale Phase-ordering guidance
-- move environment facts out of the main workflow skill into `references/environment.md`
-- create `eval-runbook.md`, bootstrap/live-run records, and `eval-dashboard.md`
-- add `scripts/refresh-eval-dashboard.py` so the dashboard is regenerated from eval assets instead of hand-maintained
-- clean stale ballast from the main workflow skill
-
-**2026-04-30 Review session additions:**
-- Found a real enforcement bug: `check-revit-skill-guard.sh` used over-escaped regex in `EXTRA_CHECKS`, so the intended `OrderBy(p => p.Id.Value)` drift check could silently miss real matches while the script still returned PASS
-- Confirmed `revit-coding-patterns` had drifted from the main workflow on icon sync: the third sync point is actual PNG files under `Resources/Icons/`, not `.addin` `<Icon16>/<Icon32>` fields
-- Confirmed `revit-plugin-dev-workflow` still cited `topology-v3` after `references/README.md` promoted `v5-light` as the active baseline; governance should verify version drift, not just existence of any topology file
-- Found evidence-chain bug in `scripts/refresh-eval-dashboard.py`: `Latest Run` was rendered as `date.today() + run_id`, which can fake freshness without a new eval run
-- Clarified spec-evidence scope: `docs/plans/` verification belongs to the target business repo (for example `~/revit-plugin-dev`), not the skill repo itself
-- Practical rule: when reviewing guardrails, run both `bash -x scripts/check-revit-skill-guard.sh .` and targeted `rg` probes; a green PASS alone is not proof the guard is catching the intended pattern
+- 2026-04-30：guard 从文档扫描升级为真门禁，新增 fixture matrix：10 个 expected FAIL + 2 个 expected PASS。
+- 2026-04-30：dashboard freshness 改为 `_Last evidence: <result-stem>_`，不再使用 `date.today()` 伪造新鲜度。
+- Scope discipline matters：用户显式排除的 reference/wiki mirror 不进入主 findings。

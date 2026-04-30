@@ -4,7 +4,6 @@ from __future__ import annotations
 import json
 import re
 from pathlib import Path
-from datetime import date
 
 ROOT = Path(__file__).resolve().parent.parent
 DASHBOARD = ROOT / 'references' / 'eval-dashboard.md'
@@ -73,6 +72,7 @@ def render() -> str:
     rows = []
     sections = []
     followups_rows = []
+    latest_labels = []
 
     for skill in SKILLS:
         skill_dir = ROOT / skill
@@ -84,6 +84,8 @@ def render() -> str:
         latest = parsed[-1] if parsed else None
         latest_run = latest['run_id'] if latest else 'n/a'
         latest_label = latest['path'].stem if latest else 'n/a'
+        if latest:
+            latest_labels.append(latest_label)
         verdict = latest['verdict'] if latest else 'BOOTSTRAP'
         mode = latest['mode'] if latest else 'BOOTSTRAP'
         status = STATUS_EMOJI.get(verdict, '🟡 观察')
@@ -111,9 +113,11 @@ def render() -> str:
     if not followups_rows:
         followups_rows.append('| — | 暂无未完成 follow-up |')
 
+    latest_evidence = max(latest_labels) if latest_labels else 'n/a'
+
     return f"""# Revit Skill Eval Dashboard
 
-_Last updated: {date.today().isoformat()}_
+_Last evidence: {latest_evidence}_
 
 ## 总览
 

@@ -4,6 +4,11 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT="${1:-$(cd "$SCRIPT_DIR/.." && pwd)}"
 
+if [ ! -d "$ROOT" ]; then
+  echo "[guard] FAIL: scan root does not exist: $ROOT"
+  exit 1
+fi
+
 echo "[guard] scanning: $ROOT"
 
 RG_GLOBS=(
@@ -13,22 +18,43 @@ RG_GLOBS=(
   --glob '*.yaml'
   --glob '*.sh'
   --glob '*.py'
+  --glob '*.jsonl'
+  # Self/policy/test exclusions: these files necessarily contain forbidden examples/patterns.
   --glob '!**/scripts/check-revit-skill-guard.sh'
+  --glob '!**/scripts/test-revit-skill-guard.sh'
+  --glob '!**/references/guard-policy.md'
+  # External corpus mirror/index payloads are not workflow docs; validate their
+  # structure with the dedicated reference-sync checks below, not literal scans.
+  --glob '!**/references/revit-corpus/**'
+  --glob '!**/.venv/**'
+  --glob '!**/node_modules/**'
 )
 
+# Runtime escape hatch for explicitly out-of-scope reference/wiki mirrors.
+# Example: GUARD_SKIP='revit-plugin-dev-workflow/references/**' bash scripts/check-revit-skill-guard.sh .
+if [ -n "${GUARD_SKIP:-}" ]; then
+  read -r -a GUARD_SKIP_ITEMS <<< "$GUARD_SKIP"
+  for extra in "${GUARD_SKIP_ITEMS[@]}"; do
+    RG_GLOBS+=(--glob "!$extra" --glob "!**/$extra")
+  done
+fi
+
 # 1) Legacy forbidden references / workflow drift
-LEGACY_PATTERN="references/architecture\\.md|references/revit-workflow-architecture|token: .*revit-build-server|/ token: .*revit-build-server \\|"
+LEGACY_PATTERN='references/architecture\.md|references/revit-workflow-architecture|token: .*revit-build-server|/ token: .*revit-build-server \|'
 if rg -n --hidden "${RG_GLOBS[@]}" "$LEGACY_PATTERN" "$ROOT"; then
   echo
   echo "[guard] FAIL: found forbidden legacy references"
   exit 1
 fi
 
-PHASE_ORDER_DRIFT_FILES=(
-  "$ROOT/revit-plugin-dev-workflow/SKILL.md"
+PHASE_ORDER_DRIFT_FILES=()
+for file in \
+  "$ROOT/revit-plugin-dev-workflow/SKILL.md" \
   "$ROOT/revit-build-deploy/SKILL.md"
-)
-if rg -n 'OrderBy\(p => p\.Id\.Value\)' "${PHASE_ORDER_DRIFT_FILES[@]}"; then
+do
+  [ -f "$file" ] && PHASE_ORDER_DRIFT_FILES+=("$file")
+done
+if [ "${#PHASE_ORDER_DRIFT_FILES[@]}" -gt 0 ] && rg -n 'OrderBy\(p => p\.Id\.Value\)' "${PHASE_ORDER_DRIFT_FILES[@]}"; then
   echo
   echo "[guard] FAIL: found forbidden Phase-ordering anti-pattern outside coding references"
   exit 1
@@ -85,4 +111,52 @@ if [ -n "$OAUTH_URL_HITS" ]; then
   fi
 fi
 
-echo "[guard] PASS: no sensitive literals found"
+# 5) Personal absolute paths. Use portable placeholders instead.
+HOME_HITS="$(rg -n --hidden "${RG_GLOBS[@]}" -F '/home/roky/' "$ROOT" || true)"
+if [ -n "$HOME_HITS" ]; then
+  BAD_HOME="$(printf '%s\n' "$HOME_HITS" \
+    | rg -v -F 'revit-skill-governance/SKILL.md' \
+    || true)"
+  if [ -n "$BAD_HOME" ]; then
+    printf '%s\n' "$BAD_HOME"
+    echo
+    echo "[guard] FAIL: found personal absolute path; use ~ for docs or \${HOME}/\${REVIT_*_PATH} for executable config"
+    exit 1
+  fi
+fi
+
+# 6) Nested .git directories and gitlinks (submodule/sync artifacts)
+NESTED_GIT="$(find "$ROOT" -mindepth 2 -name '.git' -type d \
+  -not -path '*/.venv/*' \
+  -not -path '*/node_modules/*' \
+  2>/dev/null || true)"
+if [ -n "$NESTED_GIT" ]; then
+  printf '%s\n' "$NESTED_GIT"
+  echo
+  echo "[guard] FAIL: found nested .git directory; run reference-sync cleanup before publishing"
+  exit 1
+fi
+
+if git -C "$ROOT" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  GITLINKS="$(git -C "$ROOT" ls-files --stage | awk '$1==160000{print $4}' || true)"
+  if [ -n "$GITLINKS" ]; then
+    printf '%s\n' "$GITLINKS"
+    echo
+    echo "[guard] FAIL: found gitlinks/submodule entries; mirror reference content without nested git metadata"
+    exit 1
+  fi
+fi
+
+# 7) Duplicate test tree artifacts (tests/tests/)
+DUP_TESTS="$(find "$ROOT" -path '*/tests/tests' -type d \
+  -not -path '*/.venv/*' \
+  -not -path '*/node_modules/*' \
+  2>/dev/null || true)"
+if [ -n "$DUP_TESTS" ]; then
+  printf '%s\n' "$DUP_TESTS"
+  echo
+  echo "[guard] FAIL: found tests/tests duplicate directory; delete the inner tests/ subtree"
+  exit 1
+fi
+
+echo "[guard] PASS: all sensitive-literal and structural checks clean"
